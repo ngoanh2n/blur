@@ -1,1 +1,5 @@
-rootProject.name = "selenium-ps"
+/**
+ * @author Ho Huu Ngoan (ngoanh2n@gmail.com)
+ * @since 2020-12-01
+ */
+rootProject.name = "blur"

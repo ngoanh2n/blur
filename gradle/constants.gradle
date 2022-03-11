@@ -1,0 +1,9 @@
+import java.nio.charset.StandardCharsets
+
+/**
+ * @author Ho Huu Ngoan (ngoanh2n@gmail.com)
+ * @since 2020-12-01
+ */
+ext {
+    ENCODING = StandardCharsets.UTF_8.name()
+}

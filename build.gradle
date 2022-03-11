@@ -1,14 +1,43 @@
-plugins {
-    id 'java'
-}
+/**
+ * @author Ho Huu Ngoan (ngoanh2n@gmail.com)
+ * @since 2020-12-01
+ */
+group(property("group"))
+version(property("version"))
+description(property("description") as String)
 
-group 'io.github.ngoanh2n.blur'
-version '1.0-SNAPSHOT'
+apply plugin: "java"
+apply plugin: "idea"
+apply plugin: "signing"
+apply plugin: "java-library"
+apply plugin: "maven-publish"
+apply plugin: "com.bmuschko.nexus"
+
+[compileJava, compileTestJava]*.sourceCompatibility = 1.8
+[compileJava, compileTestJava]*.targetCompatibility = 1.8
+[compileJava, compileTestJava]*.options.collect { options -> options.debug = true }
+[compileJava, compileTestJava]*.options.collect { options -> options.encoding = ENCODING }
 
 repositories {
+    jcenter()
     mavenCentral()
+    maven { url "https://plugins.gradle.org/m2/" }
 }
 
-dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.12'
+buildscript {
+    apply from: rootProject.file("gradle/versions.gradle")
+    apply from: rootProject.file("gradle/constants.gradle")
+
+    repositories {
+        jcenter()
+        mavenCentral()
+        maven { url "https://plugins.gradle.org/m2/" }
+    }
+    dependencies {
+        classpath "com.bmuschko:gradle-nexus-plugin:2.3.1"
+    }
 }
+
+apply from: rootProject.file("gradle/testing.gradle")
+apply from: rootProject.file("gradle/publishing.gradle")
+apply from: rootProject.file("gradle/dependencies.gradle")

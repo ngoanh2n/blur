@@ -1,0 +1,13 @@
+/**
+ * @author Ho Huu Ngoan (ngoanh2n@gmail.com)
+ * @since 2020-12-01
+ */
+dependencies {
+    api("io.appium:java-client:${APPIUM_VERSION}")
+    api("org.seleniumhq.selenium:selenium-api:${SELENIUM_VERSION}")
+    api("org.seleniumhq.selenium:selenium-remote-driver:${SELENIUM_VERSION}")
+    implementation("org.seleniumhq.selenium:selenium-support:${SELENIUM_VERSION}")
+
+    testImplementation("org.junit.jupiter:junit-jupiter-api:${JUNIT5_JUPITER_VERSION}")
+    testImplementation("org.junit.jupiter:junit-jupiter-engine:${JUNIT5_JUPITER_VERSION}")
+}
