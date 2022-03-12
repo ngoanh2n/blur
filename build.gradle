@@ -1,3 +1,5 @@
+import java.nio.charset.StandardCharsets
+
 /**
  * @author Ho Huu Ngoan (ngoanh2n@gmail.com)
  * @since 2020-12-01
@@ -13,10 +15,9 @@ apply plugin: "java-library"
 apply plugin: "maven-publish"
 apply plugin: "com.bmuschko.nexus"
 
-[compileJava, compileTestJava]*.sourceCompatibility = 1.8
-[compileJava, compileTestJava]*.targetCompatibility = 1.8
-[compileJava, compileTestJava]*.options.collect { options -> options.debug = true }
-[compileJava, compileTestJava]*.options.collect { options -> options.encoding = ENCODING }
+apply from: "gradle/testing.gradle"
+apply from: "gradle/publishing.gradle"
+apply from: "gradle/dependencies.gradle"
 
 repositories {
     jcenter()
@@ -26,7 +27,6 @@ repositories {
 
 buildscript {
     apply from: rootProject.file("gradle/versions.gradle")
-    apply from: rootProject.file("gradle/constants.gradle")
 
     repositories {
         jcenter()
@@ -38,6 +38,7 @@ buildscript {
     }
 }
 
-apply from: rootProject.file("gradle/testing.gradle")
-apply from: rootProject.file("gradle/publishing.gradle")
-apply from: rootProject.file("gradle/dependencies.gradle")
+[compileJava, compileTestJava]*.sourceCompatibility = 1.8
+[compileJava, compileTestJava]*.targetCompatibility = 1.8
+[compileJava, compileTestJava]*.options.collect { options -> options.debug = true }
+[compileJava, compileTestJava]*.options.collect { options -> options.encoding = "UTF-8" }

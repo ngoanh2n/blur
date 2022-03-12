@@ -3,7 +3,7 @@
  * @since 2020-12-01
  */
 ext {
-    SELENIUM_VERSION                =   "4.1.2"
-    APPIUM_VERSION                  =   "8.0.0"
-    JUNIT5_JUPITER_VERSION          =   "5.8.2"
+    SELENIUM_VERSION                =   "3.141.59"
+    APPIUM_VERSION                  =   "7.6.0"
+    JUNIT5_JUPITER_VERSION          =   "5.7.0"
 }

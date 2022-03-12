@@ -1,9 +1,11 @@
+import java.nio.charset.StandardCharsets
+
 /**
  * @author Ho Huu Ngoan (ngoanh2n@gmail.com)
  * @since 2020-12-01
  */
 tasks.withType(Javadoc) {
-    options.addStringOption("encoding", ENCODING)
+    options.addStringOption("encoding", "UTF-8")
     options.addStringOption("Xdoclint:none", "-quiet")
 }
 
