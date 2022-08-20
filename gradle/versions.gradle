@@ -1,9 +1,11 @@
 /**
  * @author Ho Huu Ngoan (ngoanh2n@gmail.com)
- * @since 2020-12-01
+ * @since 2021-01-18
  */
 ext {
-    SELENIUM_VERSION                =   "3.141.59"
-    APPIUM_VERSION                  =   "7.6.0"
-    JUNIT5_JUPITER_VERSION          =   "5.7.0"
+    VERSION_SELENIDE                =   "6.3.4"
+    VERSION_SELENIDE_APPIUM         =   "2.0.0"
+    VERSION_SLF4J                   =   "1.7.36"
+    VERSION_UTILITIES               =   "2.3.0"
+    VERSION_JUNIT5_JUPITER          =   "5.8.2"
 }

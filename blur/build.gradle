@@ -1,0 +1,8 @@
+/**
+ * @author Ho Huu Ngoan (ngoanh2n@gmail.com)
+ * @since 2021-04-09
+ */
+dependencies {
+    api("com.codeborne:selenide:${VERSION_SELENIDE}")
+    api("com.codeborne:selenide-appium:${VERSION_SELENIDE_APPIUM}")
+}
