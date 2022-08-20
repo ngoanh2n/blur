@@ -1,12 +1,19 @@
-# IDEA
-*.iml
+.DS_Store
+.settings/
+.project
+.classpath
+
 .idea/
-
-# Java
-*/build/
-*/out/
-*.log
-
-# Gradle
 .gradle/
+.allure/
+.vscode/
+
+app/
+bin/
+out/
+libs/
 build/
+target/
+
+*.iml
+.markdownlint.json
