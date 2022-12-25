@@ -3,7 +3,8 @@
  * @since 2021-04-09
  */
 dependencies {
-    api("io.appium:java-client:$VERSION_APPIUM")
-    api("com.codeborne:selenide:$VERSION_SELENIDE")
-    api("com.codeborne:selenide-appium:$VERSION_SELENIDE_APPIUM")
+    implementation("io.appium:java-client:$VERSION_APPIUM")
+    implementation("com.codeborne:selenide:$VERSION_SELENIDE")
+    implementation("com.codeborne:selenide-appium:$VERSION_SELENIDE_APPIUM")
+    implementation("com.github.ngoanh2n:webdriverchecker-selenide:$VERSION_WDC")
 }
