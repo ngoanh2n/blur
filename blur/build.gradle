@@ -3,6 +3,7 @@
  * @since 2021-04-09
  */
 dependencies {
-    api("com.codeborne:selenide:${VERSION_SELENIDE}")
-    api("com.codeborne:selenide-appium:${VERSION_SELENIDE_APPIUM}")
+    api("io.appium:java-client:$VERSION_APPIUM")
+    api("com.codeborne:selenide:$VERSION_SELENIDE")
+    api("com.codeborne:selenide-appium:$VERSION_SELENIDE_APPIUM")
 }
