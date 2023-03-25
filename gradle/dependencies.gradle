@@ -3,6 +3,7 @@
  * @since 2021-01-18
  */
 dependencies {
+    implementation("com.codeborne:selenide-core:$VERSION_SELENIDE")
     implementation("com.github.ngoanh2n:utilities:$VERSION_UTILITIES")
     testImplementation("org.junit.jupiter:junit-jupiter:$VERSION_JUNIT5_JUPITER")
 }
