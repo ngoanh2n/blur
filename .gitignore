@@ -1,19 +1,8 @@
-.DS_Store
-.settings/
-.project
-.classpath
-
 .idea/
 .gradle/
 .allure/
 .vscode/
 
-app/
 bin/
 out/
-libs/
 build/
-target/
-
-*.iml
-.markdownlint.json
