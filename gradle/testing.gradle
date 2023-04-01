@@ -1,21 +1,32 @@
 /**
  * @author Ho Huu Ngoan (ngoanh2n@gmail.com)
  * @since 2021-01-18
+ * @see <a href="https://docs.gradle.org/current/userguide/java_testing.html">Testing in Java & JVM projects</a>
  */
+reporting {
+    baseDir = "$buildDir/reports"
+}
+testResultsDirName = reporting.baseDir
+
 test {
     useJUnitPlatform() {
         includeEngines("junit-jupiter")
     }
-
     testLogging {
         showStandardStreams = true
         events "passed", "skipped", "failed"
+    }
+    reports {
+        junitXml {
+            mergeReruns = true
+            outputPerTestCase = true
+        }
     }
 
     systemProperty("file.encoding", "UTF-8")
     systemProperty("junit.jupiter.extensions.autodetection.enabled", "true")
 
+    maxHeapSize = "1G"
     ignoreFailures = true
     outputs.upToDateWhen { false }
-    systemProperties = System.getProperties() as Map<String, ?>
 }
