@@ -7,14 +7,14 @@ plugins {
 }
 
 dependencies {
-    api("com.codeborne:selenide:$VERSION_SELENIDE")
-    api("io.appium:java-client:$VERSION_APPIUM")
-    api("io.qameta.allure:allure-junit5:$VERSION_ALLURE")
-    api("io.qameta.allure:allure-selenide:$VERSION_ALLURE")
+    api("com.codeborne:selenide:$versionSelenide")
+    api("io.appium:java-client:$versionAppium")
+    api("io.qameta.allure:allure-junit5:$versionAllure")
+    api("io.qameta.allure:allure-selenide:$versionAllure")
 }
 
 allure {
-    version = "$VERSION_ALLURE"
+    version = "$versionAllure"
     adapter {
         aspectjWeaver = true
         aspectjVersion = "1.9.5"

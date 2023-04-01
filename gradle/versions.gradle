@@ -3,12 +3,12 @@
  * @since 2021-01-18
  */
 ext {
-    VERSION_SELENIDE                =   "6.12.4"
-    VERSION_APPIUM                  =   "8.3.0"
-    VERSION_ALLURE                  =   "2.21.0"
-    VERSION_UTILITIES               =   "2.3.13"
-    VERSION_WDC                     =   "2.4.0"
-    VERSION_CSV_COMPARATOR          =   "1.5.0"
-    VERSION_SLF4J                   =   "2.0.6"
-    VERSION_JUNIT5_JUPITER          =   "5.9.1"
+    versionSelenide                 =   "6.12.4"
+    versionAppium                   =   "8.3.0"
+    versionAllure                   =   "2.21.0"
+    versionUtilities                =   "2.3.13"
+    versionWdc                      =   "2.4.0"
+    versionCsvComparator            =   "1.5.0"
+    versionSlf4j                    =   "2.0.6"
+    versionJunitJupiter             =   "5.9.1"
 }
