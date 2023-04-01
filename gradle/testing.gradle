@@ -9,6 +9,16 @@ reporting {
 testResultsDirName = reporting.baseDir
 
 test {
+    maxHeapSize = "1G"
+    ignoreFailures = true
+    outputs.upToDateWhen { false }
+
+    reports {
+        junitXml {
+            mergeReruns = true
+            outputPerTestCase = true
+        }
+    }
     useJUnitPlatform() {
         includeEngines("junit-jupiter")
     }
@@ -16,17 +26,7 @@ test {
         showStandardStreams = true
         events "passed", "skipped", "failed"
     }
-    reports {
-        junitXml {
-            mergeReruns = true
-            outputPerTestCase = true
-        }
-    }
 
     systemProperty("file.encoding", "UTF-8")
     systemProperty("junit.jupiter.extensions.autodetection.enabled", "true")
-
-    maxHeapSize = "1G"
-    ignoreFailures = true
-    outputs.upToDateWhen { false }
 }
