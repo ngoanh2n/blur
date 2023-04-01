@@ -2,7 +2,32 @@
  * @author Ho Huu Ngoan (ngoanh2n@gmail.com)
  * @since 2021-04-09
  */
+plugins {
+    id("io.qameta.allure") version "2.11.2"
+}
+
 dependencies {
-    implementation("com.codeborne:selenide:$VERSION_SELENIDE")
-    implementation("io.appium:java-client:$VERSION_APPIUM")
+    api("com.codeborne:selenide:$VERSION_SELENIDE")
+    api("io.appium:java-client:$VERSION_APPIUM")
+    api("io.qameta.allure:allure-junit5:$VERSION_ALLURE")
+    api("io.qameta.allure:allure-selenide:$VERSION_ALLURE")
+}
+
+allure {
+    version = "$VERSION_ALLURE"
+    adapter {
+        aspectjWeaver = true
+        aspectjVersion = "1.9.5"
+        autoconfigureListeners = true
+
+        frameworks {
+            junit5 {
+                enabled = true
+                autoconfigureListeners = true
+            }
+        }
+    }
+    report {
+        reportDir = project.reporting.baseDirectory.dir("allure-report")
+    }
 }
