@@ -3,7 +3,7 @@
  * @since 2021-01-18
  */
 dependencies {
-    implementation("com.codeborne:selenide-core:$VERSION_SELENIDE")
     implementation("com.github.ngoanh2n:utilities:$VERSION_UTILITIES")
+    testImplementation("org.slf4j:slf4j-log4j12:$VERSION_SLF4J")
     testImplementation("org.junit.jupiter:junit-jupiter:$VERSION_JUNIT5_JUPITER")
 }
