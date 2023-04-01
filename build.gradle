@@ -16,9 +16,12 @@ allprojects {
 subprojects {
     apply plugin: "idea"
     apply plugin: "java"
+    apply plugin: "signing"
     apply plugin: "java-library"
+    apply plugin: "maven-publish"
 
     apply from: rootProject.file("gradle/testing.gradle")
     apply from: rootProject.file("gradle/compiling.gradle")
+    apply from: rootProject.file("gradle/publishing.gradle")
     apply from: rootProject.file("gradle/dependencies.gradle")
 }
