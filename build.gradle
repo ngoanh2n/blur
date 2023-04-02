@@ -28,4 +28,10 @@ subprojects {
         delete project.file("out")
         delete rootProject.files("build")
     }
+
+    tasks.build.configure {
+        dependsOn.removeIf { task -> (task == "check") }
+        assemble.dependsOn("clean")
+        dependsOn("publishToMavenLocal")
+    }
 }
