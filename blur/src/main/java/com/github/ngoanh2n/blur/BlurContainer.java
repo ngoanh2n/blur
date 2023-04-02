@@ -1,7 +1,6 @@
 package com.github.ngoanh2n.blur;
 
-import com.codeborne.selenide.Config;
-import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.*;
 import com.codeborne.selenide.impl.WebDriverThreadLocalContainer;
 import com.github.ngoanh2n.Commons;
 
@@ -11,7 +10,13 @@ import com.github.ngoanh2n.Commons;
 public class BlurContainer extends WebDriverThreadLocalContainer {
     public BlurContainer(Config config) {
         super();
+        overrideSelenideFacade(config);
+    }
+
+    private void overrideSelenideFacade(Config config) {
+        Driver driver = new BlurDriver(config);
+        SelenideDriver selenideDriver = new SelenideDriver(config, driver);
         Commons.writeField(Configuration.class, "defaults", config);
-        config.browser();
+        Commons.writeField(WebDriverRunner.class, "staticSelenideDriver", selenideDriver);
     }
 }
