@@ -1,6 +1,5 @@
 /**
  * @author Ho Huu Ngoan (ngoanh2n@gmail.com)
- * @since 2021-01-18
  */
 dependencies {
     api("com.github.ngoanh2n:utilities:$versionUtilities")
