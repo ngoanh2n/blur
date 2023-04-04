@@ -5,6 +5,7 @@ dependencies {
     api("com.github.ngoanh2n:utilities:$versionUtilities")
     api("com.github.ngoanh2n:webdriverchecker-selenide:$versionWdc")
     api("com.github.ngoanh2n:csv-comparator-allure:$versionCsvComparator")
+
     testImplementation("org.slf4j:slf4j-log4j12:$versionSlf4j")
     testImplementation("org.junit.jupiter:junit-jupiter:$versionJunitJupiter")
 }

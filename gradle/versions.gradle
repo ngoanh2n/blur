@@ -5,9 +5,10 @@ ext {
     versionSelenide                 =   "6.12.4"
     versionAppium                   =   "8.3.0"
     versionAllure                   =   "2.21.0"
-    versionUtilities                =   "2.3.13"
+    versionUtilities                =   "2.14.0"
     versionWdc                      =   "2.4.0"
     versionCsvComparator            =   "1.5.0"
     versionSlf4j                    =   "2.0.6"
+    versionAspectJ                  =   "1.9.5"
     versionJunitJupiter             =   "5.9.1"
 }

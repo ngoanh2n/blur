@@ -3,6 +3,7 @@
  */
 plugins {
     id("io.qameta.allure") version "2.11.2"
+    id("io.freefair.aspectj.post-compile-weaving") version "8.0.1"
 }
 
 dependencies {
@@ -10,13 +11,16 @@ dependencies {
     api("io.appium:java-client:$versionAppium")
     api("io.qameta.allure:allure-junit5:$versionAllure")
     api("io.qameta.allure:allure-selenide:$versionAllure")
+
+    implementation("org.aspectj:aspectjrt:$versionAspectJ")
+    implementation("org.aspectj:aspectjweaver:$versionAspectJ")
 }
 
 allure {
     version = "$versionAllure"
     adapter {
         aspectjWeaver = true
-        aspectjVersion = "1.9.5"
+        aspectjVersion = "$versionAspectJ"
         autoconfigureListeners = true
 
         frameworks {
