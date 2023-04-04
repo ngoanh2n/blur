@@ -9,12 +9,14 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 /**
+ * Replace for {@link com.codeborne.selenide.impl.StaticDriver}
+ *
  * @author Ho Huu Ngoan (ngoanh2n@gmail.com)
  */
 public class BlurDriver implements Driver {
-    private final Config config;
+    private final BlurConfig config;
 
-    public BlurDriver(Config config) {
+    public BlurDriver(BlurConfig config) {
         this.config = config;
     }
 

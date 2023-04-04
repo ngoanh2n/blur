@@ -10,9 +10,13 @@ import static com.codeborne.selenide.Browsers.CHROME;
 import static com.codeborne.selenide.FileDownloadMode.HTTPGET;
 import static com.codeborne.selenide.SelectorMode.CSS;
 
+/**
+ * Replace for {@link com.codeborne.selenide.impl.StaticConfig}
+ *
+ * @author Ho Huu Ngoan (ngoanh2n@gmail.com)
+ */
 public class BlurConfig extends SelenideConfig {
     private final PropsFile propsFile = new PropsFile("blur.properties");
-
     private String browser = getProperty("selenide.browser", CHROME);
     private boolean headless = Boolean.parseBoolean(getProperty("selenide.headless", "false"));
     private String remote = getProperty("selenide.remote", null);
@@ -25,7 +29,6 @@ public class BlurConfig extends SelenideConfig {
     private String pageLoadStrategy = getProperty("selenide.pageLoadStrategy", "normal");
     private long pageLoadTimeout = Long.parseLong(getProperty("selenide.pageLoadTimeout", "30000"));
     private MutableCapabilities browserCapabilities = new MutableCapabilities();
-
     private String baseUrl = getProperty("selenide.baseUrl", "http://localhost:8080");
     private long timeout = Long.parseLong(getProperty("selenide.timeout", "4000"));
     private long pollingInterval = Long.parseLong(getProperty("selenide.pollingInterval", "200"));
@@ -33,7 +36,6 @@ public class BlurConfig extends SelenideConfig {
     private boolean reopenBrowserOnFail = Boolean.parseBoolean(getProperty("selenide.reopenBrowserOnFail", "true"));
     private boolean clickViaJs = Boolean.parseBoolean(getProperty("selenide.clickViaJs", "false"));
     private boolean screenshots = Boolean.parseBoolean(getProperty("selenide.screenshots", "true"));
-
     private boolean savePageSource = Boolean.parseBoolean(getProperty("selenide.savePageSource", "true"));
     private String reportsFolder = getProperty("selenide.reportsFolder", "build/reports/tests");
     private String downloadsFolder = getProperty("selenide.downloadsFolder", "build/downloads");
@@ -49,12 +51,24 @@ public class BlurConfig extends SelenideConfig {
     private long remoteReadTimeout = Long.parseLong(getProperty("selenide.remoteReadTimeout", "90000"));
     private long remoteConnectionTimeout = Long.parseLong(getProperty("selenide.remoteConnectionTimeout", "10000"));
 
+    public String getProperty(String name) {
+        return getProperty(name, null);
+    }
+
+    public String getProperty(String name, String defaultValue) {
+        String value = propsFile.getProp(name, defaultValue);
+        if (value != null && value.trim().isEmpty() && defaultValue == null) {
+            return null;
+        }
+        return value;
+    }
+
     @Override
     public String baseUrl() {
         return baseUrl;
     }
 
-    public SelenideConfig baseUrl(String baseUrl) {
+    public BlurConfig baseUrl(String baseUrl) {
         this.baseUrl = baseUrl;
         return this;
     }
@@ -64,7 +78,7 @@ public class BlurConfig extends SelenideConfig {
         return timeout;
     }
 
-    public SelenideConfig timeout(long timeout) {
+    public BlurConfig timeout(long timeout) {
         this.timeout = timeout;
         return this;
     }
@@ -74,7 +88,7 @@ public class BlurConfig extends SelenideConfig {
         return pollingInterval;
     }
 
-    public SelenideConfig pollingInterval(long pollingInterval) {
+    public BlurConfig pollingInterval(long pollingInterval) {
         this.pollingInterval = pollingInterval;
         return this;
     }
@@ -84,7 +98,7 @@ public class BlurConfig extends SelenideConfig {
         return holdBrowserOpen;
     }
 
-    public SelenideConfig holdBrowserOpen(boolean holdBrowserOpen) {
+    public BlurConfig holdBrowserOpen(boolean holdBrowserOpen) {
         this.holdBrowserOpen = holdBrowserOpen;
         return this;
     }
@@ -94,7 +108,7 @@ public class BlurConfig extends SelenideConfig {
         return reopenBrowserOnFail;
     }
 
-    public SelenideConfig reopenBrowserOnFail(boolean reopenBrowserOnFail) {
+    public BlurConfig reopenBrowserOnFail(boolean reopenBrowserOnFail) {
         this.reopenBrowserOnFail = reopenBrowserOnFail;
         return this;
     }
@@ -104,7 +118,7 @@ public class BlurConfig extends SelenideConfig {
         return clickViaJs;
     }
 
-    public SelenideConfig clickViaJs(boolean clickViaJs) {
+    public BlurConfig clickViaJs(boolean clickViaJs) {
         this.clickViaJs = clickViaJs;
         return this;
     }
@@ -114,7 +128,7 @@ public class BlurConfig extends SelenideConfig {
         return screenshots;
     }
 
-    public SelenideConfig screenshots(boolean screenshots) {
+    public BlurConfig screenshots(boolean screenshots) {
         this.screenshots = screenshots;
         return this;
     }
@@ -124,7 +138,7 @@ public class BlurConfig extends SelenideConfig {
         return savePageSource;
     }
 
-    public SelenideConfig savePageSource(boolean savePageSource) {
+    public BlurConfig savePageSource(boolean savePageSource) {
         this.savePageSource = savePageSource;
         return this;
     }
@@ -134,7 +148,7 @@ public class BlurConfig extends SelenideConfig {
         return reportsFolder;
     }
 
-    public SelenideConfig reportsFolder(String reportsFolder) {
+    public BlurConfig reportsFolder(String reportsFolder) {
         this.reportsFolder = reportsFolder;
         return this;
     }
@@ -144,7 +158,7 @@ public class BlurConfig extends SelenideConfig {
         return downloadsFolder;
     }
 
-    public SelenideConfig downloadsFolder(String downloadsFolder) {
+    public BlurConfig downloadsFolder(String downloadsFolder) {
         this.downloadsFolder = downloadsFolder;
         return this;
     }
@@ -154,7 +168,7 @@ public class BlurConfig extends SelenideConfig {
         return reportsUrl;
     }
 
-    public SelenideConfig reportsUrl(String reportsUrl) {
+    public BlurConfig reportsUrl(String reportsUrl) {
         this.reportsUrl = reportsUrl;
         return this;
     }
@@ -169,12 +183,12 @@ public class BlurConfig extends SelenideConfig {
         return textCheck;
     }
 
-    public SelenideConfig fastSetValue(boolean fastSetValue) {
+    public BlurConfig fastSetValue(boolean fastSetValue) {
         this.fastSetValue = fastSetValue;
         return this;
     }
 
-    public SelenideConfig textCheck(TextCheck textCheck) {
+    public BlurConfig textCheck(TextCheck textCheck) {
         this.textCheck = textCheck;
         return this;
     }
@@ -184,7 +198,7 @@ public class BlurConfig extends SelenideConfig {
         return selectorMode;
     }
 
-    public SelenideConfig selectorMode(SelectorMode selectorMode) {
+    public BlurConfig selectorMode(SelectorMode selectorMode) {
         this.selectorMode = selectorMode;
         return this;
     }
@@ -194,7 +208,7 @@ public class BlurConfig extends SelenideConfig {
         return assertionMode;
     }
 
-    public SelenideConfig assertionMode(AssertionMode assertionMode) {
+    public BlurConfig assertionMode(AssertionMode assertionMode) {
         this.assertionMode = assertionMode;
         return this;
     }
@@ -204,7 +218,7 @@ public class BlurConfig extends SelenideConfig {
         return fileDownload;
     }
 
-    public SelenideConfig fileDownload(FileDownloadMode fileDownload) {
+    public BlurConfig fileDownload(FileDownloadMode fileDownload) {
         this.fileDownload = fileDownload;
         return this;
     }
@@ -214,7 +228,7 @@ public class BlurConfig extends SelenideConfig {
         return proxyEnabled;
     }
 
-    public SelenideConfig proxyEnabled(boolean proxyEnabled) {
+    public BlurConfig proxyEnabled(boolean proxyEnabled) {
         this.proxyEnabled = proxyEnabled;
         return this;
     }
@@ -224,7 +238,7 @@ public class BlurConfig extends SelenideConfig {
         return proxyHost;
     }
 
-    public SelenideConfig proxyHost(String proxyHost) {
+    public BlurConfig proxyHost(String proxyHost) {
         this.proxyHost = proxyHost;
         return this;
     }
@@ -234,7 +248,7 @@ public class BlurConfig extends SelenideConfig {
         return proxyPort;
     }
 
-    public SelenideConfig proxyPort(int proxyPort) {
+    public BlurConfig proxyPort(int proxyPort) {
         this.proxyPort = proxyPort;
         return this;
     }
@@ -244,7 +258,7 @@ public class BlurConfig extends SelenideConfig {
         return browser;
     }
 
-    public SelenideConfig browser(String browser) {
+    public BlurConfig browser(String browser) {
         this.browser = browser;
         return this;
     }
@@ -254,7 +268,7 @@ public class BlurConfig extends SelenideConfig {
         return headless;
     }
 
-    public SelenideConfig headless(boolean headless) {
+    public BlurConfig headless(boolean headless) {
         this.headless = headless;
         return this;
     }
@@ -264,7 +278,7 @@ public class BlurConfig extends SelenideConfig {
         return remote;
     }
 
-    public SelenideConfig remote(String remote) {
+    public BlurConfig remote(String remote) {
         this.remote = remote;
         return this;
     }
@@ -274,7 +288,7 @@ public class BlurConfig extends SelenideConfig {
         return browserSize;
     }
 
-    public SelenideConfig browserSize(String browserSize) {
+    public BlurConfig browserSize(String browserSize) {
         this.browserSize = browserSize;
         return this;
     }
@@ -284,7 +298,7 @@ public class BlurConfig extends SelenideConfig {
         return browserVersion;
     }
 
-    public SelenideConfig browserVersion(String browserVersion) {
+    public BlurConfig browserVersion(String browserVersion) {
         this.browserVersion = browserVersion;
         return this;
     }
@@ -294,7 +308,7 @@ public class BlurConfig extends SelenideConfig {
         return browserPosition;
     }
 
-    public SelenideConfig browserPosition(String browserPosition) {
+    public BlurConfig browserPosition(String browserPosition) {
         this.browserPosition = browserPosition;
         return this;
     }
@@ -304,7 +318,7 @@ public class BlurConfig extends SelenideConfig {
         return driverManagerEnabled;
     }
 
-    public SelenideConfig driverManagerEnabled(boolean driverManagerEnabled) {
+    public BlurConfig driverManagerEnabled(boolean driverManagerEnabled) {
         this.driverManagerEnabled = driverManagerEnabled;
         return this;
     }
@@ -314,7 +328,7 @@ public class BlurConfig extends SelenideConfig {
         return webdriverLogsEnabled;
     }
 
-    public SelenideConfig webdriverLogsEnabled(boolean webdriverLogsEnabled) {
+    public BlurConfig webdriverLogsEnabled(boolean webdriverLogsEnabled) {
         this.webdriverLogsEnabled = webdriverLogsEnabled;
         return this;
     }
@@ -324,7 +338,7 @@ public class BlurConfig extends SelenideConfig {
         return browserBinary;
     }
 
-    public SelenideConfig browserBinary(String browserBinary) {
+    public BlurConfig browserBinary(String browserBinary) {
         this.browserBinary = browserBinary;
         return this;
     }
@@ -339,12 +353,12 @@ public class BlurConfig extends SelenideConfig {
         return pageLoadTimeout;
     }
 
-    public SelenideConfig pageLoadStrategy(String pageLoadStrategy) {
+    public BlurConfig pageLoadStrategy(String pageLoadStrategy) {
         this.pageLoadStrategy = pageLoadStrategy;
         return this;
     }
 
-    public SelenideConfig pageLoadTimeout(long pageLoadTimeout) {
+    public BlurConfig pageLoadTimeout(long pageLoadTimeout) {
         this.pageLoadTimeout = pageLoadTimeout;
         return this;
     }
@@ -354,17 +368,9 @@ public class BlurConfig extends SelenideConfig {
         return browserCapabilities;
     }
 
-    public SelenideConfig browserCapabilities(MutableCapabilities browserCapabilities) {
+    public BlurConfig browserCapabilities(MutableCapabilities browserCapabilities) {
         this.browserCapabilities = browserCapabilities;
         return this;
-    }
-
-    private String getProperty(String key, String defaultValue) {
-        String value = propsFile.getProp(key, defaultValue);
-        if (value != null && value.trim().isEmpty() && defaultValue == null) {
-            return null;
-        }
-        return value;
     }
 
     @Override
@@ -372,7 +378,7 @@ public class BlurConfig extends SelenideConfig {
         return remoteReadTimeout;
     }
 
-    public SelenideConfig remoteReadTimeout(long remoteReadTimeout) {
+    public BlurConfig remoteReadTimeout(long remoteReadTimeout) {
         this.remoteReadTimeout = remoteReadTimeout;
         return this;
     }
@@ -382,7 +388,7 @@ public class BlurConfig extends SelenideConfig {
         return remoteConnectionTimeout;
     }
 
-    public SelenideConfig remoteConnectionTimeout(long remoteConnectionTimeout) {
+    public BlurConfig remoteConnectionTimeout(long remoteConnectionTimeout) {
         this.remoteConnectionTimeout = remoteConnectionTimeout;
         return this;
     }
