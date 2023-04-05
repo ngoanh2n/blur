@@ -6,6 +6,12 @@ dependencies {
     api("com.github.ngoanh2n:webdriverchecker-selenide:$versionWdc")
     api("com.github.ngoanh2n:csv-comparator-allure:$versionCsvComparator")
 
+    compileOnly("org.projectlombok:lombok:$versionLombok")
+    annotationProcessor("org.projectlombok:lombok:$versionLombok")
+
+    testCompileOnly("org.projectlombok:lombok:$versionLombok")
+    testAnnotationProcessor("org.projectlombok:lombok:$versionLombok")
+
     testImplementation("org.slf4j:slf4j-log4j12:$versionSlf4j")
     testImplementation("org.junit.jupiter:junit-jupiter:$versionJunitJupiter")
 }
