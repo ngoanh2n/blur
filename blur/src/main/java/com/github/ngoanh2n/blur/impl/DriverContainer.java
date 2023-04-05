@@ -84,7 +84,7 @@ class DriverContainer {
         String browser = config.getProperty("selenide.browser");
         String browsersValue = config.getProperty("selenide.browsers");
 
-        if (browsersValue.isEmpty()) {
+        if (browsersValue == null || browsersValue.isEmpty()) {
             return ArrayUtils.insert(0, new String[]{}, browser);
         }
         String[] browsers = browsersValue.split(",");
@@ -94,8 +94,10 @@ class DriverContainer {
     private static final class Instance {
         @Getter
         final String browser;
+
         @Getter
         private final int index;
+
         @Getter
         @Setter
         WebDriverInstance wdi;
