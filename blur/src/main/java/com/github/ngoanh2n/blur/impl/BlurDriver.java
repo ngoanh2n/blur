@@ -1,7 +1,8 @@
-package com.github.ngoanh2n.blur;
+package com.github.ngoanh2n.blur.impl;
 
 import com.codeborne.selenide.*;
 import com.codeborne.selenide.proxy.SelenideProxyServer;
+import com.github.ngoanh2n.blur.BlurConfig;
 import org.openqa.selenium.WebDriver;
 
 import javax.annotation.CheckReturnValue;
@@ -13,7 +14,7 @@ import javax.annotation.Nullable;
  *
  * @author Ho Huu Ngoan (ngoanh2n@gmail.com)
  */
-public class BlurDriver implements Driver {
+class BlurDriver implements Driver {
     private final BlurConfig config;
 
     public BlurDriver(BlurConfig config) {

@@ -6,9 +6,7 @@ import com.codeborne.selenide.WebDriverRunner;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import com.github.ngoanh2n.Commons;
 import com.github.ngoanh2n.blur.Blur;
-import com.github.ngoanh2n.blur.impl.BlurConfig;
-import com.github.ngoanh2n.blur.impl.BlurContainer;
-import com.github.ngoanh2n.blur.impl.BlurDriver;
+import com.github.ngoanh2n.blur.BlurConfig;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
@@ -18,7 +16,7 @@ import org.aspectj.lang.annotation.Before;
  * @author Ho Huu Ngoan (ngoanh2n@gmail.com)
  */
 @Aspect
-public class FacadeAspect {
+public class DriverAspect {
     private boolean facadeIntercepted = false;
 
     @Before("execution(* com.codeborne.selenide.Selenide.open(..))")

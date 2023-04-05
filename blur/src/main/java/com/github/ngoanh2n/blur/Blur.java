@@ -2,7 +2,7 @@ package com.github.ngoanh2n.blur;
 
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.WebDriverRunner;
-import com.google.errorprone.annotations.CanIgnoreReturnValue;
+import com.github.ngoanh2n.blur.impl.BlurContainer;
 
 /**
  * The starting point of Blur skeleton.
@@ -13,10 +13,13 @@ import com.google.errorprone.annotations.CanIgnoreReturnValue;
  *
  * @author Ho Huu Ngoan (ngoanh2n@gmail.com)
  */
-@CanIgnoreReturnValue
 public final class Blur extends Selenide {
     public static BlurConfig getConfig() {
         return container().config();
+    }
+
+    public static void switchToDriver(int index) {
+        container().switchToDriver(index);
     }
 
     private static BlurContainer container() {

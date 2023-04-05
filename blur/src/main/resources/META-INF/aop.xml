@@ -1,6 +1,6 @@
 <aspectj>
     <weaver options="-Xlint:ignore -nowarn"/>
     <aspects>
-        <aspect name="com.github.ngoanh2n.blur.FacadeAspect"/>
+        <aspect name="com.github.ngoanh2n.blur.impl.DriverAspect"/>
     </aspects>
 </aspectj>
