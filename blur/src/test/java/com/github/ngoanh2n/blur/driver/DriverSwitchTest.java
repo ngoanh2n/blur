@@ -16,22 +16,22 @@ public class DriverSwitchTest {
     @BeforeAll
     static void setup() {
         System.setProperty("selenide.browser", "edge");
-        System.setProperty("selenide.browsers", "chrome");
+        System.setProperty("selenide.otherBrowsers", "chrome");
     }
 
     @Test
-    void switchToDriver() {
+    void switchToWebDriver() {
         Blur.open();
         Assertions.assertTrue(WebDriverChecker.isEdge());
 
-        Blur.switchToDriver(1);
+        Blur.switchToWebDriver(1);
         Blur.open();
         Assertions.assertTrue(WebDriverChecker.isChrome());
 
-        Blur.switchToDriver(0);
+        Blur.switchToWebDriver(0);
         Assertions.assertTrue(WebDriverChecker.isEdge());
 
-        Assertions.assertThrows(RuntimeError.class, () -> Blur.switchToDriver(2));
+        Assertions.assertThrows(RuntimeError.class, () -> Blur.switchToWebDriver(2));
     }
 
     @AfterEach
