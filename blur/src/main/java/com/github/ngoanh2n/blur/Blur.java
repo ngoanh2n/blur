@@ -1,8 +1,11 @@
 package com.github.ngoanh2n.blur;
 
 import com.codeborne.selenide.Selenide;
-import com.codeborne.selenide.WebDriverRunner;
+import com.codeborne.selenide.impl.WebDriverContainer;
+import com.github.ngoanh2n.RuntimeError;
 import com.github.ngoanh2n.blur.impl.BlurContainer;
+
+import static com.codeborne.selenide.WebDriverRunner.webdriverContainer;
 
 /**
  * The starting point of Blur skeleton.
@@ -18,11 +21,19 @@ public final class Blur extends Selenide {
         return container().config();
     }
 
-    public static void switchToDriver(int index) {
-        container().switchToDriver(index);
+    public static BlurDriver getDriver() {
+        return container().driver();
+    }
+
+    public static void switchToWebDriver(int index) {
+        container().switchToWebDriver(index);
     }
 
     private static BlurContainer container() {
-        return (BlurContainer) WebDriverRunner.webdriverContainer;
+        WebDriverContainer container = webdriverContainer;
+        if (container instanceof BlurContainer) {
+            return (BlurContainer) container;
+        }
+        throw new RuntimeError("You have to call Blur.open(..) first");
     }
 }

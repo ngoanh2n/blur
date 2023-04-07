@@ -7,21 +7,24 @@ import com.codeborne.selenide.logevents.SelenideLogger;
 import com.github.ngoanh2n.Commons;
 import com.github.ngoanh2n.blur.Blur;
 import com.github.ngoanh2n.blur.BlurConfig;
+import com.github.ngoanh2n.blur.BlurDriver;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
+
+import static com.codeborne.selenide.WebDriverRunner.webdriverContainer;
 
 /**
  * @author Ho Huu Ngoan (ngoanh2n@gmail.com)
  */
 @Aspect
 public class DriverAspect {
-    private boolean facadeIntercepted = false;
+    private boolean facadeUpdated = false;
 
     @Before("execution(* com.codeborne.selenide.Selenide.open(..))")
     public void beforeOpen() {
-        if (!facadeIntercepted) {
+        if (!facadeUpdated) {
             BlurConfig config = new BlurConfig();
             BlurDriver driver = new BlurDriver(config);
             BlurContainer container = new BlurContainer(config, driver);
@@ -38,9 +41,16 @@ public class DriverAspect {
 
     @After("execution(* com.codeborne.selenide.Selenide.open(..))")
     public void afterOpen() {
-        if (!facadeIntercepted) {
-            Blur.switchToDriver(0);
-            facadeIntercepted = true;
+        if (!facadeUpdated) {
+            facadeUpdated = true;
+            Blur.switchToWebDriver(0);
         }
+    }
+
+    @After("execution(* com.codeborne.selenide.impl.WebDriverContainer.closeWebDriver(..))")
+    public void afterCloseWebDriver() {
+        facadeUpdated = false;
+        BlurContainer container = (BlurContainer) webdriverContainer;
+        container.resetDriverContainer();
     }
 }
