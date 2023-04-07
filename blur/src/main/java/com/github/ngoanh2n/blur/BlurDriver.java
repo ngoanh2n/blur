@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
  *
  * @author Ho Huu Ngoan (ngoanh2n@gmail.com)
  */
-class BlurDriver implements Driver {
+public class BlurDriver implements Driver {
     private final BlurConfig config;
 
     public BlurDriver(BlurConfig config) {
