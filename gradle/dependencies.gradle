@@ -2,7 +2,7 @@
  * @author Ho Huu Ngoan (ngoanh2n@gmail.com)
  */
 dependencies {
-    api("com.github.ngoanh2n:utilities:$versionUtilities")
+    api("com.github.ngoanh2n:commons:$versionCommons")
     api("com.github.ngoanh2n:webdriverchecker-selenide:$versionWdc")
     api("com.github.ngoanh2n:csv-comparator-allure:$versionCsvComparator")
 
