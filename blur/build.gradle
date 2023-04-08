@@ -1,5 +1,5 @@
 /**
- * @author Ho Huu Ngoan (ngoanh2n@gmail.com)
+ * Author: Ho Huu Ngoan (ngoanh2n@gmail.com)
  */
 plugins {
     id("io.qameta.allure") version "2.11.2"
@@ -8,12 +8,13 @@ plugins {
 
 dependencies {
     api("com.codeborne:selenide:$versionSelenide")
-    api("io.appium:java-client:$versionAppium")
-    api("io.qameta.allure:allure-junit5:$versionAllure")
-    api("io.qameta.allure:allure-selenide:$versionAllure")
+    api("io.appium:java-client:$versionAppiumClient")
 
     implementation("org.aspectj:aspectjrt:$versionAspectJ")
     implementation("org.aspectj:aspectjweaver:$versionAspectJ")
+
+    implementation("io.qameta.allure:allure-junit5:$versionAllure")
+    implementation("io.qameta.allure:allure-selenide:$versionAllure")
 }
 
 allure {

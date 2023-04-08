@@ -1,15 +1,15 @@
 /**
- * @author Ho Huu Ngoan (ngoanh2n@gmail.com)
+ * Author: Ho Huu Ngoan (ngoanh2n@gmail.com)
  */
 ext {
-    versionSelenide                 =   "6.12.4"
-    versionAppium                   =   "8.3.0"
-    versionAllure                   =   "2.21.0"
     versionCommons                  =   "1.0.0"
-    versionWdc                      =   "2.4.0"
     versionCsvComparator            =   "1.5.0"
+    versionWebDriverChecker         =   "2.4.0"
+    versionSelenide                 =   "6.12.4"
+    versionAppiumClient             =   "8.3.0"
     versionSlf4j                    =   "2.0.6"
     versionAspectJ                  =   "1.9.5"
+    versionAllure                   =   "2.21.0"
     versionLombok                   =   "1.18.26"
     versionJunitJupiter             =   "5.9.1"
 }
