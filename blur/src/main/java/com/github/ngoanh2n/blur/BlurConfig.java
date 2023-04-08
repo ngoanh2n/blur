@@ -15,7 +15,12 @@ import static com.codeborne.selenide.TextCheck.PARTIAL_TEXT;
 /**
  * Replace for {@link com.codeborne.selenide.SelenideConfig}. Cloned from the latest Selenide: 6.12.4.
  * <p>
- * Priority order to get the value of property: JVM System Property > blur.properties > Default value.
+ * Priority order to get the value of property:
+ * <ul>
+ *     <li>{@code JVM System Property}
+ *     <li>{@code blur.properties}
+ *     <li>{@code Default value of Prop<?>}
+ * </ul>
  *
  * @author Ho Huu Ngoan (ngoanh2n@gmail.com)
  */
