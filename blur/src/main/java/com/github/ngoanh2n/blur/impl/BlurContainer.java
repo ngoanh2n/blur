@@ -11,7 +11,7 @@ import org.slf4j.LoggerFactory;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 /**
- * Replace for {@link com.codeborne.selenide.impl.WebDriverThreadLocalContainer}
+ * Replace for {@link WebDriverThreadLocalContainer}. Cloned from the latest Selenide: 6.12.4.
  *
  * @author Ho Huu Ngoan (ngoanh2n@gmail.com)
  */

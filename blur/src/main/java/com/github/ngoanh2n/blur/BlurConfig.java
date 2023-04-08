@@ -14,9 +14,9 @@ import static com.codeborne.selenide.SelectorMode.CSS;
 import static com.codeborne.selenide.TextCheck.PARTIAL_TEXT;
 
 /**
- * Replace for {@link com.codeborne.selenide.SelenideConfig}
+ * Replace for {@link com.codeborne.selenide.SelenideConfig}. Cloned from the latest Selenide: 6.12.4.
  * <p>
- * Priority order to get the value of property: JVM System Property > blur.properties > default value
+ * Priority order to get the value of property: JVM System Property > blur.properties > Default value.
  *
  * @author Ho Huu Ngoan (ngoanh2n@gmail.com)
  */
@@ -43,6 +43,7 @@ public class BlurConfig extends SelenideConfig {
     private final Prop<Boolean> reopenBrowserOnFail = new Prop<>("selenide.reopenBrowserOnFail", Boolean.class, true);
     private final Prop<Boolean> clickViaJs = new Prop<>("selenide.clickViaJs", Boolean.class, false);
     private final Prop<Boolean> screenshots = new Prop<>("selenide.screenshots", Boolean.class, true);
+
     private final Prop<Boolean> savePageSource = new Prop<>("selenide.savePageSource", Boolean.class, true);
     private final Prop<String> reportsFolder = new Prop<>("selenide.reportsFolder", String.class, "build/reports/tests");
     private final Prop<String> downloadsFolder = new Prop<>("selenide.downloadsFolder", String.class, "build/downloads");
@@ -370,7 +371,6 @@ public class BlurConfig extends SelenideConfig {
         this.otherBrowsers.setValue(otherBrowsers);
         return this;
     }
-
 
     //-------------------------------------------------------------------------------//
 
