@@ -3,8 +3,7 @@ package com.github.ngoanh2n.blur;
 import com.codeborne.selenide.*;
 import com.codeborne.selenide.impl.CiReportUrl;
 import com.github.ngoanh2n.Prop;
-import com.github.ngoanh2n.PropsFile;
-import com.github.ngoanh2n.RuntimeError;
+import com.github.ngoanh2n.PropFile;
 import org.openqa.selenium.MutableCapabilities;
 
 import static com.codeborne.selenide.AssertionMode.STRICT;
@@ -21,7 +20,7 @@ import static com.codeborne.selenide.TextCheck.PARTIAL_TEXT;
  * @author Ho Huu Ngoan (ngoanh2n@gmail.com)
  */
 public class BlurConfig extends SelenideConfig {
-    private final PropsFile propsFile = new PropsFile("blur.properties");
+    private final PropFile propFile = new PropFile("blur.properties");
 
     private final Prop<String> browser = new Prop<>("selenide.browser", String.class, CHROME);
     private final Prop<Boolean> headless = new Prop<>("selenide.headless", Boolean.class, false);
@@ -64,47 +63,47 @@ public class BlurConfig extends SelenideConfig {
     //-------------------------------------------------------------------------------//
 
     public String browser() {
-        return getValueOf(browser);
+        return this.propFile.getPropValue(browser);
     }
 
     public boolean headless() {
-        return getValueOf(headless);
+        return this.propFile.getPropValue(headless);
     }
 
     public String remote() {
-        return getValueOf(remote);
+        return this.propFile.getPropValue(remote);
     }
 
     public String browserSize() {
-        return getValueOf(browserSize);
+        return this.propFile.getPropValue(browserSize);
     }
 
     public String browserVersion() {
-        return getValueOf(browserVersion);
+        return this.propFile.getPropValue(browserVersion);
     }
 
     public String browserPosition() {
-        return getValueOf(browserPosition);
+        return this.propFile.getPropValue(browserPosition);
     }
 
     public boolean driverManagerEnabled() {
-        return getValueOf(driverManagerEnabled);
+        return this.propFile.getPropValue(driverManagerEnabled);
     }
 
     public boolean webdriverLogsEnabled() {
-        return getValueOf(webdriverLogsEnabled);
+        return this.propFile.getPropValue(webdriverLogsEnabled);
     }
 
     public String browserBinary() {
-        return getValueOf(browserBinary);
+        return this.propFile.getPropValue(browserBinary);
     }
 
     public String pageLoadStrategy() {
-        return getValueOf(pageLoadStrategy);
+        return this.propFile.getPropValue(pageLoadStrategy);
     }
 
     public long pageLoadTimeout() {
-        return getValueOf(pageLoadTimeout);
+        return this.propFile.getPropValue(pageLoadTimeout);
     }
 
     public MutableCapabilities browserCapabilities() {
@@ -112,92 +111,92 @@ public class BlurConfig extends SelenideConfig {
     }
 
     public String baseUrl() {
-        return getValueOf(baseUrl);
+        return this.propFile.getPropValue(baseUrl);
     }
 
     public long timeout() {
-        return getValueOf(timeout);
+        return this.propFile.getPropValue(timeout);
     }
 
     public long pollingInterval() {
-        return getValueOf(pollingInterval);
+        return this.propFile.getPropValue(pollingInterval);
     }
 
     public boolean holdBrowserOpen() {
-        return getValueOf(holdBrowserOpen);
+        return this.propFile.getPropValue(holdBrowserOpen);
     }
 
     public boolean reopenBrowserOnFail() {
-        return getValueOf(reopenBrowserOnFail);
+        return this.propFile.getPropValue(reopenBrowserOnFail);
     }
 
     public boolean clickViaJs() {
-        return getValueOf(clickViaJs);
+        return this.propFile.getPropValue(clickViaJs);
     }
 
     public boolean screenshots() {
-        return getValueOf(screenshots);
+        return this.propFile.getPropValue(screenshots);
     }
 
     public boolean savePageSource() {
-        return getValueOf(savePageSource);
+        return this.propFile.getPropValue(savePageSource);
     }
 
     public String reportsFolder() {
-        return getValueOf(reportsFolder);
+        return this.propFile.getPropValue(reportsFolder);
     }
 
     public String downloadsFolder() {
-        return getValueOf(downloadsFolder);
+        return this.propFile.getPropValue(downloadsFolder);
     }
 
     public String reportsUrl() {
-        String value = getValueOf(reportsUrl);
+        String value = this.propFile.getPropValue(reportsUrl);
         return new CiReportUrl().getReportsUrl(value);
     }
 
     public boolean fastSetValue() {
-        return getValueOf(fastSetValue);
+        return this.propFile.getPropValue(fastSetValue);
     }
 
     public TextCheck textCheck() {
-        return getValueOf(textCheck);
+        return this.propFile.getPropValue(textCheck);
     }
 
     public SelectorMode selectorMode() {
-        return getValueOf(selectorMode);
+        return this.propFile.getPropValue(selectorMode);
     }
 
     public AssertionMode assertionMode() {
-        return getValueOf(assertionMode);
+        return this.propFile.getPropValue(assertionMode);
     }
 
     public FileDownloadMode fileDownload() {
-        return getValueOf(fileDownload);
+        return this.propFile.getPropValue(fileDownload);
     }
 
     public boolean proxyEnabled() {
-        return getValueOf(proxyEnabled);
+        return this.propFile.getPropValue(proxyEnabled);
     }
 
     public String proxyHost() {
-        return getValueOf(proxyHost);
+        return this.propFile.getPropValue(proxyHost);
     }
 
     public int proxyPort() {
-        return getValueOf(proxyPort);
+        return this.propFile.getPropValue(proxyPort);
     }
 
     public long remoteReadTimeout() {
-        return getValueOf(remoteReadTimeout);
+        return this.propFile.getPropValue(remoteReadTimeout);
     }
 
     public long remoteConnectionTimeout() {
-        return getValueOf(remoteConnectionTimeout);
+        return this.propFile.getPropValue(remoteConnectionTimeout);
     }
 
     public String otherBrowsers() {
-        return getValueOf(otherBrowsers);
+        return this.propFile.getPropValue(otherBrowsers);
     }
 
     //-------------------------------------------------------------------------------//
@@ -370,32 +369,5 @@ public class BlurConfig extends SelenideConfig {
     public BlurConfig otherBrowsers(String otherBrowsers) {
         this.otherBrowsers.setValue(otherBrowsers);
         return this;
-    }
-
-    //-------------------------------------------------------------------------------//
-
-    @SuppressWarnings("unchecked")
-    private <T> T getValueOf(Prop<T> prop) {
-        String name = prop.getName();
-        Class<T> type = prop.getType();
-        String val = propsFile.getProp(name);
-
-        if (val.isEmpty()) {
-            return prop.getDefaultValue();
-        }
-
-        if (type == String.class) return (T) val;
-        if (type == Byte.class) return (T) Byte.valueOf(val);
-        if (type == Long.class) return (T) Long.valueOf(val);
-        if (type == Short.class) return (T) Short.valueOf(val);
-        if (type == Float.class) return (T) Float.valueOf(val);
-        if (type == Double.class) return (T) Double.valueOf(val);
-        if (type == Integer.class) return (T) Integer.valueOf(val);
-        if (type == Boolean.class) return (T) Boolean.valueOf(val);
-        if (type == TextCheck.class) return (T) TextCheck.valueOf(val);
-        if (type == SelectorMode.class) return (T) SelectorMode.valueOf(val);
-        if (type == AssertionMode.class) return (T) AssertionMode.valueOf(val);
-        if (type == FileDownloadMode.class) return (T) FileDownloadMode.valueOf(val);
-        throw new RuntimeError("Type " + type.getTypeName() + " cannot be parsed");
     }
 }
