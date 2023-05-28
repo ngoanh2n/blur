@@ -2,10 +2,6 @@
  * Author: Ho Huu Ngoan (ngoanh2n@gmail.com)
  */
 dependencies {
-    api("com.github.ngoanh2n:commons:$versionCommons")
-    api("com.github.ngoanh2n:csv-comparator-allure:$versionCsvComparator")
-    api("com.github.ngoanh2n:webdriverchecker-selenide:$versionWebDriverChecker")
-
     compileOnly("org.projectlombok:lombok:$versionLombok")
     annotationProcessor("org.projectlombok:lombok:$versionLombok")
 
