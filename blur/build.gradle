@@ -14,6 +14,7 @@ dependencies {
     api("com.github.ngoanh2n:csv-comparator:$versionCsvComparator")
     api("com.github.ngoanh2n:image-comparator:$versionImageComparator")
     api("com.github.ngoanh2n:webdriverchecker:$versionWebDriverChecker")
+    api("com.github.ngoanh2n:webdrivershooter:$versionWebDriverShooter")
 
     api("com.github.ngoanh2n:csv-comparator-allure:$versionCsvComparator")
     api("com.github.ngoanh2n:webdriverchecker-selenide:$versionWebDriverChecker")
