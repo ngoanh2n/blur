@@ -11,6 +11,8 @@ dependencies {
     api("io.appium:java-client:$versionAppiumClient")
 
     api("com.github.ngoanh2n:commons:$versionCommons")
+    api("com.github.ngoanh2n:csv-comparator:$versionCsvComparator")
+
     api("com.github.ngoanh2n:csv-comparator-allure:$versionCsvComparator")
     api("com.github.ngoanh2n:webdriverchecker-selenide:$versionWebDriverChecker")
 
