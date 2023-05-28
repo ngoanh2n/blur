@@ -17,6 +17,7 @@ dependencies {
     api("com.github.ngoanh2n:webdrivershooter:$versionWebDriverShooter")
 
     api("com.github.ngoanh2n:commons-junit5:$versionCommons")
+    api("com.github.ngoanh2n:commons-allure:$versionCommons")
     api("com.github.ngoanh2n:csv-comparator-allure:$versionCsvComparator")
     api("com.github.ngoanh2n:webdriverchecker-selenide:$versionWebDriverChecker")
 
