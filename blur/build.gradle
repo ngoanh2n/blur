@@ -19,6 +19,7 @@ dependencies {
     api("com.github.ngoanh2n:commons-junit5:$versionCommons")
     api("com.github.ngoanh2n:commons-allure:$versionCommons")
     api("com.github.ngoanh2n:csv-comparator-allure:$versionCsvComparator")
+    api("com.github.ngoanh2n:image-comparator-allure:$versionImageComparator")
     api("com.github.ngoanh2n:webdriverchecker-selenide:$versionWebDriverChecker")
 
     implementation("org.aspectj:aspectjrt:$versionAspectJ")
