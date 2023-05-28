@@ -9,7 +9,7 @@ ext {
     versionWebDriverShooter         =   "1.0.0"
     versionSelenide                 =   "6.12.4"
     versionAppiumClient             =   "8.3.0"
-    versionSlf4j                    =   "2.0.6"
+    versionSlf4j                    =   "2.0.7"
     versionAspectJ                  =   "1.9.5"
     versionAllure                   =   "2.21.0"
     versionLombok                   =   "1.18.26"
