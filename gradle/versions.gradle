@@ -2,7 +2,7 @@
  * Author: Ho Huu Ngoan (ngoanh2n@gmail.com)
  */
 ext {
-    versionCommons                  =   "1.0.0"
+    versionCommons                  =   "1.1.1"
     versionCsvComparator            =   "1.5.1"
     versionWebDriverChecker         =   "2.5.0"
     versionSelenide                 =   "6.12.4"
