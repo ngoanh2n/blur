@@ -2,8 +2,8 @@ package com.github.ngoanh2n.blur;
 
 import com.codeborne.selenide.*;
 import com.codeborne.selenide.impl.CiReportUrl;
-import com.github.ngoanh2n.Prop;
-import com.github.ngoanh2n.PropFile;
+import com.github.ngoanh2n.PropertiesFile;
+import com.github.ngoanh2n.Property;
 import org.openqa.selenium.MutableCapabilities;
 
 import static com.codeborne.selenide.AssertionMode.STRICT;
@@ -19,96 +19,93 @@ import static com.codeborne.selenide.TextCheck.PARTIAL_TEXT;
  * <ul>
  *     <li>{@code JVM System Property}
  *     <li>{@code blur.properties}
- *     <li>{@code Default value of Prop<?>}
+ *     <li>{@code Default value of Property<?>}
  * </ul>
  *
  * @author Ho Huu Ngoan (ngoanh2n@gmail.com)
  */
 public class BlurConfig extends SelenideConfig {
-    private final PropFile propFile = new PropFile("blur.properties");
+    private final PropertiesFile propertiesFile = new PropertiesFile("blur.properties");
 
-    private final Prop<String> browser = new Prop<>("selenide.browser", String.class, CHROME);
-    private final Prop<Boolean> headless = new Prop<>("selenide.headless", Boolean.class, false);
-    private final Prop<String> remote = new Prop<>("selenide.remote", String.class, null);
-    private final Prop<String> browserSize = new Prop<>("selenide.browserSize", String.class, "1366x768");
-    private final Prop<String> browserVersion = new Prop<>("selenide.browserVersion", String.class, null);
-    private final Prop<String> browserPosition = new Prop<>("selenide.browserPosition", String.class, null);
-    private final Prop<Boolean> driverManagerEnabled = new Prop<>("selenide.driverManagerEnabled", Boolean.class, true);
-    private final Prop<Boolean> webdriverLogsEnabled = new Prop<>("selenide.webdriverLogsEnabled", Boolean.class, false);
-    private final Prop<String> browserBinary = new Prop<>("selenide.browserBinary", String.class, null);
-    private final Prop<String> pageLoadStrategy = new Prop<>("selenide.pageLoadStrategy", String.class, "normal");
-    private final Prop<Long> pageLoadTimeout = new Prop<>("selenide.pageLoadTimeout", Long.class, 30000L);
+    private final Property<String> browser = new Property<>("selenide.browser", String.class, CHROME);
+    private final Property<Boolean> headless = new Property<>("selenide.headless", Boolean.class, false);
+    private final Property<String> remote = new Property<>("selenide.remote", String.class, null);
+    private final Property<String> browserSize = new Property<>("selenide.browserSize", String.class, "1366x768");
+    private final Property<String> browserVersion = new Property<>("selenide.browserVersion", String.class, null);
+    private final Property<String> browserPosition = new Property<>("selenide.browserPosition", String.class, null);
+    private final Property<Boolean> driverManagerEnabled = new Property<>("selenide.driverManagerEnabled", Boolean.class, true);
+    private final Property<Boolean> webdriverLogsEnabled = new Property<>("selenide.webdriverLogsEnabled", Boolean.class, false);
+    private final Property<String> browserBinary = new Property<>("selenide.browserBinary", String.class, null);
+    private final Property<String> pageLoadStrategy = new Property<>("selenide.pageLoadStrategy", String.class, "normal");
+    private final Property<Long> pageLoadTimeout = new Property<>("selenide.pageLoadTimeout", Long.class, 30000L);
+    private final Property<String> baseUrl = new Property<>("selenide.baseUrl", String.class, "http://localhost:8080");
+    private final Property<Long> timeout = new Property<>("selenide.timeout", Long.class, 4000L);
+    private final Property<Long> pollingInterval = new Property<>("selenide.pollingInterval", Long.class, 200L);
+    private final Property<Boolean> holdBrowserOpen = new Property<>("selenide.holdBrowserOpen", Boolean.class, false);
+    private final Property<Boolean> reopenBrowserOnFail = new Property<>("selenide.reopenBrowserOnFail", Boolean.class, true);
+    private final Property<Boolean> clickViaJs = new Property<>("selenide.clickViaJs", Boolean.class, false);
+    private final Property<Boolean> screenshots = new Property<>("selenide.screenshots", Boolean.class, true);
+    private final Property<Boolean> savePageSource = new Property<>("selenide.savePageSource", Boolean.class, true);
+    private final Property<String> reportsFolder = new Property<>("selenide.reportsFolder", String.class, "build/reports/tests");
+    private final Property<String> downloadsFolder = new Property<>("selenide.downloadsFolder", String.class, "build/downloads");
+    private final Property<String> reportsUrl = new Property<>("selenide.reportsUrl", String.class, null);
+    private final Property<Boolean> fastSetValue = new Property<>("selenide.fastSetValue", Boolean.class, false);
+    private final Property<TextCheck> textCheck = new Property<>("selenide.textCheck", TextCheck.class, PARTIAL_TEXT);
+    private final Property<SelectorMode> selectorMode = new Property<>("selenide.selectorMode", SelectorMode.class, CSS);
+    private final Property<AssertionMode> assertionMode = new Property<>("selenide.assertionMode", AssertionMode.class, STRICT);
+    private final Property<FileDownloadMode> fileDownload = new Property<>("selenide.fileDownload", FileDownloadMode.class, HTTPGET);
+    private final Property<Boolean> proxyEnabled = new Property<>("selenide.proxyEnabled", Boolean.class, false);
+    private final Property<String> proxyHost = new Property<>("selenide.proxyHost", String.class, null);
+    private final Property<Integer> proxyPort = new Property<>("selenide.proxyPort", Integer.class, 0);
+    private final Property<Long> remoteReadTimeout = new Property<>("selenide.remoteReadTimeout", Long.class, 90000L);
+    private final Property<Long> remoteConnectionTimeout = new Property<>("selenide.remoteConnectionTimeout", Long.class, 10000L);
+    private final Property<String> otherBrowsers = new Property<>("selenide.otherBrowsers", String.class, null);
     private MutableCapabilities browserCapabilities = new MutableCapabilities();
-
-    private final Prop<String> baseUrl = new Prop<>("selenide.baseUrl", String.class, "http://localhost:8080");
-    private final Prop<Long> timeout = new Prop<>("selenide.timeout", Long.class, 4000L);
-    private final Prop<Long> pollingInterval = new Prop<>("selenide.pollingInterval", Long.class, 200L);
-    private final Prop<Boolean> holdBrowserOpen = new Prop<>("selenide.holdBrowserOpen", Boolean.class, false);
-    private final Prop<Boolean> reopenBrowserOnFail = new Prop<>("selenide.reopenBrowserOnFail", Boolean.class, true);
-    private final Prop<Boolean> clickViaJs = new Prop<>("selenide.clickViaJs", Boolean.class, false);
-    private final Prop<Boolean> screenshots = new Prop<>("selenide.screenshots", Boolean.class, true);
-
-    private final Prop<Boolean> savePageSource = new Prop<>("selenide.savePageSource", Boolean.class, true);
-    private final Prop<String> reportsFolder = new Prop<>("selenide.reportsFolder", String.class, "build/reports/tests");
-    private final Prop<String> downloadsFolder = new Prop<>("selenide.downloadsFolder", String.class, "build/downloads");
-    private final Prop<String> reportsUrl = new Prop<>("selenide.reportsUrl", String.class, null);
-    private final Prop<Boolean> fastSetValue = new Prop<>("selenide.fastSetValue", Boolean.class, false);
-    private final Prop<TextCheck> textCheck = new Prop<>("selenide.textCheck", TextCheck.class, PARTIAL_TEXT);
-    private final Prop<SelectorMode> selectorMode = new Prop<>("selenide.selectorMode", SelectorMode.class, CSS);
-    private final Prop<AssertionMode> assertionMode = new Prop<>("selenide.assertionMode", AssertionMode.class, STRICT);
-    private final Prop<FileDownloadMode> fileDownload = new Prop<>("selenide.fileDownload", FileDownloadMode.class, HTTPGET);
-    private final Prop<Boolean> proxyEnabled = new Prop<>("selenide.proxyEnabled", Boolean.class, false);
-    private final Prop<String> proxyHost = new Prop<>("selenide.proxyHost", String.class, null);
-    private final Prop<Integer> proxyPort = new Prop<>("selenide.proxyPort", Integer.class, 0);
-    private final Prop<Long> remoteReadTimeout = new Prop<>("selenide.remoteReadTimeout", Long.class, 90000L);
-    private final Prop<Long> remoteConnectionTimeout = new Prop<>("selenide.remoteConnectionTimeout", Long.class, 10000L);
-
-    private final Prop<String> otherBrowsers = new Prop<>("selenide.otherBrowsers", String.class, null);
 
     //-------------------------------------------------------------------------------//
 
     public String browser() {
-        return this.propFile.getPropValue(browser);
+        return this.propertiesFile.getPropValue(browser);
     }
 
     public boolean headless() {
-        return this.propFile.getPropValue(headless);
+        return this.propertiesFile.getPropValue(headless);
     }
 
     public String remote() {
-        return this.propFile.getPropValue(remote);
+        return this.propertiesFile.getPropValue(remote);
     }
 
     public String browserSize() {
-        return this.propFile.getPropValue(browserSize);
+        return this.propertiesFile.getPropValue(browserSize);
     }
 
     public String browserVersion() {
-        return this.propFile.getPropValue(browserVersion);
+        return this.propertiesFile.getPropValue(browserVersion);
     }
 
     public String browserPosition() {
-        return this.propFile.getPropValue(browserPosition);
+        return this.propertiesFile.getPropValue(browserPosition);
     }
 
     public boolean driverManagerEnabled() {
-        return this.propFile.getPropValue(driverManagerEnabled);
+        return this.propertiesFile.getPropValue(driverManagerEnabled);
     }
 
     public boolean webdriverLogsEnabled() {
-        return this.propFile.getPropValue(webdriverLogsEnabled);
+        return this.propertiesFile.getPropValue(webdriverLogsEnabled);
     }
 
     public String browserBinary() {
-        return this.propFile.getPropValue(browserBinary);
+        return this.propertiesFile.getPropValue(browserBinary);
     }
 
     public String pageLoadStrategy() {
-        return this.propFile.getPropValue(pageLoadStrategy);
+        return this.propertiesFile.getPropValue(pageLoadStrategy);
     }
 
     public long pageLoadTimeout() {
-        return this.propFile.getPropValue(pageLoadTimeout);
+        return this.propertiesFile.getPropValue(pageLoadTimeout);
     }
 
     public MutableCapabilities browserCapabilities() {
@@ -116,92 +113,92 @@ public class BlurConfig extends SelenideConfig {
     }
 
     public String baseUrl() {
-        return this.propFile.getPropValue(baseUrl);
+        return this.propertiesFile.getPropValue(baseUrl);
     }
 
     public long timeout() {
-        return this.propFile.getPropValue(timeout);
+        return this.propertiesFile.getPropValue(timeout);
     }
 
     public long pollingInterval() {
-        return this.propFile.getPropValue(pollingInterval);
+        return this.propertiesFile.getPropValue(pollingInterval);
     }
 
     public boolean holdBrowserOpen() {
-        return this.propFile.getPropValue(holdBrowserOpen);
+        return this.propertiesFile.getPropValue(holdBrowserOpen);
     }
 
     public boolean reopenBrowserOnFail() {
-        return this.propFile.getPropValue(reopenBrowserOnFail);
+        return this.propertiesFile.getPropValue(reopenBrowserOnFail);
     }
 
     public boolean clickViaJs() {
-        return this.propFile.getPropValue(clickViaJs);
+        return this.propertiesFile.getPropValue(clickViaJs);
     }
 
     public boolean screenshots() {
-        return this.propFile.getPropValue(screenshots);
+        return this.propertiesFile.getPropValue(screenshots);
     }
 
     public boolean savePageSource() {
-        return this.propFile.getPropValue(savePageSource);
+        return this.propertiesFile.getPropValue(savePageSource);
     }
 
     public String reportsFolder() {
-        return this.propFile.getPropValue(reportsFolder);
+        return this.propertiesFile.getPropValue(reportsFolder);
     }
 
     public String downloadsFolder() {
-        return this.propFile.getPropValue(downloadsFolder);
+        return this.propertiesFile.getPropValue(downloadsFolder);
     }
 
     public String reportsUrl() {
-        String value = this.propFile.getPropValue(reportsUrl);
+        String value = this.propertiesFile.getPropValue(reportsUrl);
         return new CiReportUrl().getReportsUrl(value);
     }
 
     public boolean fastSetValue() {
-        return this.propFile.getPropValue(fastSetValue);
+        return this.propertiesFile.getPropValue(fastSetValue);
     }
 
     public TextCheck textCheck() {
-        return this.propFile.getPropValue(textCheck);
+        return this.propertiesFile.getPropValue(textCheck);
     }
 
     public SelectorMode selectorMode() {
-        return this.propFile.getPropValue(selectorMode);
+        return this.propertiesFile.getPropValue(selectorMode);
     }
 
     public AssertionMode assertionMode() {
-        return this.propFile.getPropValue(assertionMode);
+        return this.propertiesFile.getPropValue(assertionMode);
     }
 
     public FileDownloadMode fileDownload() {
-        return this.propFile.getPropValue(fileDownload);
+        return this.propertiesFile.getPropValue(fileDownload);
     }
 
     public boolean proxyEnabled() {
-        return this.propFile.getPropValue(proxyEnabled);
+        return this.propertiesFile.getPropValue(proxyEnabled);
     }
 
     public String proxyHost() {
-        return this.propFile.getPropValue(proxyHost);
+        return this.propertiesFile.getPropValue(proxyHost);
     }
 
     public int proxyPort() {
-        return this.propFile.getPropValue(proxyPort);
+        return this.propertiesFile.getPropValue(proxyPort);
     }
 
     public long remoteReadTimeout() {
-        return this.propFile.getPropValue(remoteReadTimeout);
+        return this.propertiesFile.getPropValue(remoteReadTimeout);
     }
 
     public long remoteConnectionTimeout() {
-        return this.propFile.getPropValue(remoteConnectionTimeout);
+        return this.propertiesFile.getPropValue(remoteConnectionTimeout);
     }
 
     public String otherBrowsers() {
-        return this.propFile.getPropValue(otherBrowsers);
+        return this.propertiesFile.getPropValue(otherBrowsers);
     }
 
     //-------------------------------------------------------------------------------//
