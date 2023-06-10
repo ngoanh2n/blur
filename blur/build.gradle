@@ -1,5 +1,5 @@
 /**
- * Author: Ho Huu Ngoan (ngoanh2n@gmail.com)
+ * Author: ngoanh2n
  */
 plugins {
     id("io.qameta.allure") version "2.11.2"
@@ -15,13 +15,13 @@ dependencies {
     api("com.github.ngoanh2n:image-comparator:$versionImageComparator")
     api("com.github.ngoanh2n:webdriverchecker:$versionWebDriverChecker")
     api("com.github.ngoanh2n:webdrivershooter:$versionWebDriverShooter")
-
-    api("com.github.ngoanh2n:commons-junit5:$versionCommons")
-    api("com.github.ngoanh2n:commons-allure:$versionCommons")
-    api("com.github.ngoanh2n:csv-comparator-allure:$versionCsvComparator")
-    api("com.github.ngoanh2n:image-comparator-allure:$versionImageComparator")
     api("com.github.ngoanh2n:webdriverchecker-selenide:$versionWebDriverChecker")
     api("com.github.ngoanh2n:webdrivershooter-selenide:$versionWebDriverShooter")
+
+    implementation("com.github.ngoanh2n:commons-junit5:$versionCommons")
+    implementation("com.github.ngoanh2n:commons-allure:$versionCommons")
+    implementation("com.github.ngoanh2n:csv-comparator-allure:$versionCsvComparator")
+    implementation("com.github.ngoanh2n:image-comparator-allure:$versionImageComparator")
 
     implementation("org.aspectj:aspectjrt:$versionAspectJ")
     implementation("org.aspectj:aspectjweaver:$versionAspectJ")
