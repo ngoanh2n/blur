@@ -2,7 +2,7 @@
  * Author: ngoanh2n
  */
 ext {
-    versionCommons                  =   "1.1.1"
+    versionCommons                  =   "1.1.2"
     versionCsvComparator            =   "1.5.2"
     versionImageComparator          =   "1.0.1"
     versionWebDriverChecker         =   "2.6.0"
