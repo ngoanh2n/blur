@@ -16,7 +16,7 @@ import org.aspectj.lang.annotation.Before;
 import static com.codeborne.selenide.WebDriverRunner.webdriverContainer;
 
 /**
- * @author Ho Huu Ngoan (ngoanh2n@gmail.com)
+ * @author ngoanh2n
  */
 @Aspect
 public class DriverAspect {

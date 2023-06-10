@@ -14,7 +14,7 @@ import static com.codeborne.selenide.WebDriverRunner.webdriverContainer;
  * 1. Use {@link #open(String)} for opening the tested application page. <br>
  * 2. Use {@link #$(String)} for searching web elements.
  *
- * @author Ho Huu Ngoan (ngoanh2n@gmail.com)
+ * @author ngoanh2n
  */
 public final class Blur extends Selenide {
     public static BlurConfig getConfig() {

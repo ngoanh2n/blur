@@ -13,7 +13,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 /**
  * Replace for {@link WebDriverThreadLocalContainer}. Cloned from the latest Selenide: 6.12.4.
  *
- * @author Ho Huu Ngoan (ngoanh2n@gmail.com)
+ * @author ngoanh2n
  */
 @ParametersAreNonnullByDefault
 public class BlurContainer extends WebDriverThreadLocalContainer {
