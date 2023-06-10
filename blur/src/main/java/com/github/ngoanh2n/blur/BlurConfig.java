@@ -65,47 +65,47 @@ public class BlurConfig extends SelenideConfig {
     //-------------------------------------------------------------------------------//
 
     public String browser() {
-        return this.propertiesFile.getPropValue(browser);
+        return this.propertiesFile.getProperty(browser);
     }
 
     public boolean headless() {
-        return this.propertiesFile.getPropValue(headless);
+        return this.propertiesFile.getProperty(headless);
     }
 
     public String remote() {
-        return this.propertiesFile.getPropValue(remote);
+        return this.propertiesFile.getProperty(remote);
     }
 
     public String browserSize() {
-        return this.propertiesFile.getPropValue(browserSize);
+        return this.propertiesFile.getProperty(browserSize);
     }
 
     public String browserVersion() {
-        return this.propertiesFile.getPropValue(browserVersion);
+        return this.propertiesFile.getProperty(browserVersion);
     }
 
     public String browserPosition() {
-        return this.propertiesFile.getPropValue(browserPosition);
+        return this.propertiesFile.getProperty(browserPosition);
     }
 
     public boolean driverManagerEnabled() {
-        return this.propertiesFile.getPropValue(driverManagerEnabled);
+        return this.propertiesFile.getProperty(driverManagerEnabled);
     }
 
     public boolean webdriverLogsEnabled() {
-        return this.propertiesFile.getPropValue(webdriverLogsEnabled);
+        return this.propertiesFile.getProperty(webdriverLogsEnabled);
     }
 
     public String browserBinary() {
-        return this.propertiesFile.getPropValue(browserBinary);
+        return this.propertiesFile.getProperty(browserBinary);
     }
 
     public String pageLoadStrategy() {
-        return this.propertiesFile.getPropValue(pageLoadStrategy);
+        return this.propertiesFile.getProperty(pageLoadStrategy);
     }
 
     public long pageLoadTimeout() {
-        return this.propertiesFile.getPropValue(pageLoadTimeout);
+        return this.propertiesFile.getProperty(pageLoadTimeout);
     }
 
     public MutableCapabilities browserCapabilities() {
@@ -113,92 +113,92 @@ public class BlurConfig extends SelenideConfig {
     }
 
     public String baseUrl() {
-        return this.propertiesFile.getPropValue(baseUrl);
+        return this.propertiesFile.getProperty(baseUrl);
     }
 
     public long timeout() {
-        return this.propertiesFile.getPropValue(timeout);
+        return this.propertiesFile.getProperty(timeout);
     }
 
     public long pollingInterval() {
-        return this.propertiesFile.getPropValue(pollingInterval);
+        return this.propertiesFile.getProperty(pollingInterval);
     }
 
     public boolean holdBrowserOpen() {
-        return this.propertiesFile.getPropValue(holdBrowserOpen);
+        return this.propertiesFile.getProperty(holdBrowserOpen);
     }
 
     public boolean reopenBrowserOnFail() {
-        return this.propertiesFile.getPropValue(reopenBrowserOnFail);
+        return this.propertiesFile.getProperty(reopenBrowserOnFail);
     }
 
     public boolean clickViaJs() {
-        return this.propertiesFile.getPropValue(clickViaJs);
+        return this.propertiesFile.getProperty(clickViaJs);
     }
 
     public boolean screenshots() {
-        return this.propertiesFile.getPropValue(screenshots);
+        return this.propertiesFile.getProperty(screenshots);
     }
 
     public boolean savePageSource() {
-        return this.propertiesFile.getPropValue(savePageSource);
+        return this.propertiesFile.getProperty(savePageSource);
     }
 
     public String reportsFolder() {
-        return this.propertiesFile.getPropValue(reportsFolder);
+        return this.propertiesFile.getProperty(reportsFolder);
     }
 
     public String downloadsFolder() {
-        return this.propertiesFile.getPropValue(downloadsFolder);
+        return this.propertiesFile.getProperty(downloadsFolder);
     }
 
     public String reportsUrl() {
-        String value = this.propertiesFile.getPropValue(reportsUrl);
+        String value = this.propertiesFile.getProperty(reportsUrl);
         return new CiReportUrl().getReportsUrl(value);
     }
 
     public boolean fastSetValue() {
-        return this.propertiesFile.getPropValue(fastSetValue);
+        return this.propertiesFile.getProperty(fastSetValue);
     }
 
     public TextCheck textCheck() {
-        return this.propertiesFile.getPropValue(textCheck);
+        return this.propertiesFile.getProperty(textCheck);
     }
 
     public SelectorMode selectorMode() {
-        return this.propertiesFile.getPropValue(selectorMode);
+        return this.propertiesFile.getProperty(selectorMode);
     }
 
     public AssertionMode assertionMode() {
-        return this.propertiesFile.getPropValue(assertionMode);
+        return this.propertiesFile.getProperty(assertionMode);
     }
 
     public FileDownloadMode fileDownload() {
-        return this.propertiesFile.getPropValue(fileDownload);
+        return this.propertiesFile.getProperty(fileDownload);
     }
 
     public boolean proxyEnabled() {
-        return this.propertiesFile.getPropValue(proxyEnabled);
+        return this.propertiesFile.getProperty(proxyEnabled);
     }
 
     public String proxyHost() {
-        return this.propertiesFile.getPropValue(proxyHost);
+        return this.propertiesFile.getProperty(proxyHost);
     }
 
     public int proxyPort() {
-        return this.propertiesFile.getPropValue(proxyPort);
+        return this.propertiesFile.getProperty(proxyPort);
     }
 
     public long remoteReadTimeout() {
-        return this.propertiesFile.getPropValue(remoteReadTimeout);
+        return this.propertiesFile.getProperty(remoteReadTimeout);
     }
 
     public long remoteConnectionTimeout() {
-        return this.propertiesFile.getPropValue(remoteConnectionTimeout);
+        return this.propertiesFile.getProperty(remoteConnectionTimeout);
     }
 
     public String otherBrowsers() {
-        return this.propertiesFile.getPropValue(otherBrowsers);
+        return this.propertiesFile.getProperty(otherBrowsers);
     }
 
     //-------------------------------------------------------------------------------//
