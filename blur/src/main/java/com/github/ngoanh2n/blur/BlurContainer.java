@@ -9,7 +9,7 @@ import org.slf4j.LoggerFactory;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 /**
- * Replace for {@link WebDriverThreadLocalContainer}. Cloned from the latest Selenide: 6.12.4.
+ * Replace for {@link WebDriverThreadLocalContainer} (Cloned from Selenide 6.15.0).
  *
  * @author ngoanh2n
  */
