@@ -3,7 +3,6 @@ package com.github.ngoanh2n.blur;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.impl.WebDriverContainer;
 import com.github.ngoanh2n.RuntimeError;
-import com.github.ngoanh2n.blur.impl.BlurContainer;
 
 import static com.codeborne.selenide.WebDriverRunner.webdriverContainer;
 

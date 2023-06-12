@@ -1,9 +1,7 @@
-package com.github.ngoanh2n.blur.impl;
+package com.github.ngoanh2n.blur;
 
 import com.codeborne.selenide.impl.WebDriverThreadLocalContainer;
 import com.codeborne.selenide.logevents.SelenideLogger;
-import com.github.ngoanh2n.blur.BlurConfig;
-import com.github.ngoanh2n.blur.BlurDriver;
 import org.openqa.selenium.WebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

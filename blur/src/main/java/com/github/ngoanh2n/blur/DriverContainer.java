@@ -1,10 +1,8 @@
-package com.github.ngoanh2n.blur.impl;
+package com.github.ngoanh2n.blur;
 
 import com.codeborne.selenide.SelenideDriver;
 import com.codeborne.selenide.impl.WebDriverInstance;
 import com.github.ngoanh2n.RuntimeError;
-import com.github.ngoanh2n.blur.BlurConfig;
-import com.github.ngoanh2n.blur.BlurDriver;
 import lombok.Getter;
 import lombok.Setter;
 import org.apache.commons.lang3.ArrayUtils;

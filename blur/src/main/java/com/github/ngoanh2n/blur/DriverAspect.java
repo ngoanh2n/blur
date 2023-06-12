@@ -1,13 +1,10 @@
-package com.github.ngoanh2n.blur.impl;
+package com.github.ngoanh2n.blur;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.SelenideDriver;
 import com.codeborne.selenide.WebDriverRunner;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import com.github.ngoanh2n.Commons;
-import com.github.ngoanh2n.blur.Blur;
-import com.github.ngoanh2n.blur.BlurConfig;
-import com.github.ngoanh2n.blur.BlurDriver;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
