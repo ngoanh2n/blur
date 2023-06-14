@@ -3,6 +3,7 @@ package com.github.ngoanh2n.blur;
 import com.codeborne.selenide.Command;
 import com.codeborne.selenide.appium.commands.SelenideAppiumCommands;
 import com.codeborne.selenide.commands.Commands;
+import com.github.ngoanh2n.blur.appium.commands.DoubleTap;
 import com.github.ngoanh2n.blur.appium.commands.Tap;
 import com.github.ngoanh2n.wdc.WebDriverChecker;
 
@@ -48,16 +49,19 @@ public class BlurCommands extends SelenideAppiumCommands {
     private static HashMap<String, Command<?>> getNewAppiumCommands() {
         HashMap<String, Command<?>> commands = new HashMap<>();
         commands.put("tap", new Tap());
+        commands.put("doubleTap", new DoubleTap());
         return commands;
     }
 
     private static HashMap<String, Command<?>> getOverriddenSelenideCommands() {
         HashMap<String, Command<?>> commands = new HashMap<>();
+        commands.put("doubleClick", new DoubleTap());
         return commands;
     }
 
     private static HashMap<String, Command<?>> getSelenideCommands() {
         HashMap<String, Command<?>> commands = new HashMap<>();
+        commands.put("doubleClick", new com.codeborne.selenide.commands.DoubleClick());
         return commands;
     }
 }
