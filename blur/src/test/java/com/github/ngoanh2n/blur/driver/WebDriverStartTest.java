@@ -10,16 +10,16 @@ import org.junit.jupiter.api.Test;
 /**
  * @author ngoanh2n
  */
-public class DriverStartTest {
+public class WebDriverStartTest {
     @Test
-    void open() {
+    void openWebDriver() {
         Blur.open();
         BlurConfig config = Blur.getConfig();
         Assertions.assertNotNull(config);
     }
 
     @AfterEach
-    void closeWD() {
+    void closeWebDriver() {
         if (WebDriverRunner.hasWebDriverStarted()) {
             WebDriverRunner.closeWebDriver();
         }

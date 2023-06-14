@@ -12,9 +12,9 @@ import org.junit.jupiter.api.Test;
 /**
  * @author ngoanh2n
  */
-public class DriverSwitchTest {
+public class WebDriverSwitchTest {
     @BeforeAll
-    static void setup() {
+    static void setBrowsers() {
         System.setProperty("selenide.browser", "edge");
         System.setProperty("selenide.otherBrowsers", "chrome");
     }
@@ -35,7 +35,7 @@ public class DriverSwitchTest {
     }
 
     @AfterEach
-    void closeWD() {
+    void closeWebDriver() {
         if (WebDriverRunner.hasWebDriverStarted()) {
             WebDriverRunner.closeWebDriver();
         }
