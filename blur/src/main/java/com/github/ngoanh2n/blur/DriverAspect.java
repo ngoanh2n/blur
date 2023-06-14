@@ -12,9 +12,8 @@ import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 
-
 /**
- * Intercept Selenide for invoking some modification and addition.
+ * Intercept Selenide for invoking some modifications and additions.
  *
  * @author ngoanh2n
  */
