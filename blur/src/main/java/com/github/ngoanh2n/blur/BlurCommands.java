@@ -9,10 +9,17 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.HashMap;
 
 /**
+ * Load {@link Commands com.codeborne.selenide.commands}.<br>
+ * There are new nad overridden commands for Appium.
+ *
  * @author ngoanh2n
  */
 @ParametersAreNonnullByDefault
 public class BlurCommands extends SelenideAppiumCommands {
+    /**
+     * Default constructor.<br>
+     * Add new and overridden commands for Appium.
+     */
     public BlurCommands() {
         if (WebDriverChecker.isMobile() || WebDriverChecker.isPCNative()) {
             getNewAppiumCommands().forEach(this::add);
@@ -22,6 +29,9 @@ public class BlurCommands extends SelenideAppiumCommands {
 
     //-------------------------------------------------------------------------------//
 
+    /**
+     * Refresh the appropriate command list for each platform.
+     */
     public static void refresh() {
         Commands commands = Commands.getInstance();
         if (WebDriverChecker.isMobile() || WebDriverChecker.isPCNative()) {

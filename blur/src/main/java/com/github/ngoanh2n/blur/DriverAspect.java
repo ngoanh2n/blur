@@ -1,8 +1,10 @@
 package com.github.ngoanh2n.blur;
 
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideDriver;
 import com.codeborne.selenide.WebDriverRunner;
+import com.codeborne.selenide.impl.WebDriverContainer;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import com.github.ngoanh2n.Commons;
 import io.qameta.allure.selenide.AllureSelenide;
@@ -10,15 +12,19 @@ import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 
-import static com.codeborne.selenide.WebDriverRunner.webdriverContainer;
 
 /**
+ * Intercept Selenide for invoking some modification and addition.
+ *
  * @author ngoanh2n
  */
 @Aspect
 public class DriverAspect {
     private boolean facadeUpdated = false;
 
+    /**
+     * Intercept before running {@link Selenide#open() com.codeborne.selenide.Selenide.open(..)}.
+     */
     @Before("execution(* com.codeborne.selenide.Selenide.open(..))")
     public void beforeOpen() {
         if (!facadeUpdated) {
@@ -36,6 +42,9 @@ public class DriverAspect {
         }
     }
 
+    /**
+     * Intercept after running {@link Selenide#open() com.codeborne.selenide.Selenide.open(..)}.
+     */
     @After("execution(* com.codeborne.selenide.Selenide.open(..))")
     public void afterOpen() {
         if (!facadeUpdated) {
@@ -45,10 +54,13 @@ public class DriverAspect {
         BlurCommands.refresh();
     }
 
+    /**
+     * Intercept after running {@link WebDriverContainer#closeWebDriver() com.codeborne.selenide.impl.WebDriverContainer.closeWebDriver(..)}.
+     */
     @After("execution(* com.codeborne.selenide.impl.WebDriverContainer.closeWebDriver(..))")
     public void afterCloseWebDriver() {
         facadeUpdated = false;
-        BlurContainer container = (BlurContainer) webdriverContainer;
+        BlurContainer container = (BlurContainer) WebDriverRunner.webdriverContainer;
         container.resetDriverContainer();
     }
 }

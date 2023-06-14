@@ -16,6 +16,11 @@ import javax.annotation.Nullable;
 public class BlurDriver implements Driver {
     private final BlurConfig config;
 
+    /**
+     * Default constructor.
+     *
+     * @param config The implementation of {@link Config com.codeborne.selenide.Config}.
+     */
     public BlurDriver(BlurConfig config) {
         this.config = config;
     }
