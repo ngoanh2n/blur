@@ -42,6 +42,7 @@ public class DriverAspect {
             facadeUpdated = true;
             Blur.switchToWebDriver(0);
         }
+        BlurCommands.refresh();
     }
 
     @After("execution(* com.codeborne.selenide.impl.WebDriverContainer.closeWebDriver(..))")
