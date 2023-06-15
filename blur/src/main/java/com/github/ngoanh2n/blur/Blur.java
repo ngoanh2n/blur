@@ -2,13 +2,45 @@ package com.github.ngoanh2n.blur;
 
 import com.codeborne.selenide.*;
 import com.codeborne.selenide.impl.WebDriverContainer;
+import com.github.ngoanh2n.Resources;
 import com.github.ngoanh2n.RuntimeError;
+import com.github.ngoanh2n.YamlData;
+import com.github.ngoanh2n.csv.CsvComparator;
+import com.github.ngoanh2n.img.ImageComparator;
+import com.github.ngoanh2n.wdc.WebDriverChecker;
+import com.github.ngoanh2n.wds.WebDriverShooter;
 
 /**
- * The starting point of Blur skeleton. You should follow the steps:
+ * The starting point of Blur skeleton (<a href="https://github.com/ngoanh2n/blur">blur</a>).<br>
+ * <br>
+ *
+ * <b>WebDriver</b>
  * <ul>
- *     <li>1. Use {@link #open() Blur.open(..)} for opening the tested application page.</li>
- *     <li>2. Use {@link #$(String) Blur.$(..)} for searching web elements.</li>
+ *     <li>Prerequisites
+ *          <ul>
+ *              <li>1. Use {@link #open() Blur.open(..)} for opening the page or app.</li>
+ *              <li>2. Use {@link #$(String) Blur.$(..)} for searching elements.</li>
+ *          </ul>
+ *     </li>
+ *     <li>Utilities
+ *          <ul>
+ *              <li>{@link WebDriverShooter}: Take screenshot for page, frame, element (<a href="https://github.com/ngoanh2n/webdrivershooter">webdrivershooter</a>).</li>
+ *              <li>{@link WebDriverChecker}: Check  WebDriver characteristics and environment (<a href="https://github.com/ngoanh2n/webdriverchecker">webdriverchecker</a>).</li>
+ *          </ul>
+ *     </li>
+ * </ul>
+ *
+ * <b>Comparator</b>
+ * <ul>
+ *     <li>{@link CsvComparator}: Compare 2 CSV files (<a href="https://github.com/ngoanh2n/csv-comparator">csv-comparator</a>).</li>
+ *     <li>{@link ImageComparator}: Compare 2 image files (<a href="https://github.com/ngoanh2n/image-comparator">image-comparator</a>).</li>
+ * </ul>
+ * <p>
+ *
+ * <b>Commons</b> (<a href="https://github.com/ngoanh2n/commons">commons</a>)
+ * <ul>
+ *     <li>{@link Resources}: Get Java resource files by resource name.</li>
+ *     <li>{@link YamlData}: Read Yaml file to Java Bean, List of Java Bean, Map, List of Map.</li>
  * </ul>
  *
  * @author ngoanh2n
