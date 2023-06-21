@@ -11,6 +11,7 @@ import io.qameta.allure.selenide.AllureSelenide;
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.annotation.SuppressAjWarnings;
 
 /**
  * Intercept Selenide for invoking some modifications and additions.<br><br>
@@ -25,6 +26,7 @@ import org.aspectj.lang.annotation.Before;
  * @since 2020
  */
 @Aspect
+@SuppressAjWarnings
 public class DriverAspect {
     private boolean facadeUpdated = false;
 
