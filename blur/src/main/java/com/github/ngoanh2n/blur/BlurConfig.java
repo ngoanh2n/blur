@@ -22,7 +22,14 @@ import static com.codeborne.selenide.TextCheck.PARTIAL_TEXT;
  *     <li>{@code Default value of Property<?>}
  * </ul>
  *
+ * <em>Repository:</em>
+ * <ul>
+ *     <li><em>GitHub: <a href="https://github.com/ngoanh2n/blur">ngoanh2n/blur</a></em></li>
+ *     <li><em>Maven: <a href="https://mvnrepository.com/artifact/com.github.ngoanh2n/blur">com.github.ngoanh2n:blur</a></em></li>
+ * </ul>
+ *
  * @author ngoanh2n
+ * @since 2020
  */
 public class BlurConfig extends SelenideConfig {
     private final PropertiesFile propertiesFile = new PropertiesFile("blur.properties");

@@ -13,9 +13,16 @@ import java.util.HashMap;
 
 /**
  * Load {@link Commands com.codeborne.selenide.commands}.<br>
- * There are new nad overridden commands for Appium.
+ * There are new nad overridden commands for Appium.<br><br>
+ *
+ * <em>Repository:</em>
+ * <ul>
+ *     <li><em>GitHub: <a href="https://github.com/ngoanh2n/blur">ngoanh2n/blur</a></em></li>
+ *     <li><em>Maven: <a href="https://mvnrepository.com/artifact/com.github.ngoanh2n/blur">com.github.ngoanh2n:blur</a></em></li>
+ * </ul>
  *
  * @author ngoanh2n
+ * @since 2020
  */
 @ParametersAreNonnullByDefault
 public class BlurCommands extends SelenideAppiumCommands {

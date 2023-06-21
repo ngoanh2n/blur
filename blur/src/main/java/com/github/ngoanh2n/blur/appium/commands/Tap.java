@@ -11,11 +11,18 @@ import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 /**
- * Tap on the element for Appium.
+ * Tap on the element for Appium.<br><br>
+ *
+ * <em>Repository:</em>
+ * <ul>
+ *     <li><em>GitHub: <a href="https://github.com/ngoanh2n/blur">ngoanh2n/blur</a></em></li>
+ *     <li><em>Maven: <a href="https://mvnrepository.com/artifact/com.github.ngoanh2n/blur">com.github.ngoanh2n:blur</a></em></li>
+ * </ul>
  *
  * @author ngoanh2n
  * @see Click
  * @see AppiumClick
+ * @since 2020
  */
 @ParametersAreNonnullByDefault
 public class Tap implements Command<Void> {

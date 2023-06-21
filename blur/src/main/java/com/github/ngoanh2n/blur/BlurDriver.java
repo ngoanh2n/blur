@@ -9,9 +9,16 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 /**
- * Replace for com.codeborne.selenide.impl.StaticDriver (Cloned from Selenide 6.15.0).
+ * Replace for {@code com.codeborne.selenide.impl.StaticDriver} (Cloned from Selenide 6.15.0).<br><br>
+ *
+ * <em>Repository:</em>
+ * <ul>
+ *     <li><em>GitHub: <a href="https://github.com/ngoanh2n/blur">ngoanh2n/blur</a></em></li>
+ *     <li><em>Maven: <a href="https://mvnrepository.com/artifact/com.github.ngoanh2n/blur">com.github.ngoanh2n:blur</a></em></li>
+ * </ul>
  *
  * @author ngoanh2n
+ * @since 2020
  */
 public class BlurDriver implements Driver {
     private final BlurConfig config;

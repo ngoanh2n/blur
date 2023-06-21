@@ -10,12 +10,19 @@ import org.openqa.selenium.interactions.PointerInput;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 /**
- * Represent a Appium element.
+ * Represent a Appium element.<br><br>
+ *
+ * <em>Repository:</em>
+ * <ul>
+ *     <li><em>GitHub: <a href="https://github.com/ngoanh2n/blur">ngoanh2n/blur</a></em></li>
+ *     <li><em>Maven: <a href="https://mvnrepository.com/artifact/com.github.ngoanh2n/blur">com.github.ngoanh2n:blur</a></em></li>
+ * </ul>
  *
  * @author ngoanh2n
  * @see WebElement
  * @see SelenideElement
  * @see SelenideAppiumElement
+ * @since 2020
  */
 @ParametersAreNonnullByDefault
 public interface BlurAppiumElement extends SelenideAppiumElement {
