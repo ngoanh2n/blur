@@ -5,7 +5,7 @@
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.github.ngoanh2n/blur/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.github.ngoanh2n/blur)
 [![javadoc](https://javadoc.io/badge2/com.github.ngoanh2n/blur/javadoc.svg)](https://javadoc.io/doc/com.github.ngoanh2n/blur)
 [![GitHub release](https://img.shields.io/github/release/ngoanh2n/blur.svg)](https://github.com/ngoanh2n/blur/releases/)
-[![badge-jdk](https://img.shields.io/badge/jdk-11-blue.svg)](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
+[![badge-jdk](https://img.shields.io/badge/jdk-8-blue.svg)](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blueviolet.svg)](https://opensource.org/licenses/MIT)
 
 **Table of Contents**
@@ -17,10 +17,15 @@
   * [Gradle](#gradle)
   * [Maven](#maven)
 * [Usage](#usage)
+  * [WebDriver](#webdriver)
+  * [Comparator](#comparator)
+  * [Commons](#commons)
 <!-- TOC -->
 
 # Blur
 ## Lib
+The main libs are used for `blur`.
+
 | Name       | Version  | Repository                                                                         |
 |:-----------|:---------|:-----------------------------------------------------------------------------------|
 | `Selenium` | `4.10.0` | [SeleniumHQ/selenium/java](https://github.com/SeleniumHQ/selenium/tree/trunk/java) |
@@ -58,3 +63,148 @@ Add to `pom.xml`.
 ```
 
 # Usage
+## WebDriver
+You have to use `Blur.open(..)` for opening the page or app first.
+
+- `com.codeborne.selenide.Selectors`<br>
+  Define a locator by a locating strategy.
+  ```java
+  By by = Selectors.byXpath(..);
+  By by = Selectors.withText(..);
+  ...
+  ```
+
+- `com.github.ngoanh2n.blur.Blur.$(..)`<br>
+Find element/elements by a locator.
+  ```java
+  SelenideElement element = Blur.$(..);
+  ElementsCollection elements = Blur.$$(..);
+  ...
+  ```
+
+- `com.codeborne.selenide.Condition`<br>
+  Define a condition to check element.
+  ```java
+  Condition condition = Condition.enabled;
+  Condition condition = Condition.exactText(..);
+  ...
+  ```
+
+- `com.codeborne.selenide.SelenideElement`<br>
+  Interact with element.
+  ```java
+  SelenideElement element = element.dragAndDrop(..);
+  SelenideElement element = element.shouldBe(condition);
+  ...
+  ```
+
+- `com.codeborne.selenide.CollectionCondition`<br>
+  Define a collection condition to check elements.
+  ```java
+  CollectionCondition condition = CollectionCondition.size(..);
+  CollectionCondition condition = CollectionCondition.texts(..);
+  ...
+  ```
+
+- `com.codeborne.selenide.ElementsCollection`<br>
+  Interact with list of elements.
+  ```java
+  ElementsCollection elements = elements.filter(condition);
+  ElementsCollection elements = elements.shouldBe(condition);
+  ...
+  ```
+
+- `com.github.ngoanh2n.wdc.WebDriverChecker`<br>
+  Check WebDriver characteristics and environment.
+  ```java
+  boolean result = WebDriverChecker.isIOS(..);
+  boolean result = WebDriverChecker.isSafari(..);
+  ...
+  ```
+
+- `com.github.ngoanh2n.wds.WebDriverShooter`<br>
+  Take screenshot with WebDriver and comparison.
+  ```java
+  Screenshot screenshot = WebDriverShooter.page(..);
+  Screenshot screenshot = WebDriverShooter.frame(..);
+  Screenshot screenshot = WebDriverShooter.element(..);
+  ```
+
+## Comparator
+- `com.github.ngoanh2n.csv.CsvComparator`<br>
+  Compare 2 CSV files.
+  ```java
+  CsvComparisonResult result = CsvComparator.compare(expectedCSV, actualCSV);
+  CsvComparisonResult result = CsvComparator.compare(expectedCSV, actualCSV, options);
+  ```
+
+- `com.github.ngoanh2n.img.ImageComparator`<br>
+  Compare 2 image files.
+  ```java
+  ImageComparisonResult result = ImageComparator.compare(expectedImage, actualImage);
+  ImageComparisonResult result = ImageComparator.compare(expectedImage, actualImage, options);
+  ```
+
+## Commons
+- `com.github.ngoanh2n.Resources`<br>
+  Find and read Java resources.
+  ```java
+  File file = Resources.getFile("file.json");
+  String content = Resources.getContent("file.yml");
+  InputStream is = Resources.getInputStream("file.png");
+  ```
+
+- `com.github.ngoanh2n.YamlData`<br>
+  Read Yaml file to `Map`, `List of Maps`, `Model`, `List of Models`.
+  ```java
+  public class User extends YamlData {}
+  ---
+  User user = new User().fromResource("user.yml").toModel();
+  List<User> users = new User().fromResource("users.yml").toModels();
+  ...
+  ```
+
+- `com.github.ngoanh2n.Property`<br>
+  Represent a JVM system property.
+  ```java
+  Property property = Property.ofString(..);
+  Property property = Property.ofBoolean(..);
+  ...
+  ```
+
+- `com.github.ngoanh2n.PropertiesFile`<br>
+  Read properties file.
+  ```java
+  PropertiesFile propertiesFile = new PropertiesFile("file.properties");
+  String value = propertiesFile.getProperty("keyName");
+  ```
+
+- `com.github.ngoanh2n.AllureEnvironment`<br>
+  Write `environment.properties` to Allure results directory.
+  ```java
+  AllureEnvironment.write(properties);
+  AllureEnvironment.write("file1.properties", "file2.properties");
+  ```
+
+- `com.github.ngoanh2n.EnabledIfProperty`<br>
+  Signal that the annotated test class or test method is enabled.
+  ```java
+  public class MyTest {
+      @Test
+      @EnabledIfProperty(name = "browser", value = "safari")
+      public void test () {}
+  }
+  ```
+
+- `com.github.ngoanh2n.SetProperty`<br>
+  Set JVM system property for the annotated test class or test method.
+  ```java
+  @SetProperty(name = "browser", value = "safari")
+  public class MyTest {}
+  ---
+  public class MyTest {
+      @Test
+      @SetProperty(name = "browser", value = "safari")
+      public void test () {}
+  }
+  ```
