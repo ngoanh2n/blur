@@ -14,5 +14,5 @@ ext {
     versionAspectJ                  =   "1.9.5"
     versionAllure                   =   "2.22.2"
     versionLombok                   =   "1.18.28"
-    versionJunitJupiter             =   "5.9.1"
+    versionJunitJupiter             =   "5.9.3"
 }
