@@ -3,7 +3,7 @@
  */
 ext {
     versionCommons                  =   "1.2.0"
-    versionCsvComparator            =   "1.5.2"
+    versionCsvComparator            =   "1.6.0"
     versionImageComparator          =   "1.0.1"
     versionWebDriverChecker         =   "2.6.0"
     versionWebDriverShooter         =   "1.0.1"
