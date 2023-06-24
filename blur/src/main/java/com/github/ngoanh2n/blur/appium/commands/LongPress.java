@@ -26,6 +26,11 @@ import javax.annotation.ParametersAreNonnullByDefault;
  */
 @ParametersAreNonnullByDefault
 public class LongPress implements Command<Void> {
+    /**
+     * Default constructor.
+     */
+    public LongPress() { /**/ }
+
     @Nullable
     @Override
     public Void execute(SelenideElement proxy, WebElementSource locator, @Nullable Object[] args) {

@@ -31,6 +31,11 @@ public class DriverAspect {
     private boolean facadeUpdated = false;
 
     /**
+     * Default constructor.
+     */
+    public DriverAspect() { /**/ }
+
+    /**
      * Intercept before running {@link Selenide#open() com.codeborne.selenide.Selenide.open(..)}.
      */
     @Before("execution(* com.codeborne.selenide.Selenide.open(..))")

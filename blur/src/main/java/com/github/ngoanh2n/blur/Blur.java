@@ -179,6 +179,11 @@ import org.openqa.selenium.By;
  */
 public final class Blur extends Selenide {
     /**
+     * Default constructor.
+     */
+    private Blur() { /**/ }
+
+    /**
      * Get the current {@link Config}.
      *
      * @return The implementation of {@link Config com.codeborne.selenide.Config}.

@@ -21,4 +21,8 @@ import com.codeborne.selenide.appium.*;
  * @since 2020
  */
 public final class BlurAppium {
+    /**
+     * Default constructor.
+     */
+    private BlurAppium() { /**/ }
 }

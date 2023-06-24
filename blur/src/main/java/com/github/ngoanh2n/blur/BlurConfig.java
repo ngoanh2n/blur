@@ -69,50 +69,55 @@ public class BlurConfig extends SelenideConfig {
     private final Property<String> otherBrowsers = new Property<>("selenide.otherBrowsers", String.class, null);
     private MutableCapabilities browserCapabilities = new MutableCapabilities();
 
+    /**
+     * Default constructor.
+     */
+    public BlurConfig() { /**/ }
+
     //-------------------------------------------------------------------------------//
 
     public String browser() {
-        return this.propertiesFile.getProperty(browser);
+        return propertiesFile.getProperty(browser);
     }
 
     public boolean headless() {
-        return this.propertiesFile.getProperty(headless);
+        return propertiesFile.getProperty(headless);
     }
 
     public String remote() {
-        return this.propertiesFile.getProperty(remote);
+        return propertiesFile.getProperty(remote);
     }
 
     public String browserSize() {
-        return this.propertiesFile.getProperty(browserSize);
+        return propertiesFile.getProperty(browserSize);
     }
 
     public String browserVersion() {
-        return this.propertiesFile.getProperty(browserVersion);
+        return propertiesFile.getProperty(browserVersion);
     }
 
     public String browserPosition() {
-        return this.propertiesFile.getProperty(browserPosition);
+        return propertiesFile.getProperty(browserPosition);
     }
 
     public boolean driverManagerEnabled() {
-        return this.propertiesFile.getProperty(driverManagerEnabled);
+        return propertiesFile.getProperty(driverManagerEnabled);
     }
 
     public boolean webdriverLogsEnabled() {
-        return this.propertiesFile.getProperty(webdriverLogsEnabled);
+        return propertiesFile.getProperty(webdriverLogsEnabled);
     }
 
     public String browserBinary() {
-        return this.propertiesFile.getProperty(browserBinary);
+        return propertiesFile.getProperty(browserBinary);
     }
 
     public String pageLoadStrategy() {
-        return this.propertiesFile.getProperty(pageLoadStrategy);
+        return propertiesFile.getProperty(pageLoadStrategy);
     }
 
     public long pageLoadTimeout() {
-        return this.propertiesFile.getProperty(pageLoadTimeout);
+        return propertiesFile.getProperty(pageLoadTimeout);
     }
 
     public MutableCapabilities browserCapabilities() {
@@ -120,92 +125,97 @@ public class BlurConfig extends SelenideConfig {
     }
 
     public String baseUrl() {
-        return this.propertiesFile.getProperty(baseUrl);
+        return propertiesFile.getProperty(baseUrl);
     }
 
     public long timeout() {
-        return this.propertiesFile.getProperty(timeout);
+        return propertiesFile.getProperty(timeout);
     }
 
     public long pollingInterval() {
-        return this.propertiesFile.getProperty(pollingInterval);
+        return propertiesFile.getProperty(pollingInterval);
     }
 
     public boolean holdBrowserOpen() {
-        return this.propertiesFile.getProperty(holdBrowserOpen);
+        return propertiesFile.getProperty(holdBrowserOpen);
     }
 
     public boolean reopenBrowserOnFail() {
-        return this.propertiesFile.getProperty(reopenBrowserOnFail);
+        return propertiesFile.getProperty(reopenBrowserOnFail);
     }
 
     public boolean clickViaJs() {
-        return this.propertiesFile.getProperty(clickViaJs);
+        return propertiesFile.getProperty(clickViaJs);
     }
 
     public boolean screenshots() {
-        return this.propertiesFile.getProperty(screenshots);
+        return propertiesFile.getProperty(screenshots);
     }
 
     public boolean savePageSource() {
-        return this.propertiesFile.getProperty(savePageSource);
+        return propertiesFile.getProperty(savePageSource);
     }
 
     public String reportsFolder() {
-        return this.propertiesFile.getProperty(reportsFolder);
+        return propertiesFile.getProperty(reportsFolder);
     }
 
     public String downloadsFolder() {
-        return this.propertiesFile.getProperty(downloadsFolder);
+        return propertiesFile.getProperty(downloadsFolder);
     }
 
     public String reportsUrl() {
-        String value = this.propertiesFile.getProperty(reportsUrl);
+        String value = propertiesFile.getProperty(reportsUrl);
         return new CiReportUrl().getReportsUrl(value);
     }
 
     public boolean fastSetValue() {
-        return this.propertiesFile.getProperty(fastSetValue);
+        return propertiesFile.getProperty(fastSetValue);
     }
 
     public TextCheck textCheck() {
-        return this.propertiesFile.getProperty(textCheck);
+        return propertiesFile.getProperty(textCheck);
     }
 
     public SelectorMode selectorMode() {
-        return this.propertiesFile.getProperty(selectorMode);
+        return propertiesFile.getProperty(selectorMode);
     }
 
     public AssertionMode assertionMode() {
-        return this.propertiesFile.getProperty(assertionMode);
+        return propertiesFile.getProperty(assertionMode);
     }
 
     public FileDownloadMode fileDownload() {
-        return this.propertiesFile.getProperty(fileDownload);
+        return propertiesFile.getProperty(fileDownload);
     }
 
     public boolean proxyEnabled() {
-        return this.propertiesFile.getProperty(proxyEnabled);
+        return propertiesFile.getProperty(proxyEnabled);
     }
 
     public String proxyHost() {
-        return this.propertiesFile.getProperty(proxyHost);
+        return propertiesFile.getProperty(proxyHost);
     }
 
     public int proxyPort() {
-        return this.propertiesFile.getProperty(proxyPort);
+        return propertiesFile.getProperty(proxyPort);
     }
 
     public long remoteReadTimeout() {
-        return this.propertiesFile.getProperty(remoteReadTimeout);
+        return propertiesFile.getProperty(remoteReadTimeout);
     }
 
     public long remoteConnectionTimeout() {
-        return this.propertiesFile.getProperty(remoteConnectionTimeout);
+        return propertiesFile.getProperty(remoteConnectionTimeout);
     }
 
+    /**
+     * Get other browsers.
+     *
+     * @return Other browsers.
+     */
     public String otherBrowsers() {
-        return this.propertiesFile.getProperty(otherBrowsers);
+        return propertiesFile.getProperty(otherBrowsers);
     }
 
     //-------------------------------------------------------------------------------//
@@ -375,6 +385,12 @@ public class BlurConfig extends SelenideConfig {
         return this;
     }
 
+    /**
+     * Set other browsers to this config.
+     *
+     * @param otherBrowsers Browsers to set.
+     * @return The current {@link BlurConfig}.
+     */
     public BlurConfig otherBrowsers(String otherBrowsers) {
         this.otherBrowsers.setValue(otherBrowsers);
         return this;
