@@ -19,6 +19,18 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import java.time.Duration;
 import java.util.Collections;
 
+/**
+ * Swipe from point to other point for Appium.<br><br>
+ *
+ * <em>Repository:</em>
+ * <ul>
+ *     <li><em>GitHub: <a href="https://github.com/ngoanh2n/blur">ngoanh2n/blur</a></em></li>
+ *     <li><em>Maven: <a href="https://mvnrepository.com/artifact/com.github.ngoanh2n/blur">com.github.ngoanh2n:blur</a></em></li>
+ * </ul>
+ *
+ * @author ngoanh2n
+ * @since 2020
+ */
 @ParametersAreNonnullByDefault
 public class Swipe implements Command<SelenideElement> {
     /**
