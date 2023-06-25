@@ -5,7 +5,7 @@ import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.appium.AppiumDriverRunner;
 import com.codeborne.selenide.commands.Util;
 import com.codeborne.selenide.impl.WebElementSource;
-import com.github.ngoanh2n.blur.appium.GestureExecution;
+import com.github.ngoanh2n.blur.appium.Gesture;
 import com.github.ngoanh2n.blur.appium.SwipeOptions;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.Point;
@@ -72,7 +72,7 @@ public class Swipe implements Command<SelenideElement> {
     }
 
     protected SelenideElement performToCoordinates(WebElement element, SwipeOptions.Coordinates options) {
-        Point source = GestureExecution.getElementCenter(element);
+        Point source = Gesture.getElementCenter(element);
         Point destination = options.getPoint();
         perform(source, destination);
         return (SelenideElement) element;
@@ -80,15 +80,15 @@ public class Swipe implements Command<SelenideElement> {
 
     protected Point setSourcePointByRatio(WebElement element, SwipeOptions.Direction options) {
         double ratio = options.getSourceRatio();
-        Point source = GestureExecution.getElementCenter(element);
+        Point source = Gesture.getElementCenter(element);
 
         switch (options.getDirection()) {
             case LEFT:
             case RIGHT:
-                source.x = GestureExecution.getElementX(element, ratio);
+                source.x = Gesture.getElementX(element, ratio);
             case UP:
             case DOWN:
-                source.y = GestureExecution.getElementY(element, ratio);
+                source.y = Gesture.getElementY(element, ratio);
         }
         return source;
     }

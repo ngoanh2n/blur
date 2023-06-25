@@ -54,7 +54,7 @@ public abstract class SwipeOptions {
     @Nonnull
     @CheckReturnValue
     public static Coordinates to(WebElement element) {
-        return to(GestureExecution.getElementCenter(element));
+        return to(Gesture.getElementCenter(element));
     }
 
     @Nonnull

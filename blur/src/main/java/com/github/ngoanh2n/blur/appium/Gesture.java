@@ -28,8 +28,8 @@ import java.util.Map;
  * @since 2020
  */
 @ParametersAreNonnullByDefault
-public abstract class GestureExecution {
-    public static Object execute(GestureExecution gesture) {
+public abstract class Gesture {
+    public static Object execute(Gesture gesture) {
         return execute(gesture.method(), gesture.args());
     }
 
