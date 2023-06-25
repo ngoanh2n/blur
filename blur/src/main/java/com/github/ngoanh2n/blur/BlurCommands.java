@@ -5,6 +5,7 @@ import com.codeborne.selenide.appium.commands.SelenideAppiumCommands;
 import com.codeborne.selenide.commands.Commands;
 import com.github.ngoanh2n.blur.appium.commands.DoubleTap;
 import com.github.ngoanh2n.blur.appium.commands.LongPress;
+import com.github.ngoanh2n.blur.appium.commands.Swipe;
 import com.github.ngoanh2n.blur.appium.commands.Tap;
 import com.github.ngoanh2n.wdc.WebDriverChecker;
 
@@ -59,6 +60,7 @@ public class BlurCommands extends SelenideAppiumCommands {
         commands.put("tap", new Tap());
         commands.put("doubleTap", new DoubleTap());
         commands.put("longPress", new LongPress());
+        commands.put("swipe", new Swipe());
         return commands;
     }
 

@@ -7,6 +7,7 @@ import com.google.errorprone.annotations.CanIgnoreReturnValue;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.PointerInput;
 
+import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 /**
@@ -34,6 +35,7 @@ public interface BlurAppiumElement extends SelenideAppiumElement {
      * @return The current element.
      * @see com.github.ngoanh2n.blur.appium.commands.Tap
      */
+    @Nonnull
     @CanIgnoreReturnValue
     BlurAppiumElement tap();
 
@@ -46,6 +48,7 @@ public interface BlurAppiumElement extends SelenideAppiumElement {
      * @return The current element.
      * @see com.github.ngoanh2n.blur.appium.commands.DoubleTap
      */
+    @Nonnull
     @CanIgnoreReturnValue
     BlurAppiumElement doubleTap();
 
@@ -57,6 +60,11 @@ public interface BlurAppiumElement extends SelenideAppiumElement {
      * @return The current element.
      * @see com.github.ngoanh2n.blur.appium.commands.LongPress
      */
+    @Nonnull
     @CanIgnoreReturnValue
     BlurAppiumElement longPress();
+
+    @Nonnull
+    @CanIgnoreReturnValue
+    BlurAppiumElement swipe(SwipeOptions options);
 }
