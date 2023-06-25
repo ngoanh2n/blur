@@ -7,6 +7,36 @@ import javax.annotation.CheckReturnValue;
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 
+/**
+ * The options for swiping.
+ * <ul>
+ *     <li>{@link SwipeOptions#to(Point) SwipeOptions.to(..)}:<br>
+ *          Swipe to a specified target:
+ *          <ul>
+ *              <li>{@link SwipeOptions#to(int, int) SwipeOptions.to(x, y)}</li>
+ *              <li>{@link SwipeOptions#to(Point) SwipeOptions.to(point)}</li>
+ *              <li>{@link SwipeOptions#to(WebElement) SwipeOptions.to(element)}</li>
+ *          </ul>
+ *     </li>
+ *     <li>{@link SwipeOptions#to(SwipeDirection) SwipeOptions.to(direction)}:<br>
+ *          Swipe to a specified direction.
+ *          <ul>
+ *              <li>{@link SwipeOptions#to(SwipeDirection) SwipeOptions.to(SwipeDirection.LEFT)}</li>
+ *              <li>{@link SwipeOptions#to(SwipeDirection) SwipeOptions.to(SwipeDirection.UP)}</li>
+ *              <li>{@link SwipeOptions#to(SwipeDirection) SwipeOptions.to(SwipeDirection.RIGHT)}</li>
+ *              <li>{@link SwipeOptions#to(SwipeDirection) SwipeOptions.to(SwipeDirection.DOWN)}</li>
+ *          </ul>
+ *     </li>
+ * </ul>
+ * <em>Repository:</em>
+ * <ul>
+ *     <li><em>GitHub: <a href="https://github.com/ngoanh2n/blur">ngoanh2n/blur</a></em></li>
+ *     <li><em>Maven: <a href="https://mvnrepository.com/artifact/com.github.ngoanh2n/blur">com.github.ngoanh2n:blur</a></em></li>
+ * </ul>
+ *
+ * @author ngoanh2n
+ * @since 2020
+ */
 @ParametersAreNonnullByDefault
 public abstract class SwipeOptions {
     @Nonnull
