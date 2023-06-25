@@ -10,6 +10,23 @@ import org.openqa.selenium.remote.RemoteWebElement;
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.Map;
 
+/**
+ * Modeling a gesture and utils to deal with element for Appium.<br><br>
+ *
+ * <b>Method</b>
+ * <ul>
+ *     <li>iOS: <a href="https://github.com/appium/appium-xcuitest-driver/blob/master/docs/execute-methods.md">execute-methods</a></li>
+ *     <li>Android: <a href="https://github.com/appium/appium-uiautomator2-driver/blob/master/docs/android-mobile-gestures.md">mobile-gestures</a></li>
+ * </ul>
+ * <em>Repository:</em>
+ * <ul>
+ *     <li><em>GitHub: <a href="https://github.com/ngoanh2n/blur">ngoanh2n/blur</a></em></li>
+ *     <li><em>Maven: <a href="https://mvnrepository.com/artifact/com.github.ngoanh2n/blur">com.github.ngoanh2n:blur</a></em></li>
+ * </ul>
+ *
+ * @author ngoanh2n
+ * @since 2020
+ */
 @ParametersAreNonnullByDefault
 public abstract class GestureExecution {
     public static Object execute(GestureExecution gesture) {
