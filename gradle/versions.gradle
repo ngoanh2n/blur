@@ -11,7 +11,7 @@ ext {
     versionAppium                   =   "8.5.1"
     versionSelenide                 =   "6.15.0"
     versionSlf4j                    =   "2.0.7"
-    versionAspectJ                  =   "1.9.5"
+    versionAspectJ                  =   "1.9.19"
     versionAllure                   =   "2.22.2"
     versionLombok                   =   "1.18.28"
     versionJunitJupiter             =   "5.9.3"
