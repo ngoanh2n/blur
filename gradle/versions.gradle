@@ -5,7 +5,7 @@ ext {
     versionCommons                  =   "1.2.0"
     versionCsvComparator            =   "1.6.0"
     versionImageComparator          =   "1.1.0"
-    versionWebDriverChecker         =   "2.6.0"
+    versionWebDriverChecker         =   "2.7.0"
     versionWebDriverShooter         =   "1.0.1"
     versionSelenium                 =   "4.10.0"
     versionAppium                   =   "8.5.1"
