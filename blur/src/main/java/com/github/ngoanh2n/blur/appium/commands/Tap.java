@@ -25,7 +25,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
  * @since 2020
  */
 @ParametersAreNonnullByDefault
-public class Tap implements Command<Void> {
+public class Tap implements Command<SelenideElement> {
     /**
      * Default constructor.
      */
@@ -33,10 +33,10 @@ public class Tap implements Command<Void> {
 
     @Nullable
     @Override
-    public Void execute(SelenideElement proxy, WebElementSource locator, @Nullable Object[] args) {
+    public SelenideElement execute(SelenideElement proxy, WebElementSource locator, @Nullable Object[] args) {
         AppiumClick click = new AppiumClick();
         AppiumClickOptions options = AppiumClickOptions.tap();
         click.execute(proxy, locator, new Object[]{options});
-        return null;
+        return proxy;
     }
 }
