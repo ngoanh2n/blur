@@ -5,7 +5,7 @@ import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.appium.AppiumDriverRunner;
 import com.codeborne.selenide.commands.Util;
 import com.codeborne.selenide.impl.WebElementSource;
-import com.github.ngoanh2n.blur.appium.Gesture;
+import com.github.ngoanh2n.blur.appium.AppiumCommand;
 import com.github.ngoanh2n.blur.appium.SwipeOptions;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.Point;
@@ -20,7 +20,7 @@ import java.time.Duration;
 import java.util.Collections;
 
 /**
- * Swipe from point to other point for Appium.<br><br>
+ * Swipe the element to a specified target or direction for Appium.<br><br>
  *
  * <em>Repository:</em>
  * <ul>
@@ -40,14 +40,23 @@ public class Swipe implements Command<SelenideElement> {
 
     //-------------------------------------------------------------------------------//
 
+    /**
+     * Swipe from point to other point.
+     *
+     * @param source      The point to swipe.
+     * @param destination The point to swipe to.
+     */
     public static void perform(Point source, Point destination) {
         PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
+        PointerInput.Origin origin = PointerInput.Origin.viewport();
+        PointerInput.MouseButton mouseButton = PointerInput.MouseButton.MIDDLE;
+
         Sequence sequence = new Sequence(finger, 1)
-                .addAction(finger.createPointerMove(Duration.ofMillis(0), PointerInput.Origin.viewport(), source.getX(), source.getY()))
-                .addAction(finger.createPointerDown(PointerInput.MouseButton.MIDDLE.asArg()))
+                .addAction(finger.createPointerMove(Duration.ofMillis(0), origin, source.getX(), source.getY()))
+                .addAction(finger.createPointerDown(mouseButton.asArg()))
                 .addAction(new Pause(finger, Duration.ofMillis(100)))
-                .addAction(finger.createPointerMove(Duration.ofMillis(600), PointerInput.Origin.viewport(), destination.getX(), destination.getY()))
-                .addAction(finger.createPointerUp(PointerInput.MouseButton.MIDDLE.asArg()));
+                .addAction(finger.createPointerMove(Duration.ofMillis(600), origin, destination.getX(), destination.getY()))
+                .addAction(finger.createPointerUp(mouseButton.asArg()));
         AppiumDriverRunner.getMobileDriver().perform(Collections.singletonList(sequence));
     }
 
@@ -64,36 +73,36 @@ public class Swipe implements Command<SelenideElement> {
         }
     }
 
-    protected SelenideElement performToDirection(WebElement element, SwipeOptions.Direction options) {
+    private SelenideElement performToDirection(WebElement element, SwipeOptions.Direction options) {
         Point source = setSourcePointByRatio(element, options);
         Point destination = setDestinationPointByRatio(source, options);
         perform(source, destination);
         return (SelenideElement) element;
     }
 
-    protected SelenideElement performToCoordinates(WebElement element, SwipeOptions.Coordinates options) {
-        Point source = Gesture.getElementCenter(element);
+    private SelenideElement performToCoordinates(WebElement element, SwipeOptions.Coordinates options) {
+        Point source = AppiumCommand.getElementCenter(element);
         Point destination = options.getPoint();
         perform(source, destination);
         return (SelenideElement) element;
     }
 
-    protected Point setSourcePointByRatio(WebElement element, SwipeOptions.Direction options) {
+    private Point setSourcePointByRatio(WebElement element, SwipeOptions.Direction options) {
         double ratio = options.getSourceRatio();
-        Point source = Gesture.getElementCenter(element);
+        Point source = AppiumCommand.getElementCenter(element);
 
         switch (options.getDirection()) {
             case LEFT:
             case RIGHT:
-                source.x = Gesture.getElementX(element, ratio);
+                source.x = AppiumCommand.getElementX(element, ratio);
             case UP:
             case DOWN:
-                source.y = Gesture.getElementY(element, ratio);
+                source.y = AppiumCommand.getElementY(element, ratio);
         }
         return source;
     }
 
-    protected Point setDestinationPointByRatio(Point source, SwipeOptions.Direction options) {
+    private Point setDestinationPointByRatio(Point source, SwipeOptions.Direction options) {
         int left;
         double ratio = options.getDestinationRatio();
         Point destination = new Point(source.getX(), source.getY());
@@ -115,7 +124,7 @@ public class Swipe implements Command<SelenideElement> {
         return destination;
     }
 
-    protected Dimension getScreenSize() {
+    private Dimension getScreenSize() {
         return AppiumDriverRunner.getMobileDriver().manage().window().getSize();
     }
 }
