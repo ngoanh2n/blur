@@ -10,21 +10,19 @@ import javax.annotation.ParametersAreNonnullByDefault;
 /**
  * The options for swiping.
  * <ul>
- *     <li>{@link SwipeOptions#to(Point) SwipeOptions.to(..)}:<br>
- *          Swipe to a specified target:
+ *     <li>Swipe to a specified target:
  *          <ul>
  *              <li>{@link SwipeOptions#to(int, int) SwipeOptions.to(x, y)}</li>
  *              <li>{@link SwipeOptions#to(Point) SwipeOptions.to(point)}</li>
  *              <li>{@link SwipeOptions#to(WebElement) SwipeOptions.to(element)}</li>
  *          </ul>
  *     </li>
- *     <li>{@link SwipeOptions#to(SwipeDirection) SwipeOptions.to(direction)}:<br>
- *          Swipe to a specified direction.
+ *     <li>Swipe to a specified direction:
  *          <ul>
- *              <li>{@link SwipeOptions#to(SwipeDirection) SwipeOptions.to(SwipeDirection.LEFT)}</li>
  *              <li>{@link SwipeOptions#to(SwipeDirection) SwipeOptions.to(SwipeDirection.UP)}</li>
- *              <li>{@link SwipeOptions#to(SwipeDirection) SwipeOptions.to(SwipeDirection.RIGHT)}</li>
  *              <li>{@link SwipeOptions#to(SwipeDirection) SwipeOptions.to(SwipeDirection.DOWN)}</li>
+ *              <li>{@link SwipeOptions#to(SwipeDirection) SwipeOptions.to(SwipeDirection.LEFT)}</li>
+ *              <li>{@link SwipeOptions#to(SwipeDirection) SwipeOptions.to(SwipeDirection.RIGHT)}</li>
  *          </ul>
  *     </li>
  * </ul>
@@ -39,24 +37,50 @@ import javax.annotation.ParametersAreNonnullByDefault;
  */
 @ParametersAreNonnullByDefault
 public abstract class SwipeOptions {
+    /**
+     * Specify a target point for swiping to.
+     *
+     * @param point The point to swipe to.
+     * @return The current options.
+     */
     @Nonnull
     @CheckReturnValue
     public static Coordinates to(Point point) {
         return new Coordinates(point);
     }
 
+    /**
+     * Specify a target coordinates for swiping to.
+     *
+     * @param x The X coordinate to swipe to.
+     * @param y The Y coordinate to swipe to.
+     * @return The current options.
+     */
     @Nonnull
     @CheckReturnValue
     public static Coordinates to(int x, int y) {
         return to(new Point(x, y));
     }
 
+    /**
+     * Specify a target element for swiping to.
+     *
+     * @param element The element to swipe to.
+     * @return The current options.
+     */
     @Nonnull
     @CheckReturnValue
     public static Coordinates to(WebElement element) {
-        return to(Gesture.getElementCenter(element));
+        return to(AppiumCommand.getElementCenter(element));
     }
 
+    /**
+     * Specify a direction for swiping to.
+     *
+     * @param direction The direction to swipe to.<br>
+     *                  Direction: UP, DOWN, LEFT, RIGHT.
+     * @return The current options.
+     */
     @Nonnull
     @CheckReturnValue
     public static Direction to(SwipeDirection direction) {
@@ -65,6 +89,9 @@ public abstract class SwipeOptions {
 
     //-------------------------------------------------------------------------------//
 
+    /**
+     * Coordinates options for swiping to.
+     */
     public final static class Coordinates extends SwipeOptions {
         private final Point point;
 
@@ -72,44 +99,77 @@ public abstract class SwipeOptions {
             this.point = point;
         }
 
+        /**
+         * Get the target point to swipe to.
+         *
+         * @return The point that specified.
+         */
         public Point getPoint() {
             return point;
         }
     }
 
+    /**
+     * Direction options for swiping to.
+     */
     public final static class Direction extends SwipeOptions {
-        private final static double DEFAULT_SRC_RATIO = 0.5;
-        private final static double DEFAULT_DST_RATIO = 0.5;
         private final SwipeDirection direction;
-        private double srcRatio;
-        private double dstRatio;
+        private double sourceRatio;
+        private double destinationRatio;
 
         private Direction(SwipeDirection direction) {
             this.direction = direction;
-            this.srcRatio = DEFAULT_SRC_RATIO;
-            this.dstRatio = DEFAULT_DST_RATIO;
+            this.sourceRatio = 0.5;
+            this.destinationRatio = 0.5;
         }
 
+        /**
+         * Set ratio for swiping source.
+         *
+         * @param value Desired ratio to specify.
+         * @return The current options.
+         */
         public Direction withSourceRatio(double value) {
-            this.srcRatio = value;
+            this.sourceRatio = value;
             return this;
         }
 
+        /**
+         * Set ratio for swiping destination.
+         *
+         * @param value Desired ratio to specify.
+         * @return The current options.
+         */
         public Direction withDestinationRatio(double value) {
-            this.dstRatio = value;
+            this.destinationRatio = value;
             return this;
         }
 
+        /**
+         * Get the target direction to swipe to.
+         *
+         * @return The direction that specified.
+         */
         public SwipeDirection getDirection() {
             return direction;
         }
 
+        /**
+         * Get ratio of swiping source.
+         *
+         * @return The ratio that specified.
+         */
         public double getSourceRatio() {
-            return srcRatio;
+            return sourceRatio;
         }
 
+        /**
+         * Get ratio of swiping destination.
+         *
+         * @return The ratio that specified.
+         */
         public double getDestinationRatio() {
-            return dstRatio;
+            return destinationRatio;
         }
     }
 }
