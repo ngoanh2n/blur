@@ -29,8 +29,8 @@ import javax.annotation.ParametersAreNonnullByDefault;
 public interface BlurAppiumElement extends SelenideAppiumElement {
     /**
      * Tap on the element.<br>
-     * Use sequence of actions for {@link PointerInput} with the W3C <a href="https://www.w3.org/TR/webdriver/#actions">Action commands</a>.<br>
-     * Equivalent to {@link #click(ClickOptions) click(AppiumClickOptions.tap())}
+     * Equivalent to {@link #click(ClickOptions) click(AppiumClickOptions.tap())}.<br>
+     * Use sequence of actions for {@link PointerInput} with the W3C <a href="https://www.w3.org/TR/webdriver/#actions">Action commands</a>.
      *
      * @return The current element.
      * @see com.github.ngoanh2n.blur.appium.commands.Tap
@@ -41,9 +41,9 @@ public interface BlurAppiumElement extends SelenideAppiumElement {
 
     /**
      * Double tap on the element.<br>
-     * Use sequence of actions for {@link PointerInput} with the W3C <a href="https://www.w3.org/TR/webdriver/#actions">Action commands</a>.<br>
-     * Equivalent to {@link #click(ClickOptions) click(AppiumClickOptions.doubleTap())}<br>
-     * Similar to {@link #doubleClick()}. Overridden to use for Appium.
+     * Equivalent to {@link #click(ClickOptions) click(AppiumClickOptions.doubleTap())}.<br>
+     * Similar to {@link #doubleClick()}. Overridden to use for Appium.<br>
+     * Use sequence of actions for {@link PointerInput} with the W3C <a href="https://www.w3.org/TR/webdriver/#actions">Action commands</a>.
      *
      * @return The current element.
      * @see com.github.ngoanh2n.blur.appium.commands.DoubleTap
@@ -54,8 +54,8 @@ public interface BlurAppiumElement extends SelenideAppiumElement {
 
     /**
      * Long press on the element.<br>
-     * Use sequence of actions for {@link PointerInput} with the W3C <a href="https://www.w3.org/TR/webdriver/#actions">Action commands</a>.<br>
-     * Equivalent to {@link #click(ClickOptions) click(AppiumClickOptions.longPress())}
+     * Equivalent to {@link #click(ClickOptions) click(AppiumClickOptions.longPress())}.<br>
+     * Use sequence of actions for {@link PointerInput} with the W3C <a href="https://www.w3.org/TR/webdriver/#actions">Action commands</a>.
      *
      * @return The current element.
      * @see com.github.ngoanh2n.blur.appium.commands.LongPress
@@ -64,6 +64,31 @@ public interface BlurAppiumElement extends SelenideAppiumElement {
     @CanIgnoreReturnValue
     BlurAppiumElement longPress();
 
+    /**
+     * Swipe the element to a specified target or direction.<br>
+     * <ul>
+     *     <li>Target:
+     *          <pre>{@code
+     *              element.swipe(SwipeOptions.to(x, y))
+     *              element.swipe(SwipeOptions.to(point))
+     *              element.swipe(SwipeOptions.to(element))
+     *          }</pre>
+     *     </li>
+     *     <li>Direction:
+     *          <pre>{@code
+     *              element.swipe(SwipeOptions.to(SwipeDirection.UP))
+     *              element.swipe(SwipeOptions.to(SwipeDirection.DOWN))
+     *              element.swipe(SwipeOptions.to(SwipeDirection.LEFT))
+     *              element.swipe(SwipeOptions.to(SwipeDirection.RIGHT))
+     *          }</pre>
+     *     </li>
+     * </ul>
+     * Use sequence of actions for {@link PointerInput} with the W3C <a href="https://www.w3.org/TR/webdriver/#actions">Action commands</a>.<br>
+     *
+     * @param options Swipe options to specify the target or direction.
+     * @return The current element.
+     * @see com.github.ngoanh2n.blur.appium.commands.Swipe
+     */
     @Nonnull
     @CanIgnoreReturnValue
     BlurAppiumElement swipe(SwipeOptions options);
