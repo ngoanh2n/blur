@@ -8,10 +8,8 @@ import com.codeborne.selenide.impl.WebDriverContainer;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import com.github.ngoanh2n.Commons;
 import io.qameta.allure.selenide.AllureSelenide;
-import org.aspectj.lang.annotation.After;
-import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
-import org.aspectj.lang.annotation.SuppressAjWarnings;
+import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.*;
 
 /**
  * Intercept Selenide for invoking some modifications and additions.<br><br>
@@ -44,15 +42,20 @@ public class DriverAspect {
             BlurConfig config = new BlurConfig();
             BlurDriver driver = new BlurDriver(config);
             BlurContainer container = new BlurContainer(config, driver);
-            SelenideDriver selenideDriver = new SelenideDriver(config, driver);
 
+            WebDriverRunner.webdriverContainer = container;
             Commons.writeField(container, "config", config);
             Commons.writeField(Configuration.class, "defaults", config);
-            Commons.writeField(WebDriverRunner.class, "webdriverContainer", container);
-            Commons.writeField(WebDriverRunner.class, "staticSelenideDriver", selenideDriver);
-
             SelenideLogger.addListener("Allure", new AllureSelenide());
         }
+    }
+
+    @Around("execution(* com.codeborne.selenide.WebDriverRunner.getSelenideDriver())")
+    public Object getSelenideDriver(ProceedingJoinPoint joinPoint) throws Throwable {
+        BlurContainer container = Blur.getContainer();
+        BlurConfig config = container.config();
+        BlurDriver driver = container.driver();
+        return new SelenideDriver(config, driver);
     }
 
     /**
