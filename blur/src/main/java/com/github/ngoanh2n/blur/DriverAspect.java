@@ -107,9 +107,9 @@ public class DriverAspect {
     }
 
     /**
-     * Intercept after {@link WebDriverContainer#closeWebDriver() WebDriverContainer.closeWebDriver(..)}.
+     * Intercept after {@link WebDriverContainer#closeWebDriver() WebDriverContainer.closeWebDriver()}.
      */
-    @After("execution(* com.codeborne.selenide.impl.WebDriverContainer.closeWebDriver(..))")
+    @After("execution(* com.codeborne.selenide.impl.WebDriverContainer.closeWebDriver())")
     public void afterCloseWebDriver() {
         facadeUpdated = false;
         Blur.getContainer().resetDriverContainer();
