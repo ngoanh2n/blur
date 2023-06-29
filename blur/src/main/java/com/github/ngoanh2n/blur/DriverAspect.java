@@ -14,6 +14,8 @@ import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.remote.CommandExecutor;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Intercept Selenide for invoking some modifications and additions.<br><br>
@@ -31,6 +33,7 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 @SuppressAjWarnings
 public class DriverAspect {
     private boolean facadeUpdated = false;
+    private final Logger log = LoggerFactory.getLogger(DriverAspect.class);
 
     /**
      * Default constructor.
@@ -66,30 +69,29 @@ public class DriverAspect {
     }
 
     /**
-     * Intercept around {@link RemoteWebDriver#RemoteWebDriver(CommandExecutor, Capabilities) new RemoteWebDriver(executor, capabilities)}.
+     * Intercept around {@link RemoteWebDriver#RemoteWebDriver(CommandExecutor, Capabilities) new RemoteWebDriver(..)}.
      */
     @Around("execution(* org.openqa.selenium.remote.RemoteWebDriver.init(..))")
     public Object initRemoteWebDriver(ProceedingJoinPoint joinPoint) throws Throwable {
-        Object result;
-        try {
-            for (Object arg : joinPoint.getArgs()) {
-                if (arg instanceof Capabilities) {
-                    Capabilities caps = (Capabilities) arg;
-                    Platform platform = caps.getPlatformName();
+        for (Object arg : joinPoint.getArgs()) {
+            if (arg instanceof Capabilities) {
+                Capabilities caps = (Capabilities) arg;
+                Platform platform = caps.getPlatformName();
 
+                try {
                     if (platform.is(Platform.IOS) || platform.is(Platform.ANDROID)) {
                         BlurConfig config = Blur.getContainer().config();
                         config.browserSize(null).pageLoadTimeout(-1);
+                        log.debug("Instantiate AppiumDriver: Disable config [browserSize, pageLoadTimeout]");
                     }
-                    break;
+                } catch (NullPointerException ignored) {
+                    log.warn("Could not check platform from {}", caps);
+                    return joinPoint.proceed();
                 }
+                break;
             }
-        } catch (Throwable ignored) {
-            
-        } finally {
-            result = joinPoint.proceed();
         }
-        return result;
+        return joinPoint.proceed();
     }
 
     /**
