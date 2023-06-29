@@ -28,7 +28,10 @@ public class AppiumDriverProvider implements WebDriverProvider {
                 .withIPAddress("127.0.0.1")
                 .usingAnyFreePort()
                 .withArgument(GeneralServerFlag.BASEPATH, "/wd/hub")
-                .withArgument(() -> "--allow-insecure", "chromedriver_autodownload");
+                .withArgument(GeneralServerFlag.LOG_LEVEL, "error:warn")
+                .withArgument(GeneralServerFlag.ALLOW_INSECURE, "chromedriver_autodownload")
+                //.withArgument(() -> "--allow-insecure", "chromedriver_autodownload")
+                ;
         return startServer(builder);
     }
 
@@ -42,6 +45,7 @@ public class AppiumDriverProvider implements WebDriverProvider {
         } else {
             log.debug("Appium server has started already");
         }
+        //service.clearOutPutStreams();
         return service;
     }
 
