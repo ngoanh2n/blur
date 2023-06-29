@@ -10,6 +10,8 @@ import com.github.ngoanh2n.Commons;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
+import org.openqa.selenium.Capabilities;
+import org.openqa.selenium.Platform;
 
 /**
  * Intercept Selenide for invoking some modifications and additions.<br><br>
@@ -56,6 +58,23 @@ public class DriverAspect {
         BlurConfig config = container.config();
         BlurDriver driver = container.driver();
         return new SelenideDriver(config, driver);
+    }
+
+    @Around("execution(* org.openqa.selenium.remote.RemoteWebDriver.init(..))")
+    public Object initRemoteWebDriver(ProceedingJoinPoint joinPoint) throws Throwable {
+        for (Object arg : joinPoint.getArgs()) {
+            if (arg instanceof Capabilities) {
+                Capabilities caps = (Capabilities) arg;
+                Platform platform = caps.getPlatformName();
+
+                if (platform.is(Platform.IOS) || platform.is(Platform.ANDROID)) {
+                    BlurConfig config = Blur.getContainer().config();
+                    config.browserSize(null).pageLoadTimeout(-1);
+                }
+                break;
+            }
+        }
+        return joinPoint.proceed();
     }
 
     /**
