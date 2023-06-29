@@ -70,19 +70,26 @@ public class DriverAspect {
      */
     @Around("execution(* org.openqa.selenium.remote.RemoteWebDriver.init(..))")
     public Object initRemoteWebDriver(ProceedingJoinPoint joinPoint) throws Throwable {
-        for (Object arg : joinPoint.getArgs()) {
-            if (arg instanceof Capabilities) {
-                Capabilities caps = (Capabilities) arg;
-                Platform platform = caps.getPlatformName();
+        Object result;
+        try {
+            for (Object arg : joinPoint.getArgs()) {
+                if (arg instanceof Capabilities) {
+                    Capabilities caps = (Capabilities) arg;
+                    Platform platform = caps.getPlatformName();
 
-                if (platform.is(Platform.IOS) || platform.is(Platform.ANDROID)) {
-                    BlurConfig config = Blur.getContainer().config();
-                    config.browserSize(null).pageLoadTimeout(-1);
+                    if (platform.is(Platform.IOS) || platform.is(Platform.ANDROID)) {
+                        BlurConfig config = Blur.getContainer().config();
+                        config.browserSize(null).pageLoadTimeout(-1);
+                    }
+                    break;
                 }
-                break;
             }
+        } catch (Throwable ignored) {
+            
+        } finally {
+            result = joinPoint.proceed();
         }
-        return joinPoint.proceed();
+        return result;
     }
 
     /**
