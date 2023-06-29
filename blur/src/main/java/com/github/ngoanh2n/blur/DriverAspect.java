@@ -12,6 +12,8 @@ import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
 import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.Platform;
+import org.openqa.selenium.remote.CommandExecutor;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
 /**
  * Intercept Selenide for invoking some modifications and additions.<br><br>
@@ -36,7 +38,7 @@ public class DriverAspect {
     public DriverAspect() { /**/ }
 
     /**
-     * Intercept before running {@link Selenide#open() com.codeborne.selenide.Selenide.open(..)}.
+     * Intercept before {@link Selenide#open() Selenide.open(..)}.
      */
     @Before("execution(* com.codeborne.selenide.Selenide.open(..))")
     public void beforeOpen() {
@@ -52,6 +54,9 @@ public class DriverAspect {
         }
     }
 
+    /**
+     * Intercept around {@link WebDriverRunner WebDriverRunner.getSelenideDriver()}.
+     */
     @Around("execution(* com.codeborne.selenide.WebDriverRunner.getSelenideDriver())")
     public Object getSelenideDriver(ProceedingJoinPoint joinPoint) throws Throwable {
         BlurContainer container = Blur.getContainer();
@@ -59,7 +64,7 @@ public class DriverAspect {
         BlurDriver driver = container.driver();
         return new SelenideDriver(config, driver);
     }
-
+    
     @Around("execution(* org.openqa.selenium.remote.RemoteWebDriver.init(..))")
     public Object initRemoteWebDriver(ProceedingJoinPoint joinPoint) throws Throwable {
         for (Object arg : joinPoint.getArgs()) {
@@ -78,7 +83,7 @@ public class DriverAspect {
     }
 
     /**
-     * Intercept after running {@link Selenide#open() com.codeborne.selenide.Selenide.open(..)}.
+     * Intercept after {@link Selenide#open() Selenide.open(..)}.
      */
     @After("execution(* com.codeborne.selenide.Selenide.open(..))")
     public void afterOpen() {
@@ -90,12 +95,11 @@ public class DriverAspect {
     }
 
     /**
-     * Intercept after running {@link WebDriverContainer#closeWebDriver() com.codeborne.selenide.impl.WebDriverContainer.closeWebDriver(..)}.
+     * Intercept after {@link WebDriverContainer#closeWebDriver() WebDriverContainer.closeWebDriver(..)}.
      */
     @After("execution(* com.codeborne.selenide.impl.WebDriverContainer.closeWebDriver(..))")
     public void afterCloseWebDriver() {
         facadeUpdated = false;
-        BlurContainer container = (BlurContainer) WebDriverRunner.webdriverContainer;
-        container.resetDriverContainer();
+        Blur.getContainer().resetDriverContainer();
     }
 }
