@@ -12,7 +12,7 @@ import org.junit.jupiter.api.Test;
 /**
  * @author ngoanh2n
  */
-public class WebDriverSwitchTest {
+public class SwitchWebDriverTest {
     @BeforeAll
     static void setBrowsers() {
         System.setProperty("selenide.browser", "edge");
