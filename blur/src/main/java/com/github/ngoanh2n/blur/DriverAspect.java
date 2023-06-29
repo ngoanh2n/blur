@@ -64,7 +64,10 @@ public class DriverAspect {
         BlurDriver driver = container.driver();
         return new SelenideDriver(config, driver);
     }
-    
+
+    /**
+     * Intercept around {@link RemoteWebDriver#RemoteWebDriver(CommandExecutor, Capabilities) new RemoteWebDriver(executor, capabilities)}.
+     */
     @Around("execution(* org.openqa.selenium.remote.RemoteWebDriver.init(..))")
     public Object initRemoteWebDriver(ProceedingJoinPoint joinPoint) throws Throwable {
         for (Object arg : joinPoint.getArgs()) {
