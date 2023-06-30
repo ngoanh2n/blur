@@ -5,6 +5,7 @@ import com.github.ngoanh2n.SetProperty;
 import com.github.ngoanh2n.blur.AbstractTest;
 import com.github.ngoanh2n.blur.Blur;
 import com.github.ngoanh2n.blur.Constant.Browser;
+import com.github.ngoanh2n.blur.Constant.Capabilities;
 import com.github.ngoanh2n.wdc.WebDriverChecker;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -20,6 +21,14 @@ public class WebDriverSwitchTest extends AbstractTest {
     @SetProperty(name = "selenide.otherBrowsers", value = Browser.EDGE)
     void chromeAndEdge() throws Exception {
         switchAndCheck(WebDriverChecker::isChrome, WebDriverChecker::isEdge);
+    }
+
+    @Test
+    @SetProperty(name = "blur.caps", value = Capabilities.ANDROID_CHROME)
+    @SetProperty(name = "selenide.browser", value = Browser.APPIUM)
+    @SetProperty(name = "selenide.otherBrowsers", value = Browser.EDGE)
+    void androidChromeAndEdge() throws Exception {
+        switchAndCheck(WebDriverChecker::isAndroidBrowser, WebDriverChecker::isEdge);
     }
 
     //-------------------------------------------------------------------------------//
