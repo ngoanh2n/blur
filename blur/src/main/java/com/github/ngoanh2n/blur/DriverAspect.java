@@ -96,15 +96,15 @@ public class DriverAspect {
     }
 
     /**
-     * Intercept after {@link Selenide#open() Selenide.open(..)}.
+     * Intercept after returning {@link Selenide#open() Selenide.open(..)}.
      */
     @After("execution(* com.codeborne.selenide.Selenide.open(..))")
-    public void afterOpen() {
+    public void afterReturningOpen() {
+        BlurCommands.refresh();
         if (!facadeChanged) {
             facadeChanged = true;
             Blur.switchToWebDriver(0);
         }
-        BlurCommands.refresh();
     }
 
     /**
