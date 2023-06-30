@@ -1,6 +1,7 @@
-package com.github.ngoanh2n.blur.selenium.driver;
+package com.github.ngoanh2n.blur.aspect;
 
 import com.codeborne.selenide.WebDriverRunner;
+import com.github.ngoanh2n.SetProperty;
 import com.github.ngoanh2n.blur.Blur;
 import com.github.ngoanh2n.blur.BlurConfig;
 import org.junit.jupiter.api.AfterEach;
@@ -10,16 +11,18 @@ import org.junit.jupiter.api.Test;
 /**
  * @author ngoanh2n
  */
-public class StartWebDriverTest {
+@SetProperty(name = "blur.caps", value = "appium/local-android-native.yml")
+@SetProperty(name = "selenide.browser", value = "com.github.ngoanh2n.blur.driver.AppiumDriverProvider")
+public class StartAppiumDriverTest {
     @Test
-    void openWebDriver() {
+    void openAppiumDriver() {
         Blur.open();
         BlurConfig config = Blur.getConfig();
         Assertions.assertNotNull(config);
     }
 
     @AfterEach
-    void closeWebDriver() {
+    void closeAppiumDriver() {
         if (WebDriverRunner.hasWebDriverStarted()) {
             WebDriverRunner.closeWebDriver();
         }
