@@ -8,6 +8,7 @@ import com.github.ngoanh2n.blur.Constant.Browser;
 import com.github.ngoanh2n.blur.Constant.Capabilities;
 import com.github.ngoanh2n.wdc.WebDriverChecker;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 
 import java.util.concurrent.Callable;
@@ -17,6 +18,7 @@ import java.util.concurrent.Callable;
  */
 public class WebDriverSwitchTest extends AbstractTest {
     @Test
+    @Order(1)
     @SetProperty(name = "selenide.browser", value = Browser.CHROME)
     @SetProperty(name = "selenide.otherBrowsers", value = Browser.EDGE)
     void chromeAndEdge() throws Exception {
@@ -24,6 +26,7 @@ public class WebDriverSwitchTest extends AbstractTest {
     }
 
     @Test
+    @Order(2)
     @SetProperty(name = "blur.caps", value = Capabilities.ANDROID_CHROME)
     @SetProperty(name = "selenide.browser", value = Browser.APPIUM)
     @SetProperty(name = "selenide.otherBrowsers", value = Browser.EDGE)
@@ -32,6 +35,7 @@ public class WebDriverSwitchTest extends AbstractTest {
     }
 
     @Test
+    @Order(3)
     @SetProperty(name = "blur.caps", value = Capabilities.ANDROID_NATIVE)
     @SetProperty(name = "selenide.browser", value = Browser.APPIUM)
     @SetProperty(name = "selenide.otherBrowsers", value = Browser.CHROME)
