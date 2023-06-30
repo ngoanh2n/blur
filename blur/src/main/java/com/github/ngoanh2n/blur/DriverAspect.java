@@ -32,7 +32,7 @@ import org.slf4j.LoggerFactory;
 @Aspect
 @SuppressAjWarnings
 public class DriverAspect {
-    private boolean facadeUpdated = false;
+    private boolean facadeChanged = false;
     private final Logger log = LoggerFactory.getLogger(DriverAspect.class);
 
     /**
@@ -45,7 +45,7 @@ public class DriverAspect {
      */
     @Before("execution(* com.codeborne.selenide.Selenide.open(..))")
     public void beforeOpen() {
-        if (!facadeUpdated) {
+        if (!facadeChanged) {
             BlurConfig config = new BlurConfig();
             BlurDriver driver = new BlurDriver(config);
             BlurContainer container = new BlurContainer(config, driver);
@@ -99,8 +99,8 @@ public class DriverAspect {
      */
     @After("execution(* com.codeborne.selenide.Selenide.open(..))")
     public void afterOpen() {
-        if (!facadeUpdated) {
-            facadeUpdated = true;
+        if (!facadeChanged) {
+            facadeChanged = true;
             Blur.switchToWebDriver(0);
         }
         BlurCommands.refresh();
@@ -111,7 +111,7 @@ public class DriverAspect {
      */
     @After("execution(* com.codeborne.selenide.impl.WebDriverContainer.closeWebDriver())")
     public void afterCloseWebDriver() {
-        facadeUpdated = false;
+        facadeChanged = false;
         Blur.getContainer().resetDriverContainer();
     }
 }
