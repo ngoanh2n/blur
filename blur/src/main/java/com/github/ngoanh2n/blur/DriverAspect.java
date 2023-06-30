@@ -7,6 +7,7 @@ import com.codeborne.selenide.WebDriverRunner;
 import com.codeborne.selenide.impl.WebDriverContainer;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import com.github.ngoanh2n.Commons;
+import com.google.common.collect.ImmutableList;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
@@ -16,6 +17,9 @@ import org.openqa.selenium.remote.CommandExecutor;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.util.List;
+import java.util.Set;
 
 /**
  * Intercept Selenide for invoking some modifications and additions.<br><br>
@@ -114,5 +118,27 @@ public class DriverAspect {
     public void afterCloseWebDriver() {
         facadeChanged = false;
         Blur.getContainer().resetDriverContainer();
+    }
+
+    //-------------------------------------------------------------------------------//
+
+    private boolean isAppium(Capabilities capabilities) {
+        Set<String> capabilityNames = capabilities.getCapabilityNames();
+        List<String> automationNameKeys = ImmutableList.of("automationName", "appium:automationName");
+        List<String> automationNameValues = ImmutableList.of("xcuitest", "uiautomator2", "windows", "mac2");
+
+        if (capabilityNames.contains("platformName")) {
+            Platform platform = capabilities.getPlatformName();
+            if (platform.is(Platform.IOS) || platform.is(Platform.ANDROID)) {
+                return true;
+            }
+        }
+        for (String automationKey : automationNameKeys) {
+            if (capabilityNames.contains(automationKey)) {
+                String automationNameValue = (String) capabilities.getCapability(automationKey);
+                return automationNameValues.contains(automationNameValue);
+            }
+        }
+        return false;
     }
 }
