@@ -1,4 +1,4 @@
-package com.github.ngoanh2n.blur.selenium.driver;
+package com.github.ngoanh2n.blur.driver;
 
 import com.codeborne.selenide.WebDriverRunner;
 import com.github.ngoanh2n.RuntimeError;
