@@ -54,6 +54,7 @@ public class DriverAspect {
             Commons.writeField(container, "config", config);
             Commons.writeField(Configuration.class, "defaults", config);
             SelenideLogger.addListener("Allure", new AllureSelenide());
+            log.debug("Changed Selenide facade with: {}, {}, {}", config, driver, container);
         }
     }
 
