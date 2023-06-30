@@ -1,8 +1,9 @@
 ### https://github.com/appium/appium-uiautomator2-driver#capabilities
 platformName: android
 appium:automationName: uiautomator2
-appium:newCommandTimeout: 180
+appium:fullReset: true
 appium:app: https://github.com/cloudgrey-io/the-app/releases/download/v1.10.0/TheApp-v1.10.0.apk
 appium:appWaitDuration: 60000
-appium:adbExecTimeout: 50000
 appium:autoGrantPermissions: true
+appium:adbExecTimeout: 60000                      # 60 seconds
+appium:newCommandTimeout: 180                     # 180 seconds
