@@ -9,4 +9,10 @@ public final class Constant {
         public final static String CHROME = "chrome";
         public final static String APPIUM = "com.github.ngoanh2n.blur.driver.AppiumDriverProvider";
     }
+
+    public final static class Capabilities {
+        public final static String ANDROID_CHROME = "appium/local-android-chrome.yml";
+        public final static String ANDROID_NATIVE = "appium/local-android-native.yml";
+        public final static String WINDOWS_NATIVE = "appium/local-windows-native.yml";
+    }
 }
