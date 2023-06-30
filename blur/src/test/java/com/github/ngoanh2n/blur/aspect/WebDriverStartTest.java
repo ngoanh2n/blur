@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 
+import java.io.File;
 import java.util.concurrent.Callable;
 
 /**
@@ -37,6 +38,18 @@ public class WebDriverStartTest extends AbstractTest {
     @SetProperty(name = "selenide.browser", value = Browser.APPIUM)
     void androidNative() throws Exception {
         startAndCheck(WebDriverChecker::isAndroidNative);
+    }
+
+    @Test
+    @Order(4)
+    @SetProperty(name = "appium:appWorkingDir", value = "D:\\Personal\\Auto\\blur\\blur\\src\\test\\resources")
+    @SetProperty(name = "blur.caps", value = Capabilities.WINDOWS_NATIVE)
+    @SetProperty(name = "selenide.browser", value = Browser.APPIUM)
+    void windowsNative() throws Exception {
+        String workingDir = new File("build/resources/test").getAbsolutePath();
+        System.setProperty("appium:appWorkingDir", workingDir);
+        startAndCheck(WebDriverChecker::isWindowsNative);
+        System.clearProperty("appium:appWorkingDir");
     }
 
     //-------------------------------------------------------------------------------//
