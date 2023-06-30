@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Test;
 /**
  * @author ngoanh2n
  */
-@SetProperty(name = "blur.caps", value = "appium/android-emulator-native.yml")
+@SetProperty(name = "blur.caps", value = "appium/local-android-native.yml")
 @SetProperty(name = "selenide.browser", value = "com.github.ngoanh2n.blur.driver.AppiumDriverProvider")
 public class StartAppiumDriverTest {
     @Test
