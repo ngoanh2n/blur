@@ -62,7 +62,7 @@ public class DriverAspect {
      * Intercept around {@link WebDriverRunner WebDriverRunner.getSelenideDriver()}.
      */
     @Around("execution(* com.codeborne.selenide.WebDriverRunner.getSelenideDriver())")
-    public Object getSelenideDriver(ProceedingJoinPoint joinPoint) throws Throwable {
+    public Object aroundGetSelenideDriver(ProceedingJoinPoint joinPoint) throws Throwable {
         BlurContainer container = Blur.getContainer();
         BlurConfig config = container.config();
         BlurDriver driver = container.driver();
