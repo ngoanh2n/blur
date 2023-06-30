@@ -100,6 +100,14 @@ public class DriverAspect {
     }
 
     /**
+     * Intercept after throwing {@link Selenide#open() Selenide.open(..)}.
+     */
+    @AfterThrowing(pointcut = "execution(* com.codeborne.selenide.Selenide.open(..))", throwing = "throwable")
+    public void afterThrowingOpen(Throwable throwable) {
+        log.error(throwable.toString());
+    }
+
+    /**
      * Intercept after returning {@link Selenide#open() Selenide.open(..)}.
      */
     @AfterReturning("execution(* com.codeborne.selenide.Selenide.open(..))")
