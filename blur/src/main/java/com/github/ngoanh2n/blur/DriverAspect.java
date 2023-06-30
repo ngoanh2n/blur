@@ -98,7 +98,7 @@ public class DriverAspect {
     /**
      * Intercept after returning {@link Selenide#open() Selenide.open(..)}.
      */
-    @After("execution(* com.codeborne.selenide.Selenide.open(..))")
+    @AfterReturning("execution(* com.codeborne.selenide.Selenide.open(..))")
     public void afterReturningOpen() {
         BlurCommands.refresh();
         if (!facadeChanged) {
