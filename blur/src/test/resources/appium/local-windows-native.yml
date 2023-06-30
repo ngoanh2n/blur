@@ -1,0 +1,5 @@
+### https://github.com/appium/appium-windows-driver
+platformName: windows
+appium:automationName: windows
+appium:app: C:/Windows/System32/notepad.exe
+appium:appArguments: log4j.properties
