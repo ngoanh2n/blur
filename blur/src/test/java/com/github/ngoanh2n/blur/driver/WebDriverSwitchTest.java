@@ -31,6 +31,14 @@ public class WebDriverSwitchTest extends AbstractTest {
         switchAndCheck(WebDriverChecker::isAndroidBrowser, WebDriverChecker::isEdge);
     }
 
+    @Test
+    @SetProperty(name = "blur.caps", value = Capabilities.ANDROID_NATIVE)
+    @SetProperty(name = "selenide.browser", value = Browser.APPIUM)
+    @SetProperty(name = "selenide.otherBrowsers", value = Browser.CHROME)
+    void androidNativeAndChrome() throws Exception {
+        switchAndCheck(WebDriverChecker::isAndroidNative, WebDriverChecker::isChrome);
+    }
+
     //-------------------------------------------------------------------------------//
 
     private void switchAndCheck(Callable<Boolean> checkDriver1, Callable<Boolean> checkDriver2) throws Exception {
