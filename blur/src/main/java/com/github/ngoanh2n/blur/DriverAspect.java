@@ -73,7 +73,7 @@ public class DriverAspect {
      * Intercept around {@link RemoteWebDriver#RemoteWebDriver(CommandExecutor, Capabilities) new RemoteWebDriver(..)}.
      */
     @Around("execution(* org.openqa.selenium.remote.RemoteWebDriver.init(..))")
-    public Object initRemoteWebDriver(ProceedingJoinPoint joinPoint) throws Throwable {
+    public Object aroundInitRemoteWebDriver(ProceedingJoinPoint joinPoint) throws Throwable {
         for (Object arg : joinPoint.getArgs()) {
             if (arg instanceof Capabilities) {
                 Capabilities caps = (Capabilities) arg;
