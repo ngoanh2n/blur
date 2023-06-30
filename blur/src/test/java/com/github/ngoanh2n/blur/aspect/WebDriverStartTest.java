@@ -24,6 +24,14 @@ public class WebDriverStartTest extends AbstractTest {
     }
 
     @Test
+    @Order(2)
+    @SetProperty(name = "blur.caps", value = Capabilities.ANDROID_CHROME)
+    @SetProperty(name = "selenide.browser", value = Browser.APPIUM)
+    void androidChrome() throws Exception {
+        startAndCheck(WebDriverChecker::isAndroidBrowser);
+    }
+
+    @Test
     @Order(3)
     @SetProperty(name = "blur.caps", value = Capabilities.ANDROID_NATIVE)
     @SetProperty(name = "selenide.browser", value = Browser.APPIUM)
