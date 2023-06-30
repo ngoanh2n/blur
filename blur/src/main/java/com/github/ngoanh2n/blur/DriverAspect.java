@@ -36,8 +36,8 @@ import java.util.Set;
 @Aspect
 @SuppressAjWarnings
 public class DriverAspect {
-    private boolean facadeChanged = false;
     private final Logger log = LoggerFactory.getLogger(DriverAspect.class);
+    private boolean facadeChanged = false;
 
     /**
      * Default constructor.
@@ -80,18 +80,10 @@ public class DriverAspect {
     public Object aroundInitRemoteWebDriver(ProceedingJoinPoint joinPoint) throws Throwable {
         for (Object arg : joinPoint.getArgs()) {
             if (arg instanceof Capabilities) {
-                Capabilities caps = (Capabilities) arg;
-                Platform platform = caps.getPlatformName();
-
-                try {
-                    if (platform.is(Platform.IOS) || platform.is(Platform.ANDROID)) {
-                        BlurConfig config = Blur.getContainer().config();
-                        config.browserSize(null).pageLoadTimeout(-1);
-                        log.debug("Instantiate AppiumDriver: Disable config [browserSize, pageLoadTimeout]");
-                    }
-                } catch (NullPointerException ignored) {
-                    log.warn("Could not check platform from {}", caps);
-                    return joinPoint.proceed();
+                if (isAppium((Capabilities) arg)) {
+                    BlurConfig config = Blur.getContainer().config();
+                    config.browserSize(null).pageLoadTimeout(-1);
+                    log.debug("Instantiate AppiumDriver: Disable config [browserSize, pageLoadTimeout]");
                 }
                 break;
             }
