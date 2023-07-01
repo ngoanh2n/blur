@@ -16,6 +16,7 @@
 * [Declaration](#declaration)
   * [Gradle](#gradle)
   * [Maven](#maven)
+  * [Skeleton](#skeleton)
 * [Usage](#usage)
   * [WebDriver](#webdriver)
   * [Comparator](#comparator)
@@ -46,6 +47,9 @@ The modules are built in separated artifacts.
 | `WebDriverShooter` | `1.0.1` | [ngoanh2n/webdrivershooter](https://github.com/ngoanh2n/webdrivershooter) |
 
 # Declaration
+- Case 1: Declare `blur` as a dependency in [build.gradle](#gradle) or [pom.xml](#maven)
+- Case 2: Create a new module inside [Skeleton](#skeleton) and compile `blur` in `build.gradle` of module
+
 ## Gradle
 Add to `build.gradle`.
 ```gradle
@@ -61,6 +65,9 @@ Add to `pom.xml`.
     <version>0.1.0</version>
 </dependency>
 ```
+
+## Skeleton
+Refer to [Open project and create module](docs/1-open-project-and-create-module.md).
 
 # Usage
 ## WebDriver
