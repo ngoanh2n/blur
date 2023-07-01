@@ -42,14 +42,16 @@ public class WebDriverStartTest extends AbstractTest {
 
     @Test
     @Order(4)
-    @SetProperty(name = "appium:appWorkingDir", value = "D:\\Personal\\Auto\\blur\\blur\\src\\test\\resources")
     @SetProperty(name = "blur.caps", value = Capabilities.WINDOWS_NATIVE)
     @SetProperty(name = "selenide.browser", value = Browser.APPIUM)
     void windowsNative() throws Exception {
-        String workingDir = new File("build/resources/test").getAbsolutePath();
-        System.setProperty("appium:appWorkingDir", workingDir);
+        String appWorkingDirCapability = "appium:appWorkingDir";
+        String appWorkingDir = new File("build/resources/test").getAbsolutePath();
+
+        System.setProperty(appWorkingDirCapability, appWorkingDir);
         startAndCheck(WebDriverChecker::isWindowsNative);
-        System.clearProperty("appium:appWorkingDir");
+
+        System.clearProperty(appWorkingDirCapability);
     }
 
     //-------------------------------------------------------------------------------//
