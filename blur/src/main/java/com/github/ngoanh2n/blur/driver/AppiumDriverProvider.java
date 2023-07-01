@@ -16,12 +16,11 @@ import org.slf4j.LoggerFactory;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
-import java.util.Map;
 
 @ParametersAreNonnullByDefault
 public class AppiumDriverProvider implements WebDriverProvider {
     private static final Logger log = LoggerFactory.getLogger(AppiumDriverProvider.class);
-    private static final Property<String> capsResource = Property.ofString("blur.caps");
+    private static final Property<String> capabilitiesResource = Property.ofString("blur.appium.capabilities");
 
     public static AppiumDriverLocalService startServer() {
         AppiumServiceBuilder builder = new AppiumServiceBuilder()
@@ -50,22 +49,22 @@ public class AppiumDriverProvider implements WebDriverProvider {
     }
 
     public static Capabilities readCapabilities() {
-        MutableCapabilities caps = new MutableCapabilities();
-        Map<String, Object> providedCaps = YamlData.toMapFromResource(capsResource.getValue());
-        providedCaps.forEach(caps::setCapability);
+        String capabilitiesFile = capabilitiesResource.getValue();
+        MutableCapabilities capabilities = new MutableCapabilities();
+        YamlData.toMapFromResource(capabilitiesFile).forEach(capabilities::setCapability);
 
         System.getProperties().forEach((key, value) -> {
             if (String.valueOf(key).startsWith("appium:")) {
-                caps.setCapability(String.valueOf(key), String.valueOf(value));
+                capabilities.setCapability(String.valueOf(key), String.valueOf(value));
             }
         });
-        return caps;
+        return capabilities;
     }
 
-    public static WebDriver startDriver(@Nullable Capabilities otherCaps) {
+    public static WebDriver startDriver(@Nullable Capabilities otherCapabilities) {
         AppiumDriverLocalService service = startServer();
-        Capabilities caps = readCapabilities().merge(otherCaps);
-        return new AppiumDriver(service, caps);
+        Capabilities capabilities = readCapabilities().merge(otherCapabilities);
+        return new AppiumDriver(service, capabilities);
     }
 
     //-------------------------------------------------------------------------------//

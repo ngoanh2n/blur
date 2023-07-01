@@ -27,7 +27,7 @@ public class WebDriverSwitchTest extends AbstractTest {
 
     @Test
     @Order(2)
-    @SetProperty(name = "blur.caps", value = Capabilities.ANDROID_CHROME)
+    @SetProperty(name = "blur.appium.capabilities", value = Capabilities.ANDROID_CHROME)
     @SetProperty(name = "selenide.browser", value = Browser.APPIUM)
     @SetProperty(name = "selenide.otherBrowsers", value = Browser.EDGE)
     void androidChromeAndEdge() throws Exception {
@@ -36,7 +36,7 @@ public class WebDriverSwitchTest extends AbstractTest {
 
     @Test
     @Order(3)
-    @SetProperty(name = "blur.caps", value = Capabilities.ANDROID_NATIVE)
+    @SetProperty(name = "blur.appium.capabilities", value = Capabilities.ANDROID_NATIVE)
     @SetProperty(name = "selenide.browser", value = Browser.APPIUM)
     @SetProperty(name = "selenide.otherBrowsers", value = Browser.CHROME)
     void androidNativeAndChrome() throws Exception {

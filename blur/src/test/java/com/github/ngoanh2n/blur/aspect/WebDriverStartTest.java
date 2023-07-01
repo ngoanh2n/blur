@@ -26,7 +26,7 @@ public class WebDriverStartTest extends AbstractTest {
 
     @Test
     @Order(2)
-    @SetProperty(name = "blur.caps", value = Capabilities.ANDROID_CHROME)
+    @SetProperty(name = "blur.appium.capabilities", value = Capabilities.ANDROID_CHROME)
     @SetProperty(name = "selenide.browser", value = Browser.APPIUM)
     void androidChrome() throws Exception {
         startAndCheck(WebDriverChecker::isAndroidBrowser);
@@ -34,7 +34,7 @@ public class WebDriverStartTest extends AbstractTest {
 
     @Test
     @Order(3)
-    @SetProperty(name = "blur.caps", value = Capabilities.ANDROID_NATIVE)
+    @SetProperty(name = "blur.appium.capabilities", value = Capabilities.ANDROID_NATIVE)
     @SetProperty(name = "selenide.browser", value = Browser.APPIUM)
     void androidNative() throws Exception {
         startAndCheck(WebDriverChecker::isAndroidNative);
@@ -42,7 +42,7 @@ public class WebDriverStartTest extends AbstractTest {
 
     @Test
     @Order(4)
-    @SetProperty(name = "blur.caps", value = Capabilities.WINDOWS_NATIVE)
+    @SetProperty(name = "blur.appium.capabilities", value = Capabilities.WINDOWS_NATIVE)
     @SetProperty(name = "selenide.browser", value = Browser.APPIUM)
     void windowsNative() throws Exception {
         String appWorkingDirCapability = "appium:appWorkingDir";
