@@ -1,4 +1,4 @@
-### https://github.com/appium/appium-xcuitest-driver#capabilities
+### https://github.com/appium/appium-xcuitest-driver/blob/master/docs/capabilities.md
 platformName: ios
 appium:automationName: xcuitest
 appium:deviceName: iPhone 11
