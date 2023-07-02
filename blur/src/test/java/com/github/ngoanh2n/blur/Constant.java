@@ -14,7 +14,7 @@ public final class Constant {
     public final static class Capabilities {
         public final static String IOS_SAFARI = "appium/local-ios-safari.yml";
         public final static String IOS_NATIVE = "appium/local-ios-native.yml";
-        public final static String MACOS_NATIVE = "appium/local-ios-native.yml";
+        public final static String MACOS_NATIVE = "appium/local-macos-native.yml";
         public final static String ANDROID_CHROME = "appium/local-android-chrome.yml";
         public final static String ANDROID_NATIVE = "appium/local-android-native.yml";
         public final static String WINDOWS_NATIVE = "appium/local-windows-native.yml";
