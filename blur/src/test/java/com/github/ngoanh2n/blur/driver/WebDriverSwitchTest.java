@@ -26,6 +26,15 @@ public class WebDriverSwitchTest extends AbstractTest {
     }
 
     @Test
+    @Order(2)
+    @SetProperty(name = "blur.appium.capabilities", value = Capabilities.IOS_SAFARI)
+    @SetProperty(name = "selenide.browser", value = Browser.APPIUM)
+    @SetProperty(name = "selenide.otherBrowsers", value = Browser.FIREFOX)
+    void iOSSafariAndFirefox() throws Exception {
+        switchAndCheck(WebDriverChecker::isIOSBrowser, WebDriverChecker::isFirefox);
+    }
+
+    @Test
     @Order(4)
     @SetProperty(name = "selenide.browser", value = Browser.CHROME)
     @SetProperty(name = "selenide.otherBrowsers", value = Browser.EDGE)
