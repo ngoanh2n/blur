@@ -68,7 +68,7 @@ public class DriverAspect {
     @Around("execution(* com.codeborne.selenide.WebDriverRunner.getSelenideDriver())")
     public Object aroundGetSelenideDriver(ProceedingJoinPoint joinPoint) throws Throwable {
         BlurContainer container = Blur.getContainer();
-        BlurConfig config = container.config();
+        BlurConfig config = container.getConfig();
         BlurDriver driver = container.driver();
         return new SelenideDriver(config, driver);
     }
@@ -81,7 +81,7 @@ public class DriverAspect {
         for (Object arg : joinPoint.getArgs()) {
             if (arg instanceof Capabilities) {
                 if (isAppium((Capabilities) arg)) {
-                    BlurConfig config = Blur.getContainer().config();
+                    BlurConfig config = Blur.getContainer().getConfig();
                     config.browserSize(null).pageLoadTimeout(-1);
                     log.debug("Instantiate AppiumDriver: Disable config [browserSize, pageLoadTimeout]");
                 }

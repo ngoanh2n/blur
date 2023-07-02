@@ -49,7 +49,7 @@ public class BlurContainer extends WebDriverThreadLocalContainer {
      *
      * @return The implementation of {@link Config com.codeborne.selenide.Config}.
      */
-    public BlurConfig config() {
+    public BlurConfig getConfig() {
         return config;
     }
 

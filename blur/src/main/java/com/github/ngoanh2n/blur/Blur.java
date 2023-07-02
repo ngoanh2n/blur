@@ -189,7 +189,7 @@ public final class Blur extends Selenide {
      * @return The implementation of {@link Config com.codeborne.selenide.Config}.
      */
     public static BlurConfig getConfig() {
-        return getContainer().config();
+        return getContainer().getConfig();
     }
 
     /**
