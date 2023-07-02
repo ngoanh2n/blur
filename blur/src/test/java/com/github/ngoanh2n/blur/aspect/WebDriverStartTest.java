@@ -25,6 +25,14 @@ public class WebDriverStartTest extends AbstractTest {
     }
 
     @Test
+    @Order(2)
+    @SetProperty(name = "blur.appium.capabilities", value = Capabilities.IOS_SAFARI)
+    @SetProperty(name = "selenide.browser", value = Browser.APPIUM)
+    void iOSSafari() throws Exception {
+        startAndCheck(WebDriverChecker::isIOSBrowser);
+    }
+
+    @Test
     @Order(5)
     @SetProperty(name = "selenide.browser", value = Browser.CHROME)
     void chrome() throws Exception {
