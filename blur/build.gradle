@@ -74,14 +74,13 @@ dependencies {
         exclude(group: "io.qameta.allure")
         exclude(group: "com.github.ngoanh2n")
     }
-
     implementation("io.qameta.allure:allure-junit5:$versionAllure") {
         exclude(group: "org.junit.jupiter")
         exclude(group: "org.junit.platform")
         exclude(group: "org.slf4j", module: "slf4j-api")
     }
     implementation("io.qameta.allure:allure-selenide:$versionAllure")
-
+    implementation("org.junit.jupiter:junit-jupiter:$versionJunitJupiter")
     implementation("org.aspectj:aspectjrt:$versionAspectJ")
     implementation("org.aspectj:aspectjweaver:$versionAspectJ")
 }
