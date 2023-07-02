@@ -53,7 +53,7 @@ The modules are built in separated artifacts.
 ## Gradle
 Add to `build.gradle`.
 ```gradle
-implementation("com.github.ngoanh2n:blur:0.1.0")
+implementation("com.github.ngoanh2n:blur:0.2.0")
 ```
 
 ## Maven
@@ -62,7 +62,7 @@ Add to `pom.xml`.
 <dependency>
     <groupId>com.github.ngoanh2n</groupId>
     <artifactId>blur</artifactId>
-    <version>0.1.0</version>
+    <version>0.2.0</version>
 </dependency>
 ```
 
