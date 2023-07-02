@@ -9,6 +9,7 @@ import com.codeborne.selenide.logevents.SelenideLogger;
 import com.github.ngoanh2n.Commons;
 import com.google.common.collect.ImmutableList;
 import io.qameta.allure.selenide.AllureSelenide;
+import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
 import org.openqa.selenium.Capabilities;
@@ -46,9 +47,11 @@ public class DriverAspect {
 
     /**
      * Intercept before {@link Selenide#open() Selenide.open(..)}.
+     *
+     * @param joinPoint The state available at a join point and static information.
      */
     @Before("execution(* com.codeborne.selenide.Selenide.open(..))")
-    public void beforeOpen() {
+    public void beforeOpen(JoinPoint joinPoint) {
         if (!facadeChanged) {
             BlurConfig config = new BlurConfig();
             BlurDriver driver = new BlurDriver(config);
@@ -64,6 +67,9 @@ public class DriverAspect {
 
     /**
      * Intercept around {@link WebDriverRunner WebDriverRunner.getSelenideDriver()}.
+     *
+     * @param joinPoint The state available at a join point and static information.
+     * @return The returning value {@link WebDriverRunner WebDriverRunner.getSelenideDriver()}.
      */
     @Around("execution(* com.codeborne.selenide.WebDriverRunner.getSelenideDriver())")
     public Object aroundGetSelenideDriver(ProceedingJoinPoint joinPoint) throws Throwable {
@@ -75,6 +81,9 @@ public class DriverAspect {
 
     /**
      * Intercept around {@link RemoteWebDriver#RemoteWebDriver(CommandExecutor, Capabilities) new RemoteWebDriver(..)}.
+     *
+     * @param joinPoint The state available at a join point and static information.
+     * @return The returning value of {@link RemoteWebDriver#RemoteWebDriver(CommandExecutor, Capabilities) new RemoteWebDriver(..)}.
      */
     @Around("execution(* org.openqa.selenium.remote.RemoteWebDriver.init(..))")
     public Object aroundInitRemoteWebDriver(ProceedingJoinPoint joinPoint) throws Throwable {
@@ -93,17 +102,21 @@ public class DriverAspect {
 
     /**
      * Intercept after throwing {@link Selenide#open() Selenide.open(..)}.
+     *
+     * @param joinPoint The state available at a join point and static information.
      */
     @AfterThrowing(pointcut = "execution(* com.codeborne.selenide.Selenide.open(..))", throwing = "throwable")
-    public void afterThrowingOpen(Throwable throwable) {
+    public void afterThrowingOpen(JoinPoint joinPoint, Throwable throwable) {
         log.error(throwable.toString());
     }
 
     /**
      * Intercept after returning {@link Selenide#open() Selenide.open(..)}.
+     *
+     * @param joinPoint The state available at a join point and static information.
      */
     @AfterReturning("execution(* com.codeborne.selenide.Selenide.open(..))")
-    public void afterReturningOpen() {
+    public void afterReturningOpen(JoinPoint joinPoint) {
         BlurCommands.refresh();
         if (!facadeChanged) {
             facadeChanged = true;
@@ -113,9 +126,11 @@ public class DriverAspect {
 
     /**
      * Intercept after {@link WebDriverContainer#closeWebDriver() WebDriverContainer.closeWebDriver()}.
+     *
+     * @param joinPoint The state available at a join point and static information.
      */
     @After("execution(* com.codeborne.selenide.impl.WebDriverContainer.closeWebDriver())")
-    public void afterCloseWebDriver() {
+    public void afterCloseWebDriver(JoinPoint joinPoint) {
         facadeChanged = false;
         Blur.getContainer().removeWebDriverInstances();
     }
