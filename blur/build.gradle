@@ -33,6 +33,7 @@ dependencies {
         exclude(group: "org.apache.commons", module: "commons-lang3")
     }
 
+    api("org.slf4j:slf4j-api:$versionSlf4j")
     api("com.github.ngoanh2n:commons:$versionCommons")
     api("com.github.ngoanh2n:csv-comparator:$versionCsvComparator") {
         exclude(group: "com.github.ngoanh2n")
