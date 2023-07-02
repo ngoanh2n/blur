@@ -1,0 +1,5 @@
+### https://github.com/appium/appium-mac2-driver#capabilities
+platformName: mac
+appium:automationName: mac2
+appium:deviceName: mac
+appium:app: Activity Monitor
