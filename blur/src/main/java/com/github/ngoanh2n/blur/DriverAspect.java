@@ -136,7 +136,7 @@ public class DriverAspect {
         for (String automationKey : automationNameKeys) {
             if (capabilityNames.contains(automationKey)) {
                 String automationNameValue = (String) capabilities.getCapability(automationKey);
-                return automationNameValues.contains(automationNameValue);
+                return automationNameValues.stream().anyMatch(automationNameValue::equalsIgnoreCase);
             }
         }
         return false;
