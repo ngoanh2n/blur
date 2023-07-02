@@ -27,7 +27,7 @@ public class BlurContainer extends WebDriverThreadLocalContainer {
     private static final Logger log = LoggerFactory.getLogger(BlurContainer.class);
     private final BlurConfig config;
     private final BlurDriver driver;
-    private final DriverContainer container;
+    private final DriverHolder holder;
 
     /**
      * Default constructor.
@@ -39,7 +39,7 @@ public class BlurContainer extends WebDriverThreadLocalContainer {
         super();
         this.config = config;
         this.driver = driver;
-        this.container = new DriverContainer(config, driver);
+        this.holder = new DriverHolder(config, driver);
     }
 
     //-------------------------------------------------------------------------------//
@@ -91,7 +91,7 @@ public class BlurContainer extends WebDriverThreadLocalContainer {
      */
     public void switchToWebDriver(int index) {
         SelenideLogger.run("switchToWebDriver", String.valueOf(index), () -> {
-            WebDriver webDriver = container.getWebDriver(index);
+            WebDriver webDriver = holder.getWebDriver(index);
             setWebDriver(webDriver, getProxyServer());
             log.info("Switched to webdriver -> {}", webDriver);
         });
@@ -100,6 +100,6 @@ public class BlurContainer extends WebDriverThreadLocalContainer {
     //-------------------------------------------------------------------------------//
 
     void resetDriverContainer() {
-        container.resetDrivers(Thread.currentThread().getId());
+        holder.resetDrivers(Thread.currentThread().getId());
     }
 }

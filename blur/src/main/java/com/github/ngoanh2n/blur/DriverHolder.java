@@ -23,12 +23,12 @@ import java.util.stream.IntStream;
  * @author ngoanh2n
  * @since 2020
  */
-class DriverContainer {
+class DriverHolder {
     private final BlurConfig config;
     private final BlurDriver driver;
     private final Map<Long, Instance[]> drivers;
 
-    DriverContainer(BlurConfig config, BlurDriver driver) {
+    DriverHolder(BlurConfig config, BlurDriver driver) {
         this.config = config;
         this.driver = driver;
         this.drivers = initDriverGrid();
