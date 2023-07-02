@@ -69,7 +69,7 @@ public class DriverAspect {
     public Object aroundGetSelenideDriver(ProceedingJoinPoint joinPoint) throws Throwable {
         BlurContainer container = Blur.getContainer();
         BlurConfig config = container.getConfig();
-        BlurDriver driver = container.driver();
+        BlurDriver driver = container.getDriver();
         return new SelenideDriver(config, driver);
     }
 

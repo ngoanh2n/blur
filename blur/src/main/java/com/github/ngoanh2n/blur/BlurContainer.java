@@ -58,7 +58,7 @@ public class BlurContainer extends WebDriverThreadLocalContainer {
      *
      * @return The implementation of {@link Driver com.codeborne.selenide.Driver}.
      */
-    public BlurDriver driver() {
+    public BlurDriver getDriver() {
         return driver;
     }
 

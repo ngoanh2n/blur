@@ -198,7 +198,7 @@ public final class Blur extends Selenide {
      * @return The implementation of {@link Driver com.codeborne.selenide.Driver}.
      */
     public static BlurDriver getDriver() {
-        return getContainer().driver();
+        return getContainer().getDriver();
     }
 
     /**
