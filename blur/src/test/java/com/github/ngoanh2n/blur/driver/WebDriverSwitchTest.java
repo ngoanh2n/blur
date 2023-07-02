@@ -1,5 +1,6 @@
 package com.github.ngoanh2n.blur.driver;
 
+import com.github.ngoanh2n.EnabledIfProperty;
 import com.github.ngoanh2n.RuntimeError;
 import com.github.ngoanh2n.SetProperty;
 import com.github.ngoanh2n.blur.AbstractTest;
@@ -21,6 +22,7 @@ public class WebDriverSwitchTest extends AbstractTest {
     @Order(1)
     @SetProperty(name = "selenide.browser", value = Browser.SAFARI)
     @SetProperty(name = "selenide.otherBrowsers", value = Browser.FIREFOX)
+    @EnabledIfProperty(name = "test.os", value = "macos")
     void safariAndFirefox() throws Exception {
         switchAndCheck(WebDriverChecker::isSafari, WebDriverChecker::isFirefox);
     }
@@ -30,6 +32,7 @@ public class WebDriverSwitchTest extends AbstractTest {
     @SetProperty(name = "blur.appium.capabilities", value = Capabilities.IOS_SAFARI)
     @SetProperty(name = "selenide.browser", value = Browser.APPIUM)
     @SetProperty(name = "selenide.otherBrowsers", value = Browser.FIREFOX)
+    @EnabledIfProperty(name = "test.os", value = "macos")
     void iOSSafariAndFirefox() throws Exception {
         switchAndCheck(WebDriverChecker::isIOSBrowser, WebDriverChecker::isFirefox);
     }
@@ -39,6 +42,7 @@ public class WebDriverSwitchTest extends AbstractTest {
     @SetProperty(name = "blur.appium.capabilities", value = Capabilities.IOS_NATIVE)
     @SetProperty(name = "selenide.browser", value = Browser.APPIUM)
     @SetProperty(name = "selenide.otherBrowsers", value = Browser.SAFARI)
+    @EnabledIfProperty(name = "test.os", value = "macos")
     void iOSNativeAndSafari() throws Exception {
         switchAndCheck(WebDriverChecker::isIOSNative, WebDriverChecker::isSafari);
     }
@@ -47,6 +51,7 @@ public class WebDriverSwitchTest extends AbstractTest {
     @Order(4)
     @SetProperty(name = "selenide.browser", value = Browser.CHROME)
     @SetProperty(name = "selenide.otherBrowsers", value = Browser.EDGE)
+    @EnabledIfProperty(name = "test.os", value = {"windows", "linux"})
     void chromeAndEdge() throws Exception {
         switchAndCheck(WebDriverChecker::isChrome, WebDriverChecker::isEdge);
     }
@@ -56,6 +61,7 @@ public class WebDriverSwitchTest extends AbstractTest {
     @SetProperty(name = "blur.appium.capabilities", value = Capabilities.ANDROID_CHROME)
     @SetProperty(name = "selenide.browser", value = Browser.APPIUM)
     @SetProperty(name = "selenide.otherBrowsers", value = Browser.EDGE)
+    @EnabledIfProperty(name = "test.os", value = {"windows", "linux"})
     void androidChromeAndEdge() throws Exception {
         switchAndCheck(WebDriverChecker::isAndroidBrowser, WebDriverChecker::isEdge);
     }
@@ -65,6 +71,7 @@ public class WebDriverSwitchTest extends AbstractTest {
     @SetProperty(name = "blur.appium.capabilities", value = Capabilities.ANDROID_NATIVE)
     @SetProperty(name = "selenide.browser", value = Browser.APPIUM)
     @SetProperty(name = "selenide.otherBrowsers", value = Browser.CHROME)
+    @EnabledIfProperty(name = "test.os", value = {"windows", "linux"})
     void androidNativeAndChrome() throws Exception {
         switchAndCheck(WebDriverChecker::isAndroidNative, WebDriverChecker::isChrome);
     }
