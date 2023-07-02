@@ -19,6 +19,14 @@ import java.util.concurrent.Callable;
 public class WebDriverSwitchTest extends AbstractTest {
     @Test
     @Order(1)
+    @SetProperty(name = "selenide.browser", value = Browser.SAFARI)
+    @SetProperty(name = "selenide.otherBrowsers", value = Browser.FIREFOX)
+    void safariAndFirefox() throws Exception {
+        switchAndCheck(WebDriverChecker::isSafari, WebDriverChecker::isFirefox);
+    }
+
+    @Test
+    @Order(4)
     @SetProperty(name = "selenide.browser", value = Browser.CHROME)
     @SetProperty(name = "selenide.otherBrowsers", value = Browser.EDGE)
     void chromeAndEdge() throws Exception {
@@ -26,7 +34,7 @@ public class WebDriverSwitchTest extends AbstractTest {
     }
 
     @Test
-    @Order(2)
+    @Order(5)
     @SetProperty(name = "blur.appium.capabilities", value = Capabilities.ANDROID_CHROME)
     @SetProperty(name = "selenide.browser", value = Browser.APPIUM)
     @SetProperty(name = "selenide.otherBrowsers", value = Browser.EDGE)
@@ -35,7 +43,7 @@ public class WebDriverSwitchTest extends AbstractTest {
     }
 
     @Test
-    @Order(3)
+    @Order(6)
     @SetProperty(name = "blur.appium.capabilities", value = Capabilities.ANDROID_NATIVE)
     @SetProperty(name = "selenide.browser", value = Browser.APPIUM)
     @SetProperty(name = "selenide.otherBrowsers", value = Browser.CHROME)
