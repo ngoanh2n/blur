@@ -117,7 +117,7 @@ public class DriverAspect {
     @After("execution(* com.codeborne.selenide.impl.WebDriverContainer.closeWebDriver())")
     public void afterCloseWebDriver() {
         facadeChanged = false;
-        Blur.getContainer().resetDriverContainer();
+        Blur.getContainer().removeWebDriverInstances();
     }
 
     //-------------------------------------------------------------------------------//

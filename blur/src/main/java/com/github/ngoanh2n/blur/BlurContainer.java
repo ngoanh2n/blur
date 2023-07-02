@@ -99,7 +99,7 @@ public class BlurContainer extends WebDriverThreadLocalContainer {
 
     //-------------------------------------------------------------------------------//
 
-    void resetDriverContainer() {
-        holder.resetDrivers(Thread.currentThread().getId());
+    void removeWebDriverInstances() {
+        holder.removeWebDriverInstances();
     }
 }
