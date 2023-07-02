@@ -24,14 +24,16 @@ import java.util.stream.IntStream;
  * @since 2020
  */
 class DriverHolder {
+    private final long threadId;
     private final BlurConfig config;
     private final BlurDriver driver;
     private final Map<Long, Instance[]> drivers;
 
     DriverHolder(BlurConfig config, BlurDriver driver) {
+        this.threadId = Thread.currentThread().getId();
         this.config = config;
         this.driver = driver;
-        this.drivers = initDriverGrid();
+        this.drivers = initWebDriverGrid();
     }
 
     //-------------------------------------------------------------------------------//
@@ -44,22 +46,22 @@ class DriverHolder {
             throw new RuntimeError("Index of webdriver is " + browserIds + " instead of " + browserId);
         } else {
             config.browser(instance.getBrowserName());
-            WebDriverInstance webDriverInstance = instance.getDriverInstance();
+            WebDriverInstance webDriverInstance = instance.getWebDriverInstance();
             return webDriverInstance != null ? webDriverInstance.webDriver() : createWebDriver(instance);
         }
     }
 
-    void resetDrivers(long threadId) {
+    void removeWebDriverInstances() {
         drivers.remove(threadId);
     }
 
     //-------------------------------------------------------------------------------//
 
-    private Map<Long, Instance[]> initDriverGrid() {
+    private Map<Long, Instance[]> initWebDriverGrid() {
         String[] browserNames = getBrowserNames();
         Instance[] instances = new Instance[browserNames.length];
         Map<Long, Instance[]> drivers = new ConcurrentHashMap<>(4);
-        drivers.put(Thread.currentThread().getId(), instances);
+        drivers.put(threadId, instances);
 
         IntStream.range(0, browserNames.length).forEach(browserId -> {
             String browserName = browserNames[browserId];
@@ -69,7 +71,7 @@ class DriverHolder {
     }
 
     private Instance getInstance(int browserId) {
-        Instance[] instances = drivers.get(Thread.currentThread().getId());
+        Instance[] instances = drivers.get(threadId);
         return Arrays.stream(instances)
                 .filter(instance -> instance.getBrowserId() == browserId)
                 .findFirst().orElse(null);
@@ -90,7 +92,7 @@ class DriverHolder {
         WebDriver webDriver = instance.getBrowserId() == 0
                 ? new SelenideDriver(config, driver).getWebDriver()
                 : new SelenideDriver(config).getAndCheckWebDriver();
-        instance.setDriverInstance(new WebDriverInstance(config, webDriver, null, null));
+        instance.setWebDriverInstance(new WebDriverInstance(config, webDriver, null, null));
         return webDriver;
     }
 
@@ -105,7 +107,7 @@ class DriverHolder {
 
         @Getter
         @Setter
-        private WebDriverInstance driverInstance;
+        private WebDriverInstance webDriverInstance;
 
         private Instance(int browserId, String browserName) {
             this.browserId = browserId;
