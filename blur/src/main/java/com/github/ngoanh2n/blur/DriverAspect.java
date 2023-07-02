@@ -70,6 +70,7 @@ public class DriverAspect {
      *
      * @param joinPoint The state available at a join point and static information.
      * @return The returning value {@link WebDriverRunner WebDriverRunner.getSelenideDriver()}.
+     * @throws Throwable if the error occurred.
      */
     @Around("execution(* com.codeborne.selenide.WebDriverRunner.getSelenideDriver())")
     public Object aroundGetSelenideDriver(ProceedingJoinPoint joinPoint) throws Throwable {
@@ -84,6 +85,7 @@ public class DriverAspect {
      *
      * @param joinPoint The state available at a join point and static information.
      * @return The returning value of {@link RemoteWebDriver#RemoteWebDriver(CommandExecutor, Capabilities) new RemoteWebDriver(..)}.
+     * @throws Throwable if the error occurred.
      */
     @Around("execution(* org.openqa.selenium.remote.RemoteWebDriver.init(..))")
     public Object aroundInitRemoteWebDriver(ProceedingJoinPoint joinPoint) throws Throwable {
@@ -104,6 +106,7 @@ public class DriverAspect {
      * Intercept after throwing {@link Selenide#open() Selenide.open(..)}.
      *
      * @param joinPoint The state available at a join point and static information.
+     * @param throwable The exception is thrown while calling {@link Selenide#open() Selenide.open(..)}.
      */
     @AfterThrowing(pointcut = "execution(* com.codeborne.selenide.Selenide.open(..))", throwing = "throwable")
     public void afterThrowingOpen(JoinPoint joinPoint, Throwable throwable) {
