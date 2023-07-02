@@ -1,0 +1,8 @@
+### https://github.com/appium/appium-xcuitest-driver#capabilities
+platformName: ios
+appium:automationName: xcuitest
+appium:deviceName: iPhone 11
+appium:fullReset: true
+appium:platformVersion: "15.5"
+appium:app: https://github.com/cloudgrey-io/the-app/releases/download/v1.10.0/TheApp-v1.10.0.app.zip
+appium:newCommandTimeout: 180                     # 180 seconds
