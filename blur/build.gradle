@@ -33,7 +33,6 @@ dependencies {
         exclude(group: "org.apache.commons", module: "commons-lang3")
     }
 
-    api("org.slf4j:slf4j-api:$versionSlf4j")
     api("com.github.ngoanh2n:commons:$versionCommons")
     api("com.github.ngoanh2n:csv-comparator:$versionCsvComparator") {
         exclude(group: "com.github.ngoanh2n")
@@ -80,6 +79,7 @@ dependencies {
         exclude(group: "org.slf4j", module: "slf4j-api")
     }
     implementation("io.qameta.allure:allure-selenide:$versionAllure")
+    implementation("org.slf4j:slf4j-api:$versionSlf4j")
     implementation("org.junit.jupiter:junit-jupiter:$versionJunitJupiter")
     implementation("org.aspectj:aspectjrt:$versionAspectJ")
     implementation("org.aspectj:aspectjweaver:$versionAspectJ")
