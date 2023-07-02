@@ -19,13 +19,20 @@ import java.util.concurrent.Callable;
 public class WebDriverStartTest extends AbstractTest {
     @Test
     @Order(1)
+    @SetProperty(name = "selenide.browser", value = Browser.SAFARI)
+    void safari() throws Exception {
+        startAndCheck(WebDriverChecker::isSafari);
+    }
+
+    @Test
+    @Order(5)
     @SetProperty(name = "selenide.browser", value = Browser.CHROME)
     void chrome() throws Exception {
         startAndCheck(WebDriverChecker::isChrome);
     }
 
     @Test
-    @Order(2)
+    @Order(6)
     @SetProperty(name = "blur.appium.capabilities", value = Capabilities.ANDROID_CHROME)
     @SetProperty(name = "selenide.browser", value = Browser.APPIUM)
     void androidChrome() throws Exception {
@@ -33,7 +40,7 @@ public class WebDriverStartTest extends AbstractTest {
     }
 
     @Test
-    @Order(3)
+    @Order(7)
     @SetProperty(name = "blur.appium.capabilities", value = Capabilities.ANDROID_NATIVE)
     @SetProperty(name = "selenide.browser", value = Browser.APPIUM)
     void androidNative() throws Exception {
@@ -41,7 +48,7 @@ public class WebDriverStartTest extends AbstractTest {
     }
 
     @Test
-    @Order(4)
+    @Order(8)
     @SetProperty(name = "blur.appium.capabilities", value = Capabilities.WINDOWS_NATIVE)
     @SetProperty(name = "selenide.browser", value = Browser.APPIUM)
     void windowsNative() throws Exception {
