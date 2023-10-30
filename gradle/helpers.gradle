@@ -1,0 +1,10 @@
+//file:noinspection GroovyAssignabilityCheck
+/**
+ * Author: ngoanh2n
+ */
+ext {
+    blur = [
+            dir   : { -> return rootDir.toPath() },
+            gradle: { -> return blur.dir().resolve("gradle") },
+    ]
+}
