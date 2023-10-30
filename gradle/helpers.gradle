@@ -12,8 +12,9 @@ ext {
             bscript: { -> return blur.gradle().resolve("bscript") },
     ]
     config = [
-            test  : { -> return gradle.config().resolve("test.gradle") },
-            allure: { -> return gradle.config().resolve("allure.gradle") },
+            test       : { -> return gradle.config().resolve("test.gradle") },
+            allure     : { -> return gradle.config().resolve("allure.gradle") },
+            compilation: { -> return gradle.config().resolve("compilation.gradle") },
     ]
     bscript = [
             repositories: { -> return gradle.bscript().resolve("repositories.gradle") },
