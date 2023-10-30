@@ -85,8 +85,6 @@ dependencies {
     implementation("org.aspectj:aspectjweaver:$versions.aspectj")
 }
 
-apply from: rootProject.file("gradle/test.gradle")
-
 allure {
     version = "${versions.allure}"
     adapter {
