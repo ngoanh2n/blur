@@ -15,11 +15,6 @@ buildscript {
 allprojects {
     group(property("artifact.group"))
     version(property("artifact.version"))
-
-    repositories {
-        mavenCentral()
-        maven { url("https://plugins.gradle.org/m2/") }
-    }
 }
 
 subprojects {
@@ -37,6 +32,7 @@ subprojects {
         from(config.allure)
         from(config.compilation)
         from(config.publication)
+        from(config.repositories)
     }
 
     apply from: rootProject.file("gradle/dependencies.gradle")
