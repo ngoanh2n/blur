@@ -84,22 +84,3 @@ dependencies {
     implementation("org.aspectj:aspectjrt:$versions.aspectj")
     implementation("org.aspectj:aspectjweaver:$versions.aspectj")
 }
-
-allure {
-    version = "${versions.allure}"
-    adapter {
-        aspectjWeaver = true
-        aspectjVersion = "${versions.aspectj}"
-        autoconfigureListeners = true
-
-        frameworks {
-            junit5 {
-                enabled = true
-                autoconfigureListeners = true
-            }
-        }
-    }
-    report {
-        reportDir = layout.buildDirectory.dir("allure")
-    }
-}

@@ -1,0 +1,22 @@
+/**
+ * Author: ngoanh2n
+ * @see <a href="https://github.com/allure-framework/allure-gradle">Allure plugin for Gradle</a>
+ */
+allure {
+    version = "${versions.allure}"
+    adapter {
+        aspectjWeaver = true
+        aspectjVersion = "${versions.aspectj}"
+        autoconfigureListeners = true
+
+        frameworks {
+            junit5 {
+                enabled = true
+                autoconfigureListeners = true
+            }
+        }
+    }
+    report {
+        reportDir = layout.buildDirectory.dir("allure")
+    }
+}

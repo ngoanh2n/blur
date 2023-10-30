@@ -28,6 +28,7 @@ subprojects {
         plugin("maven-publish")
 
         from(config.test)
+        from(config.allure)
     }
 
     apply from: rootProject.file("gradle/compilation.gradle")

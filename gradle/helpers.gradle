@@ -11,6 +11,7 @@ ext {
             config: { -> return blur.gradle().resolve("config") },
     ]
     config = [
-            test: { -> return gradle.config().resolve("test.gradle") },
+            test  : { -> return gradle.config().resolve("test.gradle") },
+            allure: { -> return gradle.config().resolve("allure.gradle") },
     ]
 }
