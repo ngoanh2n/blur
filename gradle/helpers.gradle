@@ -9,9 +9,13 @@ ext {
     ]
     gradle = [
             config: { -> return blur.gradle().resolve("config") },
+            bscript: { -> return blur.gradle().resolve("bscript") },
     ]
     config = [
             test  : { -> return gradle.config().resolve("test.gradle") },
             allure: { -> return gradle.config().resolve("allure.gradle") },
+    ]
+    bscript = [
+            repositories: { -> return gradle.bscript().resolve("repositories.gradle") },
     ]
 }
