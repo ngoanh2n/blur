@@ -8,7 +8,7 @@ ext {
             gradle: { -> return blur.dir().resolve("gradle") },
     ]
     gradle = [
-            config: { -> return blur.gradle().resolve("config") },
+            config : { -> return blur.gradle().resolve("config") },
             bscript: { -> return blur.gradle().resolve("bscript") },
     ]
     config = [
@@ -17,5 +17,6 @@ ext {
     ]
     bscript = [
             repositories: { -> return gradle.bscript().resolve("repositories.gradle") },
+            dependencies: { -> return gradle.bscript().resolve("dependencies.gradle") },
     ]
 }
