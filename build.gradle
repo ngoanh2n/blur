@@ -1,6 +1,9 @@
 /**
  * Author: ngoanh2n
  */
+buildscript {
+}
+
 allprojects {
     group(property("artifact.group"))
     version(property("artifact.version"))
