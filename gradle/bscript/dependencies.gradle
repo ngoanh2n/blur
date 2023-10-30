@@ -2,4 +2,5 @@
  * Author: ngoanh2n
  */
 dependencies {
+    classpath("io.freefair.gradle:aspectj-plugin:8.4")
 }
