@@ -1,10 +1,6 @@
 /**
  * Author: ngoanh2n
  */
-plugins {
-    id("io.qameta.allure") version "2.11.2"
-}
-
 dependencies {
     api("org.seleniumhq.selenium:selenium-java:$versions.selenium") {
         exclude(group: "com.google.guava", module: "guava")

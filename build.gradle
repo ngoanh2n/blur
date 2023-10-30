@@ -30,6 +30,7 @@ subprojects {
         plugin("signing")
         plugin("java-library")
         plugin("maven-publish")
+        plugin("io.qameta.allure")
         plugin("io.freefair.aspectj.post-compile-weaving")
 
         from(config.test)

@@ -3,4 +3,5 @@
  */
 dependencies {
     classpath("io.freefair.gradle:aspectj-plugin:8.4")
+    classpath("io.qameta.allure.gradle.allure:allure-plugin:2.11.2")
 }
