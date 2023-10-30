@@ -17,6 +17,7 @@ ext {
             compilation : { -> return gradle.config().resolve("compilation.gradle") },
             publication : { -> return gradle.config().resolve("publication.gradle") },
             repositories: { -> return gradle.config().resolve("repositories.gradle") },
+            dependencies: { -> return gradle.config().resolve("dependencies.gradle") },
     ]
     bscript = [
             repositories: { -> return gradle.bscript().resolve("repositories.gradle") },
