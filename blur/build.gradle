@@ -28,7 +28,7 @@ dependencies {
         exclude(group: "org.apache.commons", module: "commons-lang3")
     }
 
-    api("com.github.ngoanh2n:commons:$versions.commons")
+    api("com.github.ngoanh2n:commons:$versions.cms")
     api("com.github.ngoanh2n:csv-comparator:$versions.csvc") {
         exclude(group: "com.github.ngoanh2n")
     }
@@ -52,12 +52,12 @@ dependencies {
         exclude(group: "com.github.ngoanh2n")
     }
 
-    implementation("com.github.ngoanh2n:commons-junit5:$versions.commons") {
+    implementation("com.github.ngoanh2n:commons-junit5:$versions.cms") {
         exclude(group: "org.junit.jupiter")
         exclude(group: "com.github.ngoanh2n")
         exclude(group: "org.seleniumhq.selenium")
     }
-    implementation("com.github.ngoanh2n:commons-allure:$versions.commons") {
+    implementation("com.github.ngoanh2n:commons-allure:$versions.cms") {
         exclude(group: "com.github.ngoanh2n")
     }
     implementation("com.github.ngoanh2n:csv-comparator-allure:$versions.csvc") {

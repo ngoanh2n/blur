@@ -5,8 +5,10 @@
 allure {
     version = "${versions.allure}"
     adapter {
-        aspectjWeaver = true
         aspectjVersion = "${versions.aspectj}"
+        allureJavaVersion = "${versions.allure}"
+
+        aspectjWeaver = true
         autoconfigureListeners = true
 
         frameworks {
@@ -17,6 +19,7 @@ allure {
         }
     }
     report {
-        reportDir = layout.buildDirectory.dir("allure")
+        DirectoryProperty buildProperty = getLayout().getBuildDirectory()
+        reportDir = buildProperty.getLocationOnly().get().file("allure").getAsFile()
     }
 }

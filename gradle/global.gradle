@@ -7,7 +7,7 @@ ext {
             appium  : { -> return "8.5.1" },
             selenide: { -> return "6.15.0" },
 
-            commons : { -> return "1.2.2" },
+            cms     : { -> return "1.2.2" },
             csvc    : { -> return "1.6.0" },
             imgc    : { -> return "1.1.0" },
             wdc     : { -> return "2.7.0" },

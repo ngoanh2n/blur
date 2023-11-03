@@ -2,5 +2,5 @@
  * Author: ngoanh2n
  */
 repositories {
-    maven { url("https://plugins.gradle.org/m2/") }
+    maven { setUrl("https://plugins.gradle.org/m2/") }
 }
