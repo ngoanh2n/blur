@@ -10,7 +10,7 @@ ext {
             cms     : { -> return "1.3.0" },
             csvc    : { -> return "1.8.0" },
             imgc    : { -> return "1.3.0" },
-            wdc     : { -> return "2.7.0" },
+            wdc     : { -> return "2.8.0" },
             wds     : { -> return "1.0.1" },
 
             allure  : { -> return "2.23.0" },
