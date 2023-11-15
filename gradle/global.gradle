@@ -17,7 +17,7 @@ ext {
             jupiter : { -> return "5.10.1" },
             slf4j   : { -> return "2.0.9" },
             aspectj : { -> return "1.9.20.1" },
-            lombok  : { -> return "1.18.28" },
+            lombok  : { -> return "1.18.30" },
     ]
 }
 
