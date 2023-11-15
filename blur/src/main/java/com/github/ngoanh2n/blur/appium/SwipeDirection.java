@@ -1,7 +1,7 @@
 package com.github.ngoanh2n.blur.appium;
 
 /**
- * Four directions for swiping to.<br><br>
+ * Four directions for swiping.<br><br>
  *
  * <em>Repository:</em>
  * <ul>
@@ -13,5 +13,20 @@ package com.github.ngoanh2n.blur.appium;
  * @since 2020
  */
 public enum SwipeDirection {
-    UP, DOWN, LEFT, RIGHT
+    /**
+     * Swipe up.
+     */
+    UP,
+    /**
+     * Swipe down.
+     */
+    DOWN,
+    /**
+     * Swipe left.
+     */
+    LEFT,
+    /**
+     * Swipe right.
+     */
+    RIGHT
 }
