@@ -14,7 +14,7 @@ ext {
             wds     : { -> return "1.0.1" },
 
             allure  : { -> return "2.24.0" },
-            jupiter : { -> return "5.9.3" },
+            jupiter : { -> return "5.10.1" },
             slf4j   : { -> return "2.0.7" },
             aspectj : { -> return "1.9.19" },
             lombok  : { -> return "1.18.28" },
