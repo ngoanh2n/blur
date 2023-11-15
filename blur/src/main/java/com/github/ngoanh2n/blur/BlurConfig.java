@@ -13,7 +13,7 @@ import static com.codeborne.selenide.SelectorMode.CSS;
 import static com.codeborne.selenide.TextCheck.PARTIAL_TEXT;
 
 /**
- * Replace for {@link com.codeborne.selenide.SelenideConfig} (Cloned from Selenide 6.15.0).
+ * Replace for {@link com.codeborne.selenide.SelenideConfig}.
  * <p>
  * Priority order to get the value of property:
  * <ul>

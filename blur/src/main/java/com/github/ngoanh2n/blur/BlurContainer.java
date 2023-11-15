@@ -11,7 +11,7 @@ import org.slf4j.LoggerFactory;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 /**
- * Replace for {@link WebDriverThreadLocalContainer} (Cloned from Selenide 6.15.0).<br><br>
+ * Replace for {@link WebDriverThreadLocalContainer}.<br><br>
  *
  * <em>Repository:</em>
  * <ul>

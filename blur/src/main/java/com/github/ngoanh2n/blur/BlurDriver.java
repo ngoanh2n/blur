@@ -9,7 +9,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 /**
- * Replace for {@code com.codeborne.selenide.impl.StaticDriver} (Cloned from Selenide 6.15.0).<br><br>
+ * Replace for {@code com.codeborne.selenide.impl.StaticDriver}.<br><br>
  *
  * <em>Repository:</em>
  * <ul>
