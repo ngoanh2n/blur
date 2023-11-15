@@ -29,21 +29,21 @@ The main libs are used for `blur`.
 
 | Name       | Version  | Repository                                                                         |
 |:-----------|:---------|:-----------------------------------------------------------------------------------|
-| `Selenium` | `4.10.0` | [SeleniumHQ/selenium/java](https://github.com/SeleniumHQ/selenium/tree/trunk/java) |
-| `Appium`   | `8.5.1`  | [appium/java-client](https://github.com/appium/java-client)                        |
-| `Selenide` | `6.15.0` | [selenide/selenide](https://github.com/selenide/selenide)                          |
-| `JUnit5`   | `5.9.3`  | [junit-team/junit5](https://github.com/junit-team/junit5)                          |
-| `Allure`   | `2.22.2` | [allure-framework/allure-java](https://github.com/allure-framework/allure-java)    |
+| `Selenium` | `4.15.0` | [SeleniumHQ/selenium/java](https://github.com/SeleniumHQ/selenium/tree/trunk/java) |
+| `Appium`   | `9.0.0`  | [appium/java-client](https://github.com/appium/java-client)                        |
+| `Selenide` | `7.0.2`  | [selenide/selenide](https://github.com/selenide/selenide)                          |
+| `Allure`   | `2.24.0` | [allure-framework/allure-java](https://github.com/allure-framework/allure-java)    |
+| `JUnit5`   | `5.10.1` | [junit-team/junit5](https://github.com/junit-team/junit5)                          |
 
 ## Module
 The modules are built in separated artifacts.
 
 | Name               | Version | Repository                                                                |
 |:-------------------|---------|:--------------------------------------------------------------------------|
-| `Commons`          | `1.2.0` | [ngoanh2n/commons](https://github.com/ngoanh2n/commons)                   |
-| `CSV Comparator`   | `1.6.0` | [ngoanh2n/csv-comparator](https://github.com/ngoanh2n/csv-comparator)     |
-| `Image Comparator` | `1.1.0` | [ngoanh2n/image-comparator](https://github.com/ngoanh2n/image-comparator) |
-| `WebDriverChecker` | `2.6.0` | [ngoanh2n/webdriverchecker](https://github.com/ngoanh2n/webdriverchecker) |
+| `Commons`          | `1.3.0` | [ngoanh2n/commons](https://github.com/ngoanh2n/commons)                   |
+| `CSV Comparator`   | `1.8.0` | [ngoanh2n/csv-comparator](https://github.com/ngoanh2n/csv-comparator)     |
+| `Image Comparator` | `1.3.0` | [ngoanh2n/image-comparator](https://github.com/ngoanh2n/image-comparator) |
+| `WebDriverChecker` | `2.8.0` | [ngoanh2n/webdriverchecker](https://github.com/ngoanh2n/webdriverchecker) |
 | `WebDriverShooter` | `1.0.1` | [ngoanh2n/webdrivershooter](https://github.com/ngoanh2n/webdrivershooter) |
 
 # Declaration
