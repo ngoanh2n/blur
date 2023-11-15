@@ -93,13 +93,11 @@ public class AppiumDriverProvider implements WebDriverProvider {
      */
     public static AppiumDriverLocalService startServer() {
         AppiumServiceBuilder builder = new AppiumServiceBuilder()
-                .withIPAddress("127.0.0.1")
+                .withIPAddress(AppiumServiceBuilder.BROADCAST_IP4_ADDRESS)
                 .usingAnyFreePort()
                 .withArgument(GeneralServerFlag.BASEPATH, "/wd/hub")
                 .withArgument(GeneralServerFlag.LOG_LEVEL, "error:warn")
-                .withArgument(GeneralServerFlag.ALLOW_INSECURE, "chromedriver_autodownload")
-                //.withArgument(() -> "--allow-insecure", "chromedriver_autodownload")
-                ;
+                .withArgument(GeneralServerFlag.ALLOW_INSECURE, "chromedriver_autodownload");
         return startServer(builder);
     }
 
