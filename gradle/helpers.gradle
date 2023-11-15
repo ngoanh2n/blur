@@ -1,0 +1,26 @@
+//file:noinspection GroovyAssignabilityCheck
+/**
+ * Author: ngoanh2n
+ */
+ext {
+    blur = [
+            dir   : { -> return getRootDir().toPath() },
+            gradle: { -> return blur.dir().resolve("gradle") },
+    ]
+    gradle = [
+            config : { -> return blur.gradle().resolve("config") },
+            bscript: { -> return blur.gradle().resolve("bscript") },
+    ]
+    config = [
+            test        : { -> return gradle.config().resolve("test.gradle") },
+            allure      : { -> return gradle.config().resolve("allure.gradle") },
+            compilation : { -> return gradle.config().resolve("compilation.gradle") },
+            publication : { -> return gradle.config().resolve("publication.gradle") },
+            repositories: { -> return gradle.config().resolve("repositories.gradle") },
+            dependencies: { -> return gradle.config().resolve("dependencies.gradle") },
+    ]
+    bscript = [
+            repositories: { -> return gradle.bscript().resolve("repositories.gradle") },
+            dependencies: { -> return gradle.bscript().resolve("dependencies.gradle") },
+    ]
+}

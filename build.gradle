@@ -1,40 +1,49 @@
 /**
  * Author: ngoanh2n
  */
-allprojects {
-    group("com.github.ngoanh2n")
-    version("0.2.0")
-
-    repositories {
-        mavenCentral()
-        maven { url("https://plugins.gradle.org/m2/") }
+buildscript {
+    apply {
+        from(file("gradle/global.gradle"))
+        from(file("gradle/helpers.gradle"))
     }
-    apply from: rootProject.file("gradle/versions.gradle")
+    apply {
+        from(bscript.repositories) to(getBuildscript())
+        from(bscript.dependencies) to(getBuildscript())
+    }
+}
+
+allprojects {
+    setGroup(property("artifact.group"))
+    setVersion(property("artifact.version"))
 }
 
 subprojects {
-    apply plugin: "idea"
-    apply plugin: "java"
-    apply plugin: "signing"
-    apply plugin: "java-library"
-    apply plugin: "maven-publish"
+    apply {
+        plugin("java")
+        plugin("base")
+        plugin("idea")
+        plugin("signing")
+        plugin("java-library")
+        plugin("maven-publish")
+        plugin("io.qameta.allure")
+        plugin("io.freefair.aspectj.post-compile-weaving")
 
-    apply from: rootProject.file("gradle/compilation.gradle")
-    apply from: rootProject.file("gradle/publication.gradle")
-    apply from: rootProject.file("gradle/dependencies.gradle")
-
-    clean.doFirst {
-        delete project.file("out")
-        delete rootProject.files("build")
+        from(config.test)
+        from(config.allure)
+        from(config.compilation)
+        from(config.publication)
+        from(config.repositories)
+        from(config.dependencies)
     }
 
-    tasks.build.configure {
-        dependsOn.removeIf { task -> (task == "check") }
+    getTasks().clean.doFirst {
+        delete(getProject().file("out"))
+        delete(getRootProject().files("build"))
+    }
+
+    getTasks().build.configure {
+        getDependsOn().removeIf { task -> (task == "check") }
         assemble.dependsOn("clean")
         dependsOn("publishToMavenLocal")
-    }
-
-    tasks.withType(Test).configureEach {
-        System.setProperty("user.dir", projectDir.toString())
     }
 }

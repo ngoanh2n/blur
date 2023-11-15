@@ -107,6 +107,16 @@ public abstract class SwipeOptions {
         public Point getPoint() {
             return point;
         }
+
+        /**
+         * To string for {@link Coordinates}.
+         *
+         * @return A string representation of {@link Coordinates}.
+         */
+        @Override
+        public String toString() {
+            return String.format("%s, %s", point.getX(), point.getY());
+        }
     }
 
     /**
@@ -170,6 +180,16 @@ public abstract class SwipeOptions {
          */
         public double getDestinationRatio() {
             return destinationRatio;
+        }
+
+        /**
+         * To string for {@link SwipeDirection}.
+         *
+         * @return A string representation of {@link SwipeDirection}.
+         */
+        @Override
+        public String toString() {
+            return String.format("%s with ratio [%s, %s]", direction, sourceRatio, destinationRatio);
         }
     }
 }
