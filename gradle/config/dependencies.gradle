@@ -2,12 +2,6 @@
  * Author: ngoanh2n
  */
 dependencies {
-    compileOnly("org.projectlombok:lombok:$versions.lombok")
-    annotationProcessor("org.projectlombok:lombok:$versions.lombok")
-
-    testCompileOnly("org.projectlombok:lombok:$versions.lombok")
-    testAnnotationProcessor("org.projectlombok:lombok:$versions.lombok")
-
     testImplementation("org.slf4j:slf4j-log4j12:$versions.slf4j")
     testImplementation("org.junit.jupiter:junit-jupiter:$versions.jupiter")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
