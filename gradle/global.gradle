@@ -3,7 +3,7 @@
  */
 ext {
     versions = [
-            selenium: { -> return "4.10.0" },
+            selenium: { -> return "4.15.0" },
             appium  : { -> return "8.5.1" },
             selenide: { -> return "6.15.0" },
 
