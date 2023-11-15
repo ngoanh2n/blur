@@ -3,8 +3,6 @@ package com.github.ngoanh2n.blur;
 import com.codeborne.selenide.SelenideDriver;
 import com.codeborne.selenide.impl.WebDriverInstance;
 import com.github.ngoanh2n.RuntimeError;
-import lombok.Getter;
-import lombok.Setter;
 import org.apache.commons.lang3.ArrayUtils;
 import org.openqa.selenium.WebDriver;
 
@@ -99,19 +97,29 @@ class DriverHolder {
     //-------------------------------------------------------------------------------//
 
     private static final class Instance {
-        @Getter
         private final int browserId;
-
-        @Getter
         private final String browserName;
-
-        @Getter
-        @Setter
         private WebDriverInstance webDriverInstance;
 
         private Instance(int browserId, String browserName) {
             this.browserId = browserId;
             this.browserName = browserName;
+        }
+
+        private int getBrowserId() {
+            return this.browserId;
+        }
+
+        private String getBrowserName() {
+            return this.browserName;
+        }
+
+        private WebDriverInstance getWebDriverInstance() {
+            return this.webDriverInstance;
+        }
+
+        private void setWebDriverInstance(WebDriverInstance webDriverInstance) {
+            this.webDriverInstance = webDriverInstance;
         }
     }
 }
