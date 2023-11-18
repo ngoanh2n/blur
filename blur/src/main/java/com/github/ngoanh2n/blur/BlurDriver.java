@@ -63,7 +63,7 @@ public class BlurDriver implements Driver {
 
     @Override
     @CheckReturnValue
-    @Nullable
+    @Nonnull
     public SelenideProxyServer getProxy() {
         return WebDriverRunner.getSelenideProxy();
     }
