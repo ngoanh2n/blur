@@ -2,9 +2,9 @@
 platformName: ios
 browserName: safari
 appium:automationName: xcuitest
-appium:deviceName: iPhone 11
+appium:deviceName: iPhone 14
 appium:noReset: true
-appium:platformVersion: "15.5"
+appium:platformVersion: "16.2"
 appium:autoAcceptAlerts: true
 appium:autoDismissAlerts: true
 appium:safariAllowPopups: true

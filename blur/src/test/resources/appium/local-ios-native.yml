@@ -1,8 +1,8 @@
 ### https://github.com/appium/appium-xcuitest-driver/blob/master/docs/capabilities.md
 platformName: ios
 appium:automationName: xcuitest
-appium:deviceName: iPhone 11
+appium:deviceName: iPhone 14
 appium:noReset: true
-appium:platformVersion: "15.5"
+appium:platformVersion: "16.2"
 appium:app: https://github.com/cloudgrey-io/the-app/releases/download/v1.10.0/TheApp-v1.10.0.app.zip
 appium:newCommandTimeout: 180                     # 180 seconds
