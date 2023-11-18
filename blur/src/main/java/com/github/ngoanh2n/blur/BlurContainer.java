@@ -4,6 +4,7 @@ import com.codeborne.selenide.Config;
 import com.codeborne.selenide.Driver;
 import com.codeborne.selenide.impl.WebDriverThreadLocalContainer;
 import com.codeborne.selenide.logevents.SelenideLogger;
+import com.codeborne.selenide.proxy.SelenideProxyServer;
 import org.openqa.selenium.WebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -92,7 +93,8 @@ public class BlurContainer extends WebDriverThreadLocalContainer {
     public void switchToWebDriver(int index) {
         SelenideLogger.run("switchToWebDriver", String.valueOf(index), () -> {
             WebDriver webDriver = holder.getWebDriver(index);
-            setWebDriver(webDriver, getProxyServer());
+            SelenideProxyServer proxyServer = config.proxyEnabled() ? getProxyServer() : null;
+            setWebDriver(webDriver, proxyServer);
             log.info("Switched to webdriver -> {}", webDriver);
         });
     }
