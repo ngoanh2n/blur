@@ -40,11 +40,12 @@ public class BlurConfig extends SelenideConfig {
     private final Property<String> browserSize = new Property<>("selenide.browserSize", String.class, "1366x768");
     private final Property<String> browserVersion = new Property<>("selenide.browserVersion", String.class, null);
     private final Property<String> browserPosition = new Property<>("selenide.browserPosition", String.class, null);
-    private final Property<Boolean> driverManagerEnabled = new Property<>("selenide.driverManagerEnabled", Boolean.class, true);
     private final Property<Boolean> webdriverLogsEnabled = new Property<>("selenide.webdriverLogsEnabled", Boolean.class, false);
     private final Property<String> browserBinary = new Property<>("selenide.browserBinary", String.class, null);
     private final Property<String> pageLoadStrategy = new Property<>("selenide.pageLoadStrategy", String.class, "normal");
     private final Property<Long> pageLoadTimeout = new Property<>("selenide.pageLoadTimeout", Long.class, 30000L);
+    private MutableCapabilities browserCapabilities = new MutableCapabilities();
+
     private final Property<String> baseUrl = new Property<>("selenide.baseUrl", String.class, "http://localhost:8080");
     private final Property<Long> timeout = new Property<>("selenide.timeout", Long.class, 4000L);
     private final Property<Long> pollingInterval = new Property<>("selenide.pollingInterval", Long.class, 200L);
@@ -52,6 +53,7 @@ public class BlurConfig extends SelenideConfig {
     private final Property<Boolean> reopenBrowserOnFail = new Property<>("selenide.reopenBrowserOnFail", Boolean.class, true);
     private final Property<Boolean> clickViaJs = new Property<>("selenide.clickViaJs", Boolean.class, false);
     private final Property<Boolean> screenshots = new Property<>("selenide.screenshots", Boolean.class, true);
+
     private final Property<Boolean> savePageSource = new Property<>("selenide.savePageSource", Boolean.class, true);
     private final Property<String> reportsFolder = new Property<>("selenide.reportsFolder", String.class, "build/reports/tests");
     private final Property<String> downloadsFolder = new Property<>("selenide.downloadsFolder", String.class, "build/downloads");
@@ -66,8 +68,8 @@ public class BlurConfig extends SelenideConfig {
     private final Property<Integer> proxyPort = new Property<>("selenide.proxyPort", Integer.class, 0);
     private final Property<Long> remoteReadTimeout = new Property<>("selenide.remoteReadTimeout", Long.class, 90000L);
     private final Property<Long> remoteConnectionTimeout = new Property<>("selenide.remoteConnectionTimeout", Long.class, 10000L);
+
     private final Property<String> otherBrowsers = new Property<>("selenide.otherBrowsers", String.class, null);
-    private MutableCapabilities browserCapabilities = new MutableCapabilities();
 
     /**
      * Default constructor.
@@ -98,10 +100,6 @@ public class BlurConfig extends SelenideConfig {
 
     public String browserPosition() {
         return propertiesFile.getProperty(browserPosition);
-    }
-
-    public boolean driverManagerEnabled() {
-        return propertiesFile.getProperty(driverManagerEnabled);
     }
 
     public boolean webdriverLogsEnabled() {
@@ -247,11 +245,6 @@ public class BlurConfig extends SelenideConfig {
 
     public BlurConfig browserPosition(String browserPosition) {
         this.browserPosition.setValue(browserPosition);
-        return this;
-    }
-
-    public BlurConfig driverManagerEnabled(boolean driverManagerEnabled) {
-        this.driverManagerEnabled.setValue(driverManagerEnabled);
         return this;
     }
 
