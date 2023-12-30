@@ -13,7 +13,7 @@ ext {
             wdc     : { -> return "2.8.0" },
             wds     : { -> return "1.0.1" },
 
-            allure  : { -> return "2.24.0" },
+            allure  : { -> return "2.25.0" },
             jupiter : { -> return "5.10.1" },
             slf4j   : { -> return "2.0.9" },
             aspectj : { -> return "1.9.20.1" },
