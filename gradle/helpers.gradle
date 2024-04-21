@@ -24,3 +24,10 @@ ext {
             dependencies: { -> return gradle.bscript().resolve("dependencies.gradle") },
     ]
 }
+
+def joiner = new StringJoiner("\n")
+def version = property("artifact.version")
+joiner.add("--------------------")
+joiner.add("[Blur] Version $version")
+joiner.add("--------------------")
+println(joiner.toString())
