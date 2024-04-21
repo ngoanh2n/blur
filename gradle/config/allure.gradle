@@ -3,10 +3,10 @@
  * @see <a href="https://github.com/allure-framework/allure-gradle">Allure plugin for Gradle</a>
  */
 allure {
-    version = "${versions.allure}"
+    version = libs.versions.allure
     adapter {
-        aspectjVersion = "${versions.aspectj}"
-        allureJavaVersion = "${versions.allure}"
+        aspectjVersion = libs.versions.aspectj
+        allureJavaVersion = libs.versions.allure
 
         aspectjWeaver = true
         autoconfigureListeners = true

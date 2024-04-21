@@ -2,80 +2,51 @@
  * Author: ngoanh2n
  */
 dependencies {
-    api("org.seleniumhq.selenium:selenium-java:$versions.selenium") {
-        exclude(group: "com.google.guava", module: "guava")
+    api(libs.selenium.java) {
+        exclude(group: "com.google.guava")
     }
-    api("io.appium:java-client:$versions.appium") {
+    api(libs.appium.client) {
+        exclude(group: "org.slf4j")
+        exclude(group: "commons-io")
+        exclude(group: "org.apache.commons")
         exclude(group: "org.seleniumhq.selenium")
-        exclude(group: "org.slf4j", module: "slf4j-api")
-        exclude(group: "commons-io", module: "commons-io")
-        exclude(group: "org.apache.commons", module: "commons-lang3")
     }
-    api("com.codeborne:selenide:$versions.selenide") {
+    api(libs.selenide) {
+        exclude(group: "org.slf4j")
+        exclude(group: "commons-io")
+        exclude(group: "com.google.guava")
+        exclude(group: "org.apache.commons")
         exclude(group: "org.seleniumhq.selenium")
-        exclude(group: "org.slf4j", module: "slf4j-api")
-        exclude(group: "commons-io", module: "commons-io")
-        exclude(group: "com.google.guava", module: "guava")
-        exclude(group: "org.apache.commons", module: "commons-lang3")
+        exclude(group: "com.fasterxml.jackson.core")
     }
-    api("com.codeborne:selenide-appium:$versions.selenide") {
+    api(libs.selenide.appium) {
         exclude(group: "io.appium")
+        exclude(group: "org.slf4j")
+        exclude(group: "commons-io")
         exclude(group: "com.codeborne")
+        exclude(group: "com.google.guava")
+        exclude(group: "org.apache.commons")
         exclude(group: "org.seleniumhq.selenium")
-        exclude(group: "org.slf4j", module: "slf4j-api")
-        exclude(group: "commons-io", module: "commons-io")
-        exclude(group: "com.google.guava", module: "guava")
-        exclude(group: "org.apache.commons", module: "commons-lang3")
+        exclude(group: "com.fasterxml.jackson.core")
     }
 
-    api("com.github.ngoanh2n:commons:$versions.cms")
-    api("com.github.ngoanh2n:csv-comparator:$versions.csvc") {
-        exclude(group: "com.github.ngoanh2n")
-    }
-    api("com.github.ngoanh2n:image-comparator:$versions.imgc") {
-        exclude(group: "com.github.ngoanh2n")
-    }
-    api("com.github.ngoanh2n:webdriverchecker:$versions.wdc") {
-        exclude(group: "com.github.ngoanh2n")
-        exclude(group: "org.seleniumhq.selenium")
-    }
-    api("com.github.ngoanh2n:webdrivershooter:$versions.wds") {
-        exclude(group: "com.github.ngoanh2n")
-        exclude(group: "org.seleniumhq.selenium")
-    }
-    api("com.github.ngoanh2n:webdriverchecker-selenide:$versions.wdc") {
-        exclude(group: "com.codeborne")
-        exclude(group: "com.github.ngoanh2n")
-    }
-    api("com.github.ngoanh2n:webdrivershooter-selenide:$versions.wds") {
-        exclude(group: "com.codeborne")
-        exclude(group: "com.github.ngoanh2n")
-    }
+    implementation(libs.slf4j.api)
+    implementation(libs.aspectjrt)
+    implementation(libs.aspectjweaver)
+    implementation(libs.junit.jupiter)
+    implementation(libs.allure.junit5) { exclude(group: "*") }
+    implementation(libs.allure.selenide) { exclude(group: "*") }
 
-    implementation("com.github.ngoanh2n:commons-junit5:$versions.cms") {
-        exclude(group: "org.junit.jupiter")
-        exclude(group: "com.github.ngoanh2n")
-        exclude(group: "org.seleniumhq.selenium")
-    }
-    implementation("com.github.ngoanh2n:commons-allure:$versions.cms") {
-        exclude(group: "com.github.ngoanh2n")
-    }
-    implementation("com.github.ngoanh2n:csv-comparator-allure:$versions.csvc") {
-        exclude(group: "io.qameta.allure")
-        exclude(group: "com.github.ngoanh2n")
-    }
-    implementation("com.github.ngoanh2n:image-comparator-allure:$versions.imgc") {
-        exclude(group: "io.qameta.allure")
-        exclude(group: "com.github.ngoanh2n")
-    }
-    implementation("io.qameta.allure:allure-junit5:$versions.allure") {
-        exclude(group: "org.junit.jupiter")
-        exclude(group: "org.junit.platform")
-        exclude(group: "org.slf4j", module: "slf4j-api")
-    }
-    implementation("io.qameta.allure:allure-selenide:$versions.allure")
-    implementation("org.junit.jupiter:junit-jupiter:$versions.jupiter")
-    implementation("org.slf4j:slf4j-api:$versions.slf4j")
-    implementation("org.aspectj:aspectjrt:$versions.aspectj")
-    implementation("org.aspectj:aspectjweaver:$versions.aspectj")
+    api(libs.commons)
+    api(libs.csv.comparator)
+    api(libs.image.comparator)
+    api(libs.webdriverchecker) { exclude(group: "*") }
+    api(libs.webdrivershooter) { exclude(group: "*") }
+
+    implementation(libs.commons.junit5) { exclude(group: "*") }
+    implementation(libs.commons.allure) { exclude(group: "*") }
+    implementation(libs.csv.comparator.allure) { exclude(group: "*") }
+    implementation(libs.image.comparator.allure) { exclude(group: "*") }
+    implementation(libs.webdriverchecker.selenide) { exclude(group: "*") }
+    implementation(libs.webdrivershooter.selenide) { exclude(group: "*") }
 }

@@ -2,7 +2,8 @@
  * Author: ngoanh2n
  */
 dependencies {
-    testImplementation("org.slf4j:slf4j-log4j12:$versions.slf4j")
-    testImplementation("org.junit.jupiter:junit-jupiter:$versions.jupiter")
-    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+    testImplementation(libs.slf4j.log4j12)
+    testImplementation(libs.junit.jupiter)
+    testRuntimeOnly(libs.junit.jupiter.engine)
+    testRuntimeOnly(libs.junit.platform.launcher)
 }

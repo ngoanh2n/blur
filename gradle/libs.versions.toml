@@ -1,0 +1,43 @@
+#
+# Author: ngoanh2n
+#
+[versions]
+commons          = "1.4.0"
+csv-comparator   = "1.8.0"
+image-comparator = "1.3.0"
+webdriverchecker = "2.8.0"
+webdrivershooter = "1.0.1"
+selenium         = "4.16.1"
+appium           = "9.0.0"
+selenide         = "7.0.4"
+allure           = "2.25.0"
+aspectj          = "1.9.21"
+slf4j            = "2.0.10"
+junit-jupiter    = "5.10.1"
+junit-platform   = "1.10.2"
+
+[libraries]
+commons                   = { group = "com.github.ngoanh2n",     name = "commons",                   version.ref = "commons"          }
+commons-junit5            = { group = "com.github.ngoanh2n",     name = "commons-junit5",            version.ref = "commons"          }
+commons-allure            = { group = "com.github.ngoanh2n",     name = "commons-allure",            version.ref = "commons"          }
+csv-comparator            = { group = "com.github.ngoanh2n",     name = "csv-comparator",            version.ref = "csv-comparator"   }
+csv-comparator-allure     = { group = "com.github.ngoanh2n",     name = "csv-comparator-allure",     version.ref = "csv-comparator"   }
+image-comparator          = { group = "com.github.ngoanh2n",     name = "image-comparator",          version.ref = "image-comparator" }
+image-comparator-allure   = { group = "com.github.ngoanh2n",     name = "image-comparator-allure",   version.ref = "image-comparator" }
+webdriverchecker          = { group = "com.github.ngoanh2n",     name = "webdriverchecker",          version.ref = "webdriverchecker" }
+webdriverchecker-selenide = { group = "com.github.ngoanh2n",     name = "webdriverchecker-selenide", version.ref = "webdriverchecker" }
+webdrivershooter          = { group = "com.github.ngoanh2n",     name = "webdrivershooter",          version.ref = "webdrivershooter" }
+webdrivershooter-selenide = { group = "com.github.ngoanh2n",     name = "webdrivershooter-selenide", version.ref = "webdrivershooter" }
+selenium-java             = { group = "org.seleniumhq.selenium", name = "selenium-java",             version.ref = "selenium"         }
+appium-client             = { group = "io.appium",               name = "java-client",               version.ref = "appium"           }
+selenide                  = { group = "com.codeborne",           name = "selenide",                  version.ref = "selenide"         }
+selenide-appium           = { group = "com.codeborne",           name = "selenide-appium",           version.ref = "selenide"         }
+allure-selenide           = { group = "io.qameta.allure",        name = "allure-selenide",           version.ref = "allure"           }
+allure-junit5             = { group = "io.qameta.allure",        name = "allure-junit5",             version.ref = "allure"           }
+aspectjrt                 = { group = "org.aspectj",             name = "aspectjrt",                 version.ref = "aspectj"          }
+aspectjweaver             = { group = "org.aspectj",             name = "aspectjweaver",             version.ref = "aspectj"          }
+slf4j-api                 = { group = "org.slf4j",               name = "slf4j-api",                 version.ref = "slf4j"            }
+slf4j-log4j12             = { group = "org.slf4j",               name = "slf4j-log4j12",             version.ref = "slf4j"            }
+junit-jupiter             = { group = "org.junit.jupiter",       name = "junit-jupiter",             version.ref = "junit-jupiter"    }
+junit-jupiter-engine      = { group = "org.junit.jupiter",       name = "junit-jupiter-engine",      version.ref = "junit-jupiter"    }
+junit-platform-launcher   = { group = "org.junit.platform",      name = "junit-platform-launcher",   version.ref = "junit-platform"   }
