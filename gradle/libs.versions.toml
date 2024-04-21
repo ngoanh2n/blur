@@ -12,7 +12,7 @@ appium           = "9.0.0"
 selenide         = "7.0.4"
 allure           = "2.25.0"
 aspectj          = "1.9.21"
-slf4j            = "2.0.10"
+slf4j            = "2.0.13"
 junit-jupiter    = "5.10.1"
 junit-platform   = "1.10.2"
 
