@@ -29,22 +29,22 @@ The main libs are used for `blur`.
 
 | Name       | Version  | Repository                                                                         |
 |:-----------|:---------|:-----------------------------------------------------------------------------------|
-| `Selenium` | `4.15.0` | [SeleniumHQ/selenium/java](https://github.com/SeleniumHQ/selenium/tree/trunk/java) |
-| `Appium`   | `9.0.0`  | [appium/java-client](https://github.com/appium/java-client)                        |
-| `Selenide` | `7.0.2`  | [selenide/selenide](https://github.com/selenide/selenide)                          |
-| `Allure`   | `2.24.0` | [allure-framework/allure-java](https://github.com/allure-framework/allure-java)    |
-| `JUnit5`   | `5.10.1` | [junit-team/junit5](https://github.com/junit-team/junit5)                          |
+| `Selenium` | `4.23.0` | [SeleniumHQ/selenium/java](https://github.com/SeleniumHQ/selenium/tree/trunk/java) |
+| `Appium`   | `9.3.0`  | [appium/java-client](https://github.com/appium/java-client)                        |
+| `Selenide` | `7.4.1`  | [selenide/selenide](https://github.com/selenide/selenide)                          |
+| `Allure`   | `2.29.0` | [allure-framework/allure-java](https://github.com/allure-framework/allure-java)    |
+| `JUnit5`   | `5.10.3` | [junit-team/junit5](https://github.com/junit-team/junit5)                          |
 
 ## Module
 The modules are built in separated artifacts.
 
-| Name               | Version | Repository                                                                |
-|:-------------------|---------|:--------------------------------------------------------------------------|
-| `Commons`          | `1.3.0` | [ngoanh2n/commons](https://github.com/ngoanh2n/commons)                   |
-| `CSV Comparator`   | `1.8.0` | [ngoanh2n/csv-comparator](https://github.com/ngoanh2n/csv-comparator)     |
-| `Image Comparator` | `1.3.0` | [ngoanh2n/image-comparator](https://github.com/ngoanh2n/image-comparator) |
-| `WebDriverChecker` | `2.8.0` | [ngoanh2n/webdriverchecker](https://github.com/ngoanh2n/webdriverchecker) |
-| `WebDriverShooter` | `1.0.1` | [ngoanh2n/webdrivershooter](https://github.com/ngoanh2n/webdrivershooter) |
+| Name               | Version  | Repository                                                                |
+|:-------------------|----------|:--------------------------------------------------------------------------|
+| `Commons`          | `1.6.0`  | [ngoanh2n/commons](https://github.com/ngoanh2n/commons)                   |
+| `CSV Comparator`   | `1.10.0` | [ngoanh2n/csv-comparator](https://github.com/ngoanh2n/csv-comparator)     |
+| `Image Comparator` | `1.5.0`  | [ngoanh2n/image-comparator](https://github.com/ngoanh2n/image-comparator) |
+| `WebDriverChecker` | `2.8.0`  | [ngoanh2n/webdriverchecker](https://github.com/ngoanh2n/webdriverchecker) |
+| `WebDriverShooter` | `1.1.1`  | [ngoanh2n/webdrivershooter](https://github.com/ngoanh2n/webdrivershooter) |
 
 # Declaration
 - Case 1: Declare `blur` as a dependency in [build.gradle](#gradle) or [pom.xml](#maven)
