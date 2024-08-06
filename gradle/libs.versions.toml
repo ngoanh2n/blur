@@ -4,7 +4,7 @@
 [versions]
 commons          = "1.6.0"
 csv-comparator   = "1.10.0"
-image-comparator = "1.3.0"
+image-comparator = "1.5.0"
 webdriverchecker = "2.8.0"
 webdrivershooter = "1.0.1"
 selenium         = "4.16.1"
