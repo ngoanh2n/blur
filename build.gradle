@@ -3,7 +3,6 @@
  */
 buildscript {
     apply {
-        from(file("gradle/global.gradle"))
         from(file("gradle/helpers.gradle"))
     }
     apply {
@@ -34,6 +33,12 @@ subprojects {
         from(config.publication)
         from(config.repositories)
         from(config.dependencies)
+    }
+
+    idea {
+        module {
+            downloadSources = true
+        }
     }
 
     getTasks().clean.doFirst {
