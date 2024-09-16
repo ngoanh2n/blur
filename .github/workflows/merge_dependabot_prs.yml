@@ -6,19 +6,19 @@
 name: Dependabot PRs Merge
 on:
   workflow_run:
-    workflows: ["Build"]
-    branches: [develop]
+    workflows: [ Build ]
+    branches: [ develop ]
     types:
       - completed
 jobs:
   automerge-dependabot:
     name: Merge dependabot PR
-    if: ${{ github.actor == 'dependabot[bot]' }}
-    timeout-minutes: 10
     runs-on: ubuntu-latest
     permissions:
       pull-requests: write
       contents: write
+    timeout-minutes: 10
+    if: ${{ github.actor == 'dependabot[bot]' }}
     steps:
       - uses: fastify/github-action-merge-dependabot@v3.10.1
         with:

@@ -8,24 +8,26 @@ on:
   pull_request:
     types: [opened, review_requested]
 jobs:
-  test:
+  build:
+    name: ubuntu-latest_java17
+    runs-on: ubuntu-latest
     defaults:
       run:
         shell: bash
-    name: ubuntu-latest_java17
-    runs-on: ubuntu-latest
+    permissions:
+      checks: write
     steps:
-      - name: "[Prepare] Checkout"
+      - name: Checkout
         uses: actions/checkout@v4
-      - name: "[Prepare] Setup JDK"
+      - name: Setup JDK
         uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: 17
-      - name: "[Build] Execute"
+      - name: Build
         run: ./gradlew clean build
-      - if: success() || failure()
-        name: "[Report] JUnit report"
+      - name: Summarize JUnit report
+        if: success() || failure()
         uses: mikepenz/action-junit-report@v4
         with:
           check_name: JUnit ubuntu-latest_java17
