@@ -29,11 +29,11 @@ The main libs are used for `blur`.
 
 | Name       | Version  | Repository                                                                         |
 |:-----------|:---------|:-----------------------------------------------------------------------------------|
-| `Selenium` | `4.23.0` | [SeleniumHQ/selenium/java](https://github.com/SeleniumHQ/selenium/tree/trunk/java) |
+| `Selenium` | `4.24.0` | [SeleniumHQ/selenium/java](https://github.com/SeleniumHQ/selenium/tree/trunk/java) |
 | `Appium`   | `9.3.0`  | [appium/java-client](https://github.com/appium/java-client)                        |
-| `Selenide` | `7.4.1`  | [selenide/selenide](https://github.com/selenide/selenide)                          |
+| `Selenide` | `7.4.3`  | [selenide/selenide](https://github.com/selenide/selenide)                          |
 | `Allure`   | `2.29.0` | [allure-framework/allure-java](https://github.com/allure-framework/allure-java)    |
-| `JUnit5`   | `5.10.3` | [junit-team/junit5](https://github.com/junit-team/junit5)                          |
+| `JUnit5`   | `5.11.0` | [junit-team/junit5](https://github.com/junit-team/junit5)                          |
 
 ## Module
 The modules are built in separated artifacts.
