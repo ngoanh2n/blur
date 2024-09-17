@@ -40,42 +40,42 @@ import static com.codeborne.selenide.TextCheck.PARTIAL_TEXT;
 public class BlurConfig extends SelenideConfig {
     private final PropertiesFile propertiesFile = new PropertiesFile("blur.properties");
 
-    private final Property<String> browser = new Property<>("selenide.browser", String.class, CHROME);
-    private final Property<Boolean> headless = new Property<>("selenide.headless", Boolean.class, false);
-    private final Property<String> remote = new Property<>("selenide.remote", String.class, null);
-    private final Property<String> browserSize = new Property<>("selenide.browserSize", String.class, "1366x768");
-    private final Property<String> browserVersion = new Property<>("selenide.browserVersion", String.class, null);
-    private final Property<String> browserPosition = new Property<>("selenide.browserPosition", String.class, null);
-    private final Property<Boolean> webdriverLogsEnabled = new Property<>("selenide.webdriverLogsEnabled", Boolean.class, false);
-    private final Property<String> browserBinary = new Property<>("selenide.browserBinary", String.class, null);
-    private final Property<String> pageLoadStrategy = new Property<>("selenide.pageLoadStrategy", String.class, "normal");
-    private final Property<Long> pageLoadTimeout = new Property<>("selenide.pageLoadTimeout", Long.class, 30000L);
+    private final Property<String> browser = Property.ofString("selenide.browser", CHROME);
+    private final Property<Boolean> headless = Property.ofBoolean("selenide.headless", false);
+    private final Property<String> remote = Property.ofString("selenide.remote");
+    private final Property<String> browserSize = Property.ofString("selenide.browserSize", "1366x768");
+    private final Property<String> browserVersion = Property.ofString("selenide.browserVersion");
+    private final Property<String> browserPosition = Property.ofString("selenide.browserPosition");
+    private final Property<Boolean> webdriverLogsEnabled = Property.ofBoolean("selenide.webdriverLogsEnabled", false);
+    private final Property<String> browserBinary = Property.ofString("selenide.browserBinary");
+    private final Property<String> pageLoadStrategy = Property.ofString("selenide.pageLoadStrategy", "normal");
+    private final Property<Long> pageLoadTimeout = Property.ofLong("selenide.pageLoadTimeout", 30000L);
     private MutableCapabilities browserCapabilities = new MutableCapabilities();
 
-    private final Property<String> baseUrl = new Property<>("selenide.baseUrl", String.class, "http://localhost:8080");
-    private final Property<Long> timeout = new Property<>("selenide.timeout", Long.class, 4000L);
-    private final Property<Long> pollingInterval = new Property<>("selenide.pollingInterval", Long.class, 200L);
-    private final Property<Boolean> holdBrowserOpen = new Property<>("selenide.holdBrowserOpen", Boolean.class, false);
-    private final Property<Boolean> reopenBrowserOnFail = new Property<>("selenide.reopenBrowserOnFail", Boolean.class, true);
-    private final Property<Boolean> clickViaJs = new Property<>("selenide.clickViaJs", Boolean.class, false);
-    private final Property<Boolean> screenshots = new Property<>("selenide.screenshots", Boolean.class, true);
+    private final Property<String> baseUrl = Property.ofString("selenide.baseUrl", "http://localhost:8080");
+    private final Property<Long> timeout = Property.ofLong("selenide.timeout", 4000L);
+    private final Property<Long> pollingInterval = Property.ofLong("selenide.pollingInterval", 200L);
+    private final Property<Boolean> holdBrowserOpen = Property.ofBoolean("selenide.holdBrowserOpen", false);
+    private final Property<Boolean> reopenBrowserOnFail = Property.ofBoolean("selenide.reopenBrowserOnFail", true);
+    private final Property<Boolean> clickViaJs = Property.ofBoolean("selenide.clickViaJs", false);
+    private final Property<Boolean> screenshots = Property.ofBoolean("selenide.screenshots", true);
 
-    private final Property<Boolean> savePageSource = new Property<>("selenide.savePageSource", Boolean.class, true);
-    private final Property<String> reportsFolder = new Property<>("selenide.reportsFolder", String.class, "build/reports/tests");
-    private final Property<String> downloadsFolder = new Property<>("selenide.downloadsFolder", String.class, "build/downloads");
-    private final Property<String> reportsUrl = new Property<>("selenide.reportsUrl", String.class, null);
-    private final Property<Boolean> fastSetValue = new Property<>("selenide.fastSetValue", Boolean.class, false);
+    private final Property<Boolean> savePageSource = Property.ofBoolean("selenide.savePageSource", true);
+    private final Property<String> reportsFolder = Property.ofString("selenide.reportsFolder", "build/reports/tests");
+    private final Property<String> downloadsFolder = Property.ofString("selenide.downloadsFolder", "build/downloads");
+    private final Property<String> reportsUrl = Property.ofString("selenide.reportsUrl");
+    private final Property<Boolean> fastSetValue = Property.ofBoolean("selenide.fastSetValue", false);
     private final Property<TextCheck> textCheck = new Property<>("selenide.textCheck", TextCheck.class, PARTIAL_TEXT);
     private final Property<SelectorMode> selectorMode = new Property<>("selenide.selectorMode", SelectorMode.class, CSS);
     private final Property<AssertionMode> assertionMode = new Property<>("selenide.assertionMode", AssertionMode.class, STRICT);
     private final Property<FileDownloadMode> fileDownload = new Property<>("selenide.fileDownload", FileDownloadMode.class, HTTPGET);
-    private final Property<Boolean> proxyEnabled = new Property<>("selenide.proxyEnabled", Boolean.class, false);
-    private final Property<String> proxyHost = new Property<>("selenide.proxyHost", String.class, null);
-    private final Property<Integer> proxyPort = new Property<>("selenide.proxyPort", Integer.class, 0);
-    private final Property<Long> remoteReadTimeout = new Property<>("selenide.remoteReadTimeout", Long.class, 90000L);
-    private final Property<Long> remoteConnectionTimeout = new Property<>("selenide.remoteConnectionTimeout", Long.class, 10000L);
+    private final Property<Boolean> proxyEnabled = Property.ofBoolean("selenide.proxyEnabled", false);
+    private final Property<String> proxyHost = Property.ofString("selenide.proxyHost");
+    private final Property<Integer> proxyPort = Property.ofInteger("selenide.proxyPort", 0);
+    private final Property<Long> remoteReadTimeout = Property.ofLong("selenide.remoteReadTimeout", 90000L);
+    private final Property<Long> remoteConnectionTimeout = Property.ofLong("selenide.remoteConnectionTimeout", 10000L);
 
-    private final Property<String> otherBrowsers = new Property<>("selenide.otherBrowsers", String.class, null);
+    private final Property<String> otherBrowsers = Property.ofString("selenide.otherBrowsers");
 
     /**
      * Default constructor.
