@@ -1,3 +1,4 @@
 getRootProject().setName("blur")
 
 include("blur")
+include("example")
