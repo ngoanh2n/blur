@@ -13,7 +13,7 @@ getTasks().register("javadocJar", Jar) {
 
 publishing {
     publications {
-        if (findProperty("artifact.name") != null) {
+        if (getProject().getName() == "blur") {
             mavenJava(MavenPublication) {
                 artifactId = getProject().getName()
                 from getComponents().java
