@@ -20,7 +20,7 @@ import java.util.concurrent.Callable;
 public class WebDriverStartTest extends AbstractTest {
     @Test
     @Order(1)
-    @SetProperty(name = "selenide.browser", value = Browser.SAFARI)
+    @SetProperty(name = "blur.browser", value = Browser.SAFARI)
     @EnabledIfProperty(name = "test.os", value = "macos")
     void safari() throws Exception {
         startAndCheck(WebDriverChecker::isSafari);
@@ -28,7 +28,7 @@ public class WebDriverStartTest extends AbstractTest {
 
     @Test
     @Order(2)
-    @SetProperty(name = "selenide.browser", value = Browser.CHROME)
+    @SetProperty(name = "blur.browser", value = Browser.CHROME)
     @EnabledIfProperty(name = "test.os", value = {"macos", "linux", "windows"})
     void chrome() throws Exception {
         startAndCheck(WebDriverChecker::isChrome);
@@ -36,7 +36,7 @@ public class WebDriverStartTest extends AbstractTest {
 
     @Test
     @Order(3)
-    @SetProperty(name = "selenide.browser", value = Browser.EDGE)
+    @SetProperty(name = "blur.browser", value = Browser.EDGE)
     @EnabledIfProperty(name = "test.os", value = {"macos", "linux", "windows"})
     void edge() throws Exception {
         startAndCheck(WebDriverChecker::isEdge);
@@ -44,7 +44,7 @@ public class WebDriverStartTest extends AbstractTest {
 
     @Test
     @Order(4)
-    @SetProperty(name = "selenide.browser", value = Browser.FIREFOX)
+    @SetProperty(name = "blur.browser", value = Browser.FIREFOX)
     @EnabledIfProperty(name = "test.os", value = {"macos", "linux", "windows"})
     void firefox() throws Exception {
         startAndCheck(WebDriverChecker::isFirefox);
@@ -53,7 +53,7 @@ public class WebDriverStartTest extends AbstractTest {
     @Test
     @Order(5)
     @SetProperty(name = "blur.appium.capabilities", value = Capabilities.IOS_SAFARI)
-    @SetProperty(name = "selenide.browser", value = Browser.APPIUM)
+    @SetProperty(name = "blur.browser", value = Browser.APPIUM)
     @EnabledIfProperty(name = "test.os", value = "macos")
     void iOSSafari() throws Exception {
         startAndCheck(WebDriverChecker::isIOSBrowser);
@@ -62,7 +62,7 @@ public class WebDriverStartTest extends AbstractTest {
     @Test
     @Order(6)
     @SetProperty(name = "blur.appium.capabilities", value = Capabilities.IOS_NATIVE)
-    @SetProperty(name = "selenide.browser", value = Browser.APPIUM)
+    @SetProperty(name = "blur.browser", value = Browser.APPIUM)
     @EnabledIfProperty(name = "test.os", value = "macos")
     void iOSNative() throws Exception {
         startAndCheck(WebDriverChecker::isIOSNative);
@@ -71,7 +71,7 @@ public class WebDriverStartTest extends AbstractTest {
     @Test
     @Order(7)
     @SetProperty(name = "blur.appium.capabilities", value = Capabilities.ANDROID_CHROME)
-    @SetProperty(name = "selenide.browser", value = Browser.APPIUM)
+    @SetProperty(name = "blur.browser", value = Browser.APPIUM)
     @EnabledIfProperty(name = "test.os", value = {"macos", "linux", "windows"})
     void androidChrome() throws Exception {
         startAndCheck(WebDriverChecker::isAndroidBrowser);
@@ -80,7 +80,7 @@ public class WebDriverStartTest extends AbstractTest {
     @Test
     @Order(8)
     @SetProperty(name = "blur.appium.capabilities", value = Capabilities.ANDROID_NATIVE)
-    @SetProperty(name = "selenide.browser", value = Browser.APPIUM)
+    @SetProperty(name = "blur.browser", value = Browser.APPIUM)
     @EnabledIfProperty(name = "test.os", value = {"macos", "linux", "windows"})
     void androidNative() throws Exception {
         startAndCheck(WebDriverChecker::isAndroidNative);
@@ -89,7 +89,7 @@ public class WebDriverStartTest extends AbstractTest {
     @Test
     @Order(9)
     @SetProperty(name = "blur.appium.capabilities", value = Capabilities.MACOS_NATIVE)
-    @SetProperty(name = "selenide.browser", value = Browser.APPIUM)
+    @SetProperty(name = "blur.browser", value = Browser.APPIUM)
     @EnabledIfProperty(name = "test.os", value = "macos")
     void macOSNative() throws Exception {
         startAndCheck(WebDriverChecker::isMacOSNative);
@@ -98,7 +98,7 @@ public class WebDriverStartTest extends AbstractTest {
     @Test
     @Order(10)
     @SetProperty(name = "blur.appium.capabilities", value = Capabilities.WINDOWS_NATIVE)
-    @SetProperty(name = "selenide.browser", value = Browser.APPIUM)
+    @SetProperty(name = "blur.browser", value = Browser.APPIUM)
     @EnabledIfProperty(name = "test.os", value = "windows")
     void windowsNative() throws Exception {
         String appWorkingDirCapability = "appium:appWorkingDir";

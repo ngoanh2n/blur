@@ -55,7 +55,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
  *      &#064;Test
  *      public void test() {
  *          System.setProperty("blur.appium.capabilities", "android-chrome-emulator.yml");
- *          System.setProperty("selenide.browser", "com.github.ngoanh2n.blur.driver.AppiumDriverProvider");
+ *          System.setProperty("blur.browser", "com.github.ngoanh2n.blur.driver.AppiumDriverProvider");
  *          Blur.open();
  *      }
  * }</pre><br>

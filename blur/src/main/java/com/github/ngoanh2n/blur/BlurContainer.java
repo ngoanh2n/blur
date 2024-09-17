@@ -73,8 +73,8 @@ public class BlurContainer extends WebDriverThreadLocalContainer {
      * <p>
      * Example:
      * <pre>{@code
-     * System.setProperty("selenide.browser", "chrome");
-     * System.setProperty("selenide.otherBrowsers", "edge,firefox");
+     * System.setProperty("blur.browser", "chrome");
+     * System.setProperty("blur.otherBrowsers", "edge,firefox");
      *
      * Blur.open(URL);                 // Chrome
      *

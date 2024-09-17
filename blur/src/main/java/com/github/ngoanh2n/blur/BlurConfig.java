@@ -40,42 +40,42 @@ import static com.codeborne.selenide.TextCheck.PARTIAL_TEXT;
 public class BlurConfig extends SelenideConfig {
     private final PropertiesFile propertiesFile = new PropertiesFile("blur.properties");
 
-    private final Property<String> browser = Property.ofString("selenide.browser", CHROME);
-    private final Property<Boolean> headless = Property.ofBoolean("selenide.headless", false);
-    private final Property<String> remote = Property.ofString("selenide.remote");
-    private final Property<String> browserSize = Property.ofString("selenide.browserSize", "1366x768");
-    private final Property<String> browserVersion = Property.ofString("selenide.browserVersion");
-    private final Property<String> browserPosition = Property.ofString("selenide.browserPosition");
-    private final Property<Boolean> webdriverLogsEnabled = Property.ofBoolean("selenide.webdriverLogsEnabled", false);
-    private final Property<String> browserBinary = Property.ofString("selenide.browserBinary");
-    private final Property<String> pageLoadStrategy = Property.ofString("selenide.pageLoadStrategy", "normal");
-    private final Property<Long> pageLoadTimeout = Property.ofLong("selenide.pageLoadTimeout", 30000L);
+    private final Property<String> browser = Property.ofString("blur.browser", CHROME);
+    private final Property<Boolean> headless = Property.ofBoolean("blur.headless", false);
+    private final Property<String> remote = Property.ofString("blur.remote");
+    private final Property<String> browserSize = Property.ofString("blur.browserSize", "1366x768");
+    private final Property<String> browserVersion = Property.ofString("blur.browserVersion");
+    private final Property<String> browserPosition = Property.ofString("blur.browserPosition");
+    private final Property<Boolean> webdriverLogsEnabled = Property.ofBoolean("blur.webdriverLogsEnabled", false);
+    private final Property<String> browserBinary = Property.ofString("blur.browserBinary");
+    private final Property<String> pageLoadStrategy = Property.ofString("blur.pageLoadStrategy", "normal");
+    private final Property<Long> pageLoadTimeout = Property.ofLong("blur.pageLoadTimeout", 30000L);
     private MutableCapabilities browserCapabilities = new MutableCapabilities();
 
-    private final Property<String> baseUrl = Property.ofString("selenide.baseUrl", "http://localhost:8080");
-    private final Property<Long> timeout = Property.ofLong("selenide.timeout", 4000L);
-    private final Property<Long> pollingInterval = Property.ofLong("selenide.pollingInterval", 200L);
-    private final Property<Boolean> holdBrowserOpen = Property.ofBoolean("selenide.holdBrowserOpen", false);
-    private final Property<Boolean> reopenBrowserOnFail = Property.ofBoolean("selenide.reopenBrowserOnFail", true);
-    private final Property<Boolean> clickViaJs = Property.ofBoolean("selenide.clickViaJs", false);
-    private final Property<Boolean> screenshots = Property.ofBoolean("selenide.screenshots", true);
+    private final Property<String> baseUrl = Property.ofString("blur.baseUrl", "http://localhost:8080");
+    private final Property<Long> timeout = Property.ofLong("blur.timeout", 4000L);
+    private final Property<Long> pollingInterval = Property.ofLong("blur.pollingInterval", 200L);
+    private final Property<Boolean> holdBrowserOpen = Property.ofBoolean("blur.holdBrowserOpen", false);
+    private final Property<Boolean> reopenBrowserOnFail = Property.ofBoolean("blur.reopenBrowserOnFail", true);
+    private final Property<Boolean> clickViaJs = Property.ofBoolean("blur.clickViaJs", false);
+    private final Property<Boolean> screenshots = Property.ofBoolean("blur.screenshots", true);
 
-    private final Property<Boolean> savePageSource = Property.ofBoolean("selenide.savePageSource", true);
-    private final Property<String> reportsFolder = Property.ofString("selenide.reportsFolder", "build/reports/tests");
-    private final Property<String> downloadsFolder = Property.ofString("selenide.downloadsFolder", "build/downloads");
-    private final Property<String> reportsUrl = Property.ofString("selenide.reportsUrl");
-    private final Property<Boolean> fastSetValue = Property.ofBoolean("selenide.fastSetValue", false);
-    private final Property<TextCheck> textCheck = new Property<>("selenide.textCheck", TextCheck.class, PARTIAL_TEXT);
-    private final Property<SelectorMode> selectorMode = new Property<>("selenide.selectorMode", SelectorMode.class, CSS);
-    private final Property<AssertionMode> assertionMode = new Property<>("selenide.assertionMode", AssertionMode.class, STRICT);
-    private final Property<FileDownloadMode> fileDownload = new Property<>("selenide.fileDownload", FileDownloadMode.class, HTTPGET);
-    private final Property<Boolean> proxyEnabled = Property.ofBoolean("selenide.proxyEnabled", false);
-    private final Property<String> proxyHost = Property.ofString("selenide.proxyHost");
-    private final Property<Integer> proxyPort = Property.ofInteger("selenide.proxyPort", 0);
-    private final Property<Long> remoteReadTimeout = Property.ofLong("selenide.remoteReadTimeout", 90000L);
-    private final Property<Long> remoteConnectionTimeout = Property.ofLong("selenide.remoteConnectionTimeout", 10000L);
+    private final Property<Boolean> savePageSource = Property.ofBoolean("blur.savePageSource", true);
+    private final Property<String> reportsFolder = Property.ofString("blur.reportsFolder", "build/reports/tests");
+    private final Property<String> downloadsFolder = Property.ofString("blur.downloadsFolder", "build/downloads");
+    private final Property<String> reportsUrl = Property.ofString("blur.reportsUrl");
+    private final Property<Boolean> fastSetValue = Property.ofBoolean("blur.fastSetValue", false);
+    private final Property<TextCheck> textCheck = new Property<>("blur.textCheck", TextCheck.class, PARTIAL_TEXT);
+    private final Property<SelectorMode> selectorMode = new Property<>("blur.selectorMode", SelectorMode.class, CSS);
+    private final Property<AssertionMode> assertionMode = new Property<>("blur.assertionMode", AssertionMode.class, STRICT);
+    private final Property<FileDownloadMode> fileDownload = new Property<>("blur.fileDownload", FileDownloadMode.class, HTTPGET);
+    private final Property<Boolean> proxyEnabled = Property.ofBoolean("blur.proxyEnabled", false);
+    private final Property<String> proxyHost = Property.ofString("blur.proxyHost");
+    private final Property<Integer> proxyPort = Property.ofInteger("blur.proxyPort", 0);
+    private final Property<Long> remoteReadTimeout = Property.ofLong("blur.remoteReadTimeout", 90000L);
+    private final Property<Long> remoteConnectionTimeout = Property.ofLong("blur.remoteConnectionTimeout", 10000L);
 
-    private final Property<String> otherBrowsers = Property.ofString("selenide.otherBrowsers");
+    private final Property<String> otherBrowsers = Property.ofString("blur.otherBrowsers");
 
     /**
      * Default constructor.

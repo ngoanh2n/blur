@@ -9,9 +9,9 @@ import org.junit.jupiter.api.TestMethodOrder;
 /**
  * @author ngoanh2n
  */
-@SetProperty(name = "selenide.timeout", value = "5000")
-@SetProperty(name = "selenide.remoteConnectionTimeout", value = "10000")
-@SetProperty(name = "selenide.remoteReadTimeout", value = "30000")
+@SetProperty(name = "blur.timeout", value = "5000")
+@SetProperty(name = "blur.remoteConnectionTimeout", value = "10000")
+@SetProperty(name = "blur.remoteReadTimeout", value = "30000")
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public abstract class AbstractTest {
     @AfterEach
