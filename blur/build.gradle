@@ -30,18 +30,19 @@ dependencies {
         exclude(group: "com.fasterxml.jackson.core")
     }
 
-    implementation(libs.slf4j.api)
-    implementation(libs.aspectjrt)
-    implementation(libs.aspectjweaver)
-    implementation(libs.junit.jupiter)
-    implementation(libs.allure.junit5) { exclude(group: "*") }
-    implementation(libs.allure.selenide) { exclude(group: "*") }
+    api(libs.aspectjrt)
+    api(libs.aspectjweaver)
 
     api(libs.commons)
     api(libs.csv.comparator)
     api(libs.image.comparator)
     api(libs.webdriverchecker) { exclude(group: "*") }
     api(libs.webdrivershooter) { exclude(group: "*") }
+
+    implementation(libs.slf4j.api)
+    implementation(libs.junit.jupiter)
+    implementation(libs.allure.junit5) { exclude(group: "*") }
+    implementation(libs.allure.selenide) { exclude(group: "*") }
 
     implementation(libs.commons.junit5) { exclude(group: "*") }
     implementation(libs.commons.allure) { exclude(group: "*") }
