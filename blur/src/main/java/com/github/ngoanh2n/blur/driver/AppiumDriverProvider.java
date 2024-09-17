@@ -28,7 +28,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
  * </ol>
  *
  * <b>Specify capabilities</b><br>
- * Use system property {@code blur.appium.capabilities} to specify which capabilities are used for {@link AppiumDriver}.<br><br>
+ * Use system property {@code blur.appiumCapabilities} to specify which capabilities are used for {@link AppiumDriver}.<br><br>
  *
  * <b>Specify browser</b><br>
  * Use system property {@code selenide.browser} to ask Selenide to start {@link AppiumDriver}.<br><br>
@@ -54,7 +54,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
  *      // Demo test codes
  *      &#064;Test
  *      public void test() {
- *          System.setProperty("blur.appium.capabilities", "android-chrome-emulator.yml");
+ *          System.setProperty("blur.appiumCapabilities", "android-chrome-emulator.yml");
  *          System.setProperty("blur.browser", "com.github.ngoanh2n.blur.driver.AppiumDriverProvider");
  *          Blur.open();
  *      }
@@ -72,7 +72,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 public class AppiumDriverProvider implements WebDriverProvider {
     private static final Logger log = LoggerFactory.getLogger(AppiumDriverProvider.class);
-    private static final Property<String> capabilitiesResource = Property.ofString("blur.appium.capabilities");
+    private static final Property<String> capabilitiesResource = Property.ofString("blur.appiumCapabilities");
 
     /**
      * Start Appium driver with capabilities from Yaml file in resources folder.
@@ -123,7 +123,7 @@ public class AppiumDriverProvider implements WebDriverProvider {
 
     /**
      * Read Appium capabilities from Yaml file in {@code resources} folder.<br>
-     * Use system property {@code blur.appium.capabilities} to specify capabilities resource.<br><br>
+     * Use system property {@code blur.appiumCapabilities} to specify capabilities resource.<br><br>
      *
      * @return A {@link Capabilities}.
      */

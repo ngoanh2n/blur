@@ -29,7 +29,7 @@ public class WebDriverSwitchTest extends AbstractTest {
 
     @Test
     @Order(2)
-    @SetProperty(name = "blur.appium.capabilities", value = Capabilities.IOS_SAFARI)
+    @SetProperty(name = "blur.appiumCapabilities", value = Capabilities.IOS_SAFARI)
     @SetProperty(name = "blur.browser", value = Browser.APPIUM)
     @SetProperty(name = "blur.otherBrowsers", value = Browser.FIREFOX)
     @EnabledIfProperty(name = "test.os", value = "macos")
@@ -39,7 +39,7 @@ public class WebDriverSwitchTest extends AbstractTest {
 
     @Test
     @Order(3)
-    @SetProperty(name = "blur.appium.capabilities", value = Capabilities.IOS_NATIVE)
+    @SetProperty(name = "blur.appiumCapabilities", value = Capabilities.IOS_NATIVE)
     @SetProperty(name = "blur.browser", value = Browser.APPIUM)
     @SetProperty(name = "blur.otherBrowsers", value = Browser.SAFARI)
     @EnabledIfProperty(name = "test.os", value = "macos")
@@ -58,7 +58,7 @@ public class WebDriverSwitchTest extends AbstractTest {
 
     @Test
     @Order(5)
-    @SetProperty(name = "blur.appium.capabilities", value = Capabilities.ANDROID_CHROME)
+    @SetProperty(name = "blur.appiumCapabilities", value = Capabilities.ANDROID_CHROME)
     @SetProperty(name = "blur.browser", value = Browser.APPIUM)
     @SetProperty(name = "blur.otherBrowsers", value = Browser.EDGE)
     @EnabledIfProperty(name = "test.os", value = {"windows", "linux"})
@@ -68,7 +68,7 @@ public class WebDriverSwitchTest extends AbstractTest {
 
     @Test
     @Order(6)
-    @SetProperty(name = "blur.appium.capabilities", value = Capabilities.ANDROID_NATIVE)
+    @SetProperty(name = "blur.appiumCapabilities", value = Capabilities.ANDROID_NATIVE)
     @SetProperty(name = "blur.browser", value = Browser.APPIUM)
     @SetProperty(name = "blur.otherBrowsers", value = Browser.CHROME)
     @EnabledIfProperty(name = "test.os", value = {"windows", "linux"})

@@ -52,7 +52,7 @@ public class WebDriverStartTest extends AbstractTest {
 
     @Test
     @Order(5)
-    @SetProperty(name = "blur.appium.capabilities", value = Capabilities.IOS_SAFARI)
+    @SetProperty(name = "blur.appiumCapabilities", value = Capabilities.IOS_SAFARI)
     @SetProperty(name = "blur.browser", value = Browser.APPIUM)
     @EnabledIfProperty(name = "test.os", value = "macos")
     void iOSSafari() throws Exception {
@@ -61,7 +61,7 @@ public class WebDriverStartTest extends AbstractTest {
 
     @Test
     @Order(6)
-    @SetProperty(name = "blur.appium.capabilities", value = Capabilities.IOS_NATIVE)
+    @SetProperty(name = "blur.appiumCapabilities", value = Capabilities.IOS_NATIVE)
     @SetProperty(name = "blur.browser", value = Browser.APPIUM)
     @EnabledIfProperty(name = "test.os", value = "macos")
     void iOSNative() throws Exception {
@@ -70,7 +70,7 @@ public class WebDriverStartTest extends AbstractTest {
 
     @Test
     @Order(7)
-    @SetProperty(name = "blur.appium.capabilities", value = Capabilities.ANDROID_CHROME)
+    @SetProperty(name = "blur.appiumCapabilities", value = Capabilities.ANDROID_CHROME)
     @SetProperty(name = "blur.browser", value = Browser.APPIUM)
     @EnabledIfProperty(name = "test.os", value = {"macos", "linux", "windows"})
     void androidChrome() throws Exception {
@@ -79,7 +79,7 @@ public class WebDriverStartTest extends AbstractTest {
 
     @Test
     @Order(8)
-    @SetProperty(name = "blur.appium.capabilities", value = Capabilities.ANDROID_NATIVE)
+    @SetProperty(name = "blur.appiumCapabilities", value = Capabilities.ANDROID_NATIVE)
     @SetProperty(name = "blur.browser", value = Browser.APPIUM)
     @EnabledIfProperty(name = "test.os", value = {"macos", "linux", "windows"})
     void androidNative() throws Exception {
@@ -88,7 +88,7 @@ public class WebDriverStartTest extends AbstractTest {
 
     @Test
     @Order(9)
-    @SetProperty(name = "blur.appium.capabilities", value = Capabilities.MACOS_NATIVE)
+    @SetProperty(name = "blur.appiumCapabilities", value = Capabilities.MACOS_NATIVE)
     @SetProperty(name = "blur.browser", value = Browser.APPIUM)
     @EnabledIfProperty(name = "test.os", value = "macos")
     void macOSNative() throws Exception {
@@ -97,7 +97,7 @@ public class WebDriverStartTest extends AbstractTest {
 
     @Test
     @Order(10)
-    @SetProperty(name = "blur.appium.capabilities", value = Capabilities.WINDOWS_NATIVE)
+    @SetProperty(name = "blur.appiumCapabilities", value = Capabilities.WINDOWS_NATIVE)
     @SetProperty(name = "blur.browser", value = Browser.APPIUM)
     @EnabledIfProperty(name = "test.os", value = "windows")
     void windowsNative() throws Exception {
