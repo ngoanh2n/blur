@@ -4,7 +4,13 @@ import com.codeborne.selenide.*;
 import com.codeborne.selenide.impl.CiReportUrl;
 import com.github.ngoanh2n.PropertiesFile;
 import com.github.ngoanh2n.Property;
+import org.apache.commons.lang3.reflect.FieldUtils;
 import org.openqa.selenium.MutableCapabilities;
+
+import java.lang.reflect.Field;
+import java.util.Arrays;
+import java.util.Objects;
+import java.util.Properties;
 
 import static com.codeborne.selenide.AssertionMode.STRICT;
 import static com.codeborne.selenide.Browsers.CHROME;
@@ -207,15 +213,6 @@ public class BlurConfig extends SelenideConfig {
         return propertiesFile.getProperty(remoteConnectionTimeout);
     }
 
-    /**
-     * Get other browsers.
-     *
-     * @return Other browsers.
-     */
-    public String otherBrowsers() {
-        return propertiesFile.getProperty(otherBrowsers);
-    }
-
     //-------------------------------------------------------------------------------//
 
     public BlurConfig browser(String browser) {
@@ -376,6 +373,40 @@ public class BlurConfig extends SelenideConfig {
     public BlurConfig remoteConnectionTimeout(long remoteConnectionTimeout) {
         this.remoteConnectionTimeout.setValue(remoteConnectionTimeout);
         return this;
+    }
+
+    //-------------------------------------------------------------------------------//
+
+    /**
+     * Convert all configs as properties.
+     *
+     * @return {@link Properties}.
+     */
+    public Properties asProperties() {
+        Properties properties = new Properties();
+        Field[] fs = FieldUtils.getAllFields(this.getClass());
+
+        Arrays.stream(fs).forEach(f -> {
+            if (f.getType() == Property.class) {
+                f.setAccessible(true);
+                try {
+                    Property<?> p = (Property<?>) f.get(this);
+                    properties.put(p.getName(), Objects.toString(p.getValue()));
+                } catch (IllegalAccessException | NullPointerException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        });
+        return properties;
+    }
+
+    /**
+     * Get other browsers.
+     *
+     * @return Other browsers.
+     */
+    public String otherBrowsers() {
+        return propertiesFile.getProperty(otherBrowsers);
     }
 
     /**
