@@ -206,14 +206,14 @@ public final class Blur extends Selenide {
      * Browser list is combined via:
      * <ul>
      *     <li>
-     *         Config <em>selenide.browser</em>
+     *         Config <em>blur.browser</em>
      *         <ul>
      *             <li>Getter: {@link BlurConfig#browser() BlurConfig#browser()}</li>
      *             <li>Setter: {@link BlurConfig#browser(String) BlurConfig#browser(String)}</li>
      *         </ul>
      *     </li>
      *     <li>
-     *         Config <em>selenide.otherBrowsers</em>
+     *         Config <em>blur.otherBrowsers</em>
      *         <ul>
      *             <li>Getter: {@link BlurConfig#otherBrowsers() BlurConfig#otherBrowsers()}</li>
      *             <li>Setter: {@link BlurConfig#otherBrowsers(String) BlurConfig#otherBrowsers(String)}</li>
