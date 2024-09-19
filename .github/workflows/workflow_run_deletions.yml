@@ -6,9 +6,10 @@
 name: Workflow Run Deletions
 on:
   schedule:
-    - cron: "0 2 * * 6"
+    - cron: "0 23 * * 6"
+  workflow_dispatch:
 jobs:
-  del_runs:
+  delete_workflow_runs:
     runs-on: ubuntu-latest
     permissions:
       actions: write
