@@ -24,7 +24,6 @@ jobs:
         with:
           distribution: temurin
           java-version: 17
-          cache: temurin17
       - name: Build
         run: ./gradlew clean build
   dependabot_merge:
