@@ -2,7 +2,7 @@ package com.github.ngoanh2n.blur;
 
 import com.codeborne.selenide.Config;
 import com.codeborne.selenide.Driver;
-import com.codeborne.selenide.impl.WebDriverThreadLocalContainer;
+import com.codeborne.selenide.WebDriverThreadLocalContainer;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import com.codeborne.selenide.proxy.SelenideProxyServer;
 import org.openqa.selenium.WebDriver;
