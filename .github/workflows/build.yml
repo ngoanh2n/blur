@@ -3,14 +3,14 @@
 ### https://docs.github.com/en/actions
 ### https://github.com/marketplace?type=actions
 ###
-name: Build
+name: Test
 on:
   pull_request:
-    types: [opened, review_requested]
+  workflow_dispatch:
 jobs:
-  build:
-    name: ubuntu-latest_java17
-    runs-on: ubuntu-latest
+  test_on_windows:
+    name: ubuntu
+    runs-on: windows-latest
     defaults:
       run:
         shell: bash
@@ -24,11 +24,12 @@ jobs:
         with:
           distribution: temurin
           java-version: 17
+          cache: java17
       - name: Build
-        run: ./gradlew clean build
+        run: ./gradlew clean test -Dtest.os=windows
       - name: Summarize JUnit report
         if: success() || failure()
         uses: mikepenz/action-junit-report@v4
         with:
-          check_name: JUnit ubuntu-latest_java17
-          report_paths: build/reports/test/TEST-*.xml
+          check_name: report_ubuntu
+          report_paths: "**/build/reports/test/TEST-*.xml"
