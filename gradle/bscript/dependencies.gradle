@@ -2,6 +2,6 @@
  * Author: ngoanh2n
  */
 dependencies {
-    classpath("io.freefair.gradle:aspectj-plugin:8.4")
-    classpath("io.qameta.allure.gradle.allure:allure-plugin:2.11.2")
+    classpath("io.freefair.gradle:aspectj-plugin:8.10")
+    classpath("io.qameta.allure.gradle.allure:allure-plugin:2.12.0")
 }
